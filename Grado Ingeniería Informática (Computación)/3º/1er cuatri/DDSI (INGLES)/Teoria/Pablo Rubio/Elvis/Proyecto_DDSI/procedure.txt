@@ -1,0 +1,15 @@
+create or replace procedure fSexoExperto(
+caracter IN EXPERTO.SEXO%TYPE, dev OUT NUMBER) IS
+
+caracter_no_valido EXCEPTION;
+BEGIN
+IF caracter<>'M' or caracter<>'F' THEN
+  raise caracter_no_valido;
+END IF;
+
+SELECT count(*)into dev FROM EXPERTO where SEXO=caracter;
+
+EXCEPTION
+WHEN caracter_no_valido THEN
+  RAISE_APPLICATION_ERROR (-20008, 'El caracter no es valido');
+END fSexoExperto;

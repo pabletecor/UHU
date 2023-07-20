@@ -1,0 +1,7 @@
+https://github.com/jcarpio/rc1920/blob/master/tareas_semana1.md
+
+(Subir solucion a github y compartir con jose carpio)
+
+1.
+
+concatenar(_, [E1,E2|_] , [1,2,3,4,5,6,7]).

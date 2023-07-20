@@ -1,0 +1,208 @@
+// PREGUNTAS PCH 49085903Q
+
+//Tema 2 
+
+$CATEGORY: $course$/top/Tema 02
+
+
+::T2-01 5903:: ¿Que consideramos como agente?
+{ =Un agente es todo aquello que percibe su ambiente mediante sensores y que responde o actua en tal ambiente por medio de efectores.
+~Un agente es todo aquello que percibe su ambiente mediante efectores y que responde o actua en tal ambiente por medio de sensores.
+~Ninguna es correcta
+~Un agente es todo aquello que  percibe su ambiente mediante sensores y que responde o actua en tal ambiente por medio de participacion humana.
+}
+
+::T2-02 5903:: Relacione los siguientes sentidos con sus respectivos sensores.
+{
+ =Percepcion de equilibrio -> Acelerometro
+ =Electrocepcion -> Sensor de voltaje
+ =Propiocepcion -> Encoder
+ =Eco localizacion -> Sonar
+}
+
+::T2-03 5903:: Relacione los siguientes conceptos para un Agente Robot clasificador de partes
+{
+ =Percepciones -> Pixeles de intensidad variable
+ =Acciones -> Recoger las partes y clasificarlas en contenedores 
+ =Metas -> Poner las partes en el contenedor correspondiente
+ =Ambiente -> Banda transportadora de partes
+}
+
+::T2-04 5903:: ¿Por que esta formado un agente?
+{ =Agente = Arquitectura + Programa
+~Agente + Arquitectura = Programa
+~Agente = Arquitectura + Participacion humana + Programa
+~Agente = Arquitectura + Sensores + Programa
+}
+
+::T2-05 5903:: ¿Cuales de estas caracteristicas pertenecen a los agentes racionales?
+{ =Autonomia, Reactividad, Pro-actividad y Habilidad social
+~Autonomia, Percepcion, Pro-actividad y Habilidad social
+~Autonomia, Reactividad, Pro-actividad y Cooperatividad
+~Autonomia, Reactividad, Pro-actividad y utilidad
+}
+
+::T2-06 5903:: Racionalidad y Omnisciencia son distintos conceptos. {T}
+
+::T2-07 5903:: ¿Cual de estos NO es un tipo de entorno?
+{ =Objetivo
+~Discreto
+~Estatico
+~Episodico
+}
+
+
+// Tema 3
+
+$CATEGORY: $course$/top/Tema 03
+
+::T3-01 5903:: Formalmente, ¿Que compone una maquina de estados?
+{ =Conjunto de Estados, Estado inicial, Alfabeto de entrada, Conjunto de Transiciones que indican el estado siguiente
+~Conjunto de Estados, Estado inicial, Estado final , Conjunto de Transiciones que indican el estado siguiente
+~Conjunto de Estados, Estado inicial, Estado final , Estado Actual
+}
+
+::T3-02 5903:: ¿Que caracteriza un Algoritmo para IA con busqueda?
+{ =El coste computacional depende del tamaño del espacio de busqueda
+~Podemos predecir el coste computacional 
+~El coste computacional normalmente es pequeño
+~Requiere participacion humana para funcionar correctamente
+}
+
+::T3-03 5903:: Combinar Arboles de Decision y Maquinas de estados produce comprobaciones mas costosas que implementar unicamente una Maquina de Estados {F}
+
+::T3-04 5903:: El "comportamiento" de un arbol de comportamiento consiste en:
+{ =Percibir, Pensar, Actuar y Repetir 
+~Percibir, Pensar y Actuar una sola vez
+~Percibir, Pensar, Reflexionar y Repetir
+~Percibir, Pensar, Distribuir y Repetir
+}
+
+
+// Tema 4
+
+$CATEGORY: $course$/top/Tema 04
+
+::T4-01 5903:: ¿Cual de estas NO es una tecnica de planificacion?
+{ =Planificacion mediante Generacion de Salidas (MGS)
+~Planificacion mediante Pila de Objetivos (STRIPS)
+~Planificacion de orden parcial
+~Descomposicion Jerarquica (HTN)
+}
+
+::T4-02 5903:: Relacione cada tipo de Planificacion con una de sus caracteristicas
+{
+ =Planificacion STRIPS -> Los operadores utilizados en este dominio estan limitados en cuanto a lo que pueden expresar y, por ello, son especialmente adecuados para introducir las mejoras requeridas. 
+ =Planificacion de orden parcial ->  en el plan pueden aparecer pasos no ordenados y ordenados (antes o despues). 
+ =Descomposicion Jerarquica -> Se introduce este tipo de planificacion para resolver el problema de tratar con planes demasiado extensos en detalles. 
+}
+
+::T4-03 5903:: ¿Que significan las siglas STRIPS?
+{ =STanford Research Institute Problem Solver
+~STanford Research Institute Process Solution
+~STanford Research Institute Particle Science
+~Sevilla Technical Research Institute Problem Solver
+}
+
+::T4-04 5903:: ¿Cuales son los parametros de los operadores STRIPS?
+{ = Precondiciones(P), Lista de Adicion(A), Lista de Supresion(S)
+~ Precondiciones(P), Lista de Adicion(A), Lista de Sucesos(S)
+~Preparacion(P), Lista de Acciones(A), Lista de Supresion(S)
+~Precondiciones(P), Lista de Elementos(E), Lista de Supresion(S)
+}
+
+::T4-05 5903:: ¿Que dice el principio de minimo compromiso?
+{ =No determinar completamente el orden entre acciones, a no ser que sea estrictamente necesario
+~Realizar siempre el menor numero de acciones posibles
+~Siempre sera necesario determinar el orden entre acciones
+}
+
+
+//Tema 5
+
+$CATEGORY: $course$/top/Tema 05
+
+::T5-01 5903:: ¿Cual de estos NO es un tipo de clasificacion de un problema?
+{ =Clasificacion segun el tipo de problema
+~Clasificacion segun el tipo de restricciones
+~Clasificacion segun los dominios
+~Clasificacion segun el numero de variables implicadas en las restricciones
+}
+
+::T5-02 5903:: Relacione cada tipo de Restriccion con su definicion
+{
+ =Discreta -> las variables participantes estan acotadas en dominios discretos.
+ =N-arias -> son restricciones en las que solo participan cualquier numero de variables (n>2).
+ =Fuertes -> son restricciones cuya satisfabilidad es imprescindible.
+ =Difusas -> son restricciones definidas sobre niveles de preferencia
+}
+
+::T5-03 5903:: Indique cual de estos es un algoritmo para resolver problemas de satisfaccion de restricciones
+{ =Algoritmo de backtracking con chequeo previo
+~Algoritmo de backtracking complejo
+~Algoritmo de backtracking con doble chequeo
+~Algoritmo de backtracking exponencial
+}
+
+::T5-04 5903:: ¿Como podemos explicar la heuristica de ordenacion "First Fail" (FF)?
+{ =“Para tener exito, probar primero donde es mas probable que falle.” 
+~“Para tener exito, probar primero donde es mas probable que acierte.” 
+~“Para tener exito, lo importante es probar, da igual la probabilidad de acierto o fallo.” 
+~“Para tener exito, probar por ultimo donde es mas probable que falle.” 
+}
+
+
+//Tema 6
+
+$CATEGORY: $course$/top/Tema 06
+
+::T6-01 5903:: Relacione los siguientes conceptos de coordinacion con su definicion
+{
+ =Coordinacion -> proceso de manejo de dependencias entre actividades.
+ =Actividad ->  conjunto de operaciones potenciales que un actor puede realizar, con un objetivo (o grupo de objetivos).
+ =Actor -> Agente o grupo de Agentes
+ =Procedimiento -> Conjunto de actividades y un orden entre ellas.
+}
+
+::T6-02 5903:: La coordinacion se vuelve critica cuando los agentes son homogeneos y dependientes {F}
+
+::T6-03 5903:: Seleccione la respuesta correcta
+{ =Cooperacion es un tipo de coordinacion entre agentes que, en principio, no son antagonistas.
+~Cooperacion es un tipo de coordinacion entre agentes que son antagonistas.
+~Cooperacion es un tipo de coordinacion entre agentes que son aliados.
+~Coordinacion es un tipo de cooperacion entre agentes que, en principio, no son antagonistas.
+}
+
+::T6-04 5903::Negociacion involucra un nivel de inteligencia mas alto que competicion {T}
+
+//Tema 7
+
+$CATEGORY: $course$/top/Tema 07
+
+::T7-01 5903:: ¿Cuales son los tipos de Agentes que tenemos en Netlogo?
+{ =Tortugas, Parches y Enlaces
+~Tortugas, Parches y Observadores
+~Tortugas, Parches y Conejos
+~Tortugas, Parches y Lapices
+}
+
+::T7-02 5903:: Las coordenadas de un parche son modificables {F}
+
+::T7-03 5903:: ¿Cual de los siguientes predicados de Netlogo es CORRECTO?
+{ =set shape "face happy"
+~set numero 20+1
+~set id random (20)
+~ask patches with [pxcor <= -5 or pxcor > 5] set pcolor blue
+}
+
+::T7-04 5903:: ¿Es correcto el siguiente predicado? show n-values 4 [ [x] -> x + 1 ] {T}
+
+::T7-05 5903:: Relacione las siguientes operaciones sobre listas con el resultado que devuelven
+{
+ =first [a b c d e f g h i j k] -> a
+ =but-first [a b c d e f g h i j k] ->  [b c d e f g h i j k]
+ =but-last [a b c d e f g h i j k] -> [a b c d e f g h i j]
+ =one-of [a b c d e f g h i j k ] -> cualquier elemento de la lista tomado al azar
+}
+
+::T7-06 5903:: Netlogo exige definir las variables locales para poder usarlas {T}

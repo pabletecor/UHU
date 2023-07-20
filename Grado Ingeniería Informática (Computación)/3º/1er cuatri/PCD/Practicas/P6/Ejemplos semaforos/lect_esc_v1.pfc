@@ -1,0 +1,64 @@
+{Problema de los Lectores/Escritores}
+(* Prioridad en la lectura *)
+program LectEscr;
+
+const
+   NLEC = 5;
+	NESC = 2;
+var 
+   nl : integer;
+   mutex, escritura: semaphore;
+
+process type Lectores(id:integer);
+begin
+	repeat
+		(*****Protocolo de entrada******)
+		wait(mutex);
+		nl:=nl+1;
+		if nl=1 then wait(escritura);
+		signal(mutex);
+		(*******************************)
+
+		{SECCIÓN CRÍTICA}
+
+		(*****Protocolo de salida********)
+		wait(mutex);
+		nl:=nl-1;
+		if nl=0 then signal(escritura);
+		signal(mutex);
+		(*******************************)
+   forever
+end; 
+
+process type Escritores(id:integer);
+begin
+	repeat
+
+		(****Protocolo de entrada*******)
+		wait(escritura);
+		(*******************************)
+
+		{SECCIÓN CRÍTICA}
+
+		(*****Protocolo de salida*******)
+		signal(escritura);
+		(*******************************)
+   forever
+end;
+
+var
+   Escritor: array[1..NESC] of Escritores;
+	Lector: array[1..NLEC] of Lectores;
+	i:integer;
+
+begin
+	nl:=0;
+	initial(mutex,1);
+	initial(escritura,1);
+   cobegin
+      for i := 1 to NLEC do Lector[i](i);
+		for i := 1 to NESC do Escritor[i](i)		
+   coend
+end.
+
+

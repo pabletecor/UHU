@@ -1,0 +1,113 @@
+// Autor Victoria Pachón Alvarez.
+// Fecha: 22/10/04
+// Contenido: Ejemplificación de un programa básico JDBC.
+// Conexión a Pandora, IP: 172.17.21.247.
+// Mensaje para el alumno: Antes de ejecutar este programa, asegurate de 
+// que comprendes bien su funcionamiento. Para ello prueba a rellenar las líneas
+// de comentario. Recuerda que debes cambiar el usuario y la contraseña
+package basico;
+
+import java.sql.*;
+
+class Basico
+{
+  public static void main(String[] args)
+  {
+     Basico Programa;
+     Programa = new Basico();
+     Programa.Run();
+  }
+
+  public void Run()
+  {
+     Connection conn=null;
+     System.out.println("Inicio de la aplicacion. Cargando drivers");
+     try
+        {
+         Class.forName("oracle.jdbc.OracleDriver");
+         // Comentarios 
+        }
+     
+     catch (Exception e)
+        {
+         System.out.println("Error carga driver");
+      	 return;
+         }
+    
+   System.out.println("Conectando con la BD");
+   try
+       {
+ 		conn=DriverManager.getConnection("jdbc:oracle:thin:@172.17.20.75:1521:rabida","DDSI_001","DDSI_001");
+ 
+        // Comentarios
+        }
+   catch (SQLException e)
+        {
+		//Comentarios
+         System.out.println("Error al conectar");
+		 System.out.println(e.getMessage());
+		 System.out.println(e.getSQLState());
+		 System.out.println(e.getErrorCode());
+		       
+         return;
+         }
+  
+   System.out.println("Realizando operaciones...");
+   System.out.println("Insertando datos");
+   try{
+     Statement stmt= conn.createStatement();  //Comentarios
+     stmt.executeUpdate("insert into manolo values (40,40)"); //Comentarios
+     stmt.executeUpdate("insert into manolo values (50,50)"); //Comentarios
+     stmt.close(); //Comentarios
+     }
+   catch(SQLException e)
+   {
+      System.out.println("Error al escribir datos de la tabla");
+      System.out.println(e.getMessage());
+      System.out.println(e.getSQLState());
+      System.out.println(e.getErrorCode());
+      return;
+                }
+
+   
+   System.out.println("Los datos de la tabla son:");
+     try
+   {
+     Statement stmt=conn.createStatement(); //Comentarios 
+     ResultSet rs = stmt.executeQuery("select * from manolo"); //Comentarios
+     while (rs.next())
+     {
+        int cam1=rs.getInt(1); //Comentarios
+        int cam2=rs.getInt(2); //Comentarios
+         System.out.println(cam1+"    "+cam2);
+     
+     } 
+     rs.close();
+     stmt.close();
+   }
+   catch(SQLException e)
+   {
+      System.out.println("Error al leer datos de la tabla");
+      System.out.println(e.getMessage());
+      System.out.println(e.getSQLState());
+      System.out.println(e.getErrorCode());
+      return;
+                }
+
+
+   System.out.println("desconectando");
+   try
+       {
+        conn.close(); //Comentarios
+        }
+   catch (Exception e)
+        {
+         System.out.println("Error al desconectar");
+		 return;
+         }
+   System.out.println("Fin de la aplicacion");
+
+}
+}
+   
+

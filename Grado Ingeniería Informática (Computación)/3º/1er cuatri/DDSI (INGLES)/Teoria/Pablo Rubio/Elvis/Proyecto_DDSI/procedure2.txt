@@ -1,0 +1,27 @@
+screate or replace procedure pColaborasCaso(
+pCodCaso IN COLABORA.CODCASO%TYPE, dev OUT SYS_REFCURSOR) AS
+
+BEGIN
+OPEN dev FOR
+
+SELECT E.codexperto, E.nombre, E.especialidad, Ca.nombre
+
+FROM (COLABORA Col INNER JOIN EXPERTO E ON col.codexperto=E.codexperto) 
+INNER JOIN CASO_POLICIAL Ca ON Col.codcaso=Ca.codcaso
+
+where Col.codCASO=pCodCaso;
+
+END pColaborasCaso;
+///bueno->PUTA MIERDA ESO ES LO QUE ES
+
+create or replace PROCEDURE pcolaboradorescaso (
+    pcodcaso   IN colabora.codcaso%TYPE,
+    cursorcc   OUT SYS_REFCURSOR
+)IS
+BEGIN
+    OPEN cursorcc FOR SELECT expe.CODEXPERTO,
+     nombre, especialidad, CO.DESCRIPCION_COLABORACION 
+    FROM EXPERTO expe, colabora CO
+    WHERE expe.CODEXPERTO = 
+        (SELECT codexperto FROM colabora WHERE CODCASO = pcodcaso);
+END;

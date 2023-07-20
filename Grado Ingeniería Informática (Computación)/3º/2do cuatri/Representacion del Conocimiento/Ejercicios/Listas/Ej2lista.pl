@@ -1,0 +1,4 @@
+/*
+Suma todos los elementos de una lista.
+
+*/

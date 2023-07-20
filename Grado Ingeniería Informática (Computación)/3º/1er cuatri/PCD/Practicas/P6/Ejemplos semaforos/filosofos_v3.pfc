@@ -1,0 +1,50 @@
+{Problema de los Filosofos}
+(* Con control de interbloqueos version con espera ocupada *)
+program Filosofos;
+
+const
+	N = 5;
+var 
+	libres : array [1..N] of boolean;  
+	mutex : semaphore;  
+
+process type Filosofo(id : integer);
+begin
+	repeat
+		(* PENSANDO *)
+
+		{********PROTOCOLO ENTRADA********}
+		wait(mutex);
+		while not (libres[id] and libres[(id mod N)+1]) do begin
+			signal(mutex);
+			wait(mutex);
+		end;
+		libres[id]:=false;
+		libres[(id mod N)+1]:=false;
+		signal(mutex);
+		{*************************************}
+
+		(* COMIENDO *)
+
+		{*****PROTOCOLO DE SALIDA*************}
+		wait(mutex);      
+		libres[id]:=true;
+		libres[(id mod N)+1]:=true;
+		signal(mutex);
+		{*************************************}
+	forever
+end; 
+
+var
+	i : integer;
+	Filo: array[1..N] of Filosofo;
+
+begin
+	for i := 1 to N do libres[i]:=true;
+	initial(mutex,1);
+	cobegin
+		for i := 1 to N do Filo[i](i);
+	coend
+end.
+
+

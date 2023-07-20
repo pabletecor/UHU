@@ -1,0 +1,36 @@
+
+
+--Servidor--
+
+class A extends UnicastRemoteObject, implements IA
+
+public A throws RemoteException {
+super();
+
+
+
+
+}
+
+
+public void m1() throws RemoteException {
+
+}
+
+
+A o1 = new A();
+
+
+
+
+--Cliente--
+
+
+
+
+
+--Interface--
+
+public interface IA extends remote {
+
+}

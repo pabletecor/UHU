@@ -1,0 +1,84 @@
+program lecesc;
+
+const
+	nlector=10;
+	nescritor=5;
+
+{Definicion del monitor}
+monitor le;
+
+	export
+		entraleer, entraescribir, saleleer, saleescribir;
+
+	var
+		nl: integer;
+		escribiendo: boolean;
+		lector, escritor: condition;
+
+	procedure entraleer;
+	begin
+		if escribiendo or not empty(escritor) then delay(lector);
+		nl:=nl+1;
+		resume(lector);
+	end; 
+
+	procedure saleleer;
+	begin
+		nl:=nl-1;
+		if nl = 0 then resume(escritor);
+	end; 
+
+	procedure entraescribir;
+	begin
+		if (nl <> 0) or escribiendo then delay(escritor);
+		escribiendo:=true;
+	end; 
+
+	procedure saleescribir;
+	begin
+		escribiendo:=false;
+		if not empty(lector) then resume(lector)
+		else resume(escritor);
+	end; 
+
+	begin 
+		nl:=0;
+		escribiendo:=false;
+	end; 
+(* Fin del monitor *)
+
+
+process type Lector(id:integer);
+begin
+	repeat
+		le.entraleer;
+		writeln('Lector ',id,' leyendo');
+		sleep(random(3));
+		le.saleleer;
+		writeln('Lector ',id,' sale de leer');
+	forever
+end;
+
+process type Escritor(id:integer);
+begin
+	repeat
+		le.entraescribir;
+		writeln('Escritor ',id,' leyendo');
+		sleep(random(3));
+		le.saleescribir;
+		writeln('Escritor ',id,' sale de escribir');
+	forever
+end;
+
+var
+	i: integer;
+   Lectores: array[1..nlector] of Lector;
+   Escritores: array[1..nescritor] of Escritor;
+
+begin
+  cobegin
+    for i := 1 to nlector do Lectores[i](i);
+    for i := 1 to nescritor do Escritores[i](i);		
+  coend
+end.
+

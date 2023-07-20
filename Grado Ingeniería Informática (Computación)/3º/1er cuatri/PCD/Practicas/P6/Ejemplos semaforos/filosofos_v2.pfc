@@ -1,0 +1,45 @@
+{Problema de los Filosofos}
+(* Con control de interbloqueos *)
+program Filosofos;
+
+const
+	N = 5;
+var 
+	tenedor : array [1..N] of semaphore;  
+	sillalibre : semaphore;
+
+process type Filosofo(id : integer);
+var 
+	veces: integer;
+begin
+	repeat
+		(* PENSANDO *)
+
+		{******PROTOCOLO ENTRADA**************}
+		wait(sillalibre);
+		wait(tenedor[id]);
+		wait(tenedor[(id mod N) + 1]);
+		{************************}
+		
+		(* COMIENDO *)
+		
+		{*****PROTOCOLO DE SALIDA*************}
+		signal(tenedor[id]);
+		signal(tenedor[(id mod N) + 1]);
+		signal(sillalibre);
+		{************************}
+	forever
+end; 
+
+var
+	Filo: array[1..N] of Filosofo;
+	i : integer;
+begin
+	for i := 1 to N do initial(tenedor[i],1);
+	initial(sillalibre,N - 1);
+	cobegin
+		for i := 1 to N do Filo[i](i);
+	coend
+end.
+
+

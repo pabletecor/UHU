@@ -1,0 +1,25 @@
+tarea
+
+mostrar vision de tarea
+
+click derecho -> vista de trabajo
+
+trab h extra
+
+
+
+
+--Tabla de tasas de costo--
+
+Para poder asignar otra tarifa por hora al trabajador hacemos visible esta columna y seleccionamos la tasa
+
+
+¿Cuanto le cuesta el trabajador a la empresa?
+
+sueldo bruto x 1.3 /nº horas-año
+
+
+--ASIGNAR HORAS EXTRA--
+
+80/10.5 * 2.5 = 19.03
+horas total tarea/horas totales dia*horas extra dia = lo que hay que poner en detalles

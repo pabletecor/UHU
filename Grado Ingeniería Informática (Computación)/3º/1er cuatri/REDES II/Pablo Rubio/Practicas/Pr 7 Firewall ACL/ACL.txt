@@ -1,0 +1,34 @@
+access-list 100 permit TCP any 150.30.0.2 0.0.0.0 EQ 50
+access-list 100 permit UDP any 150.30.0.2 0.0.0.0 EQ 53
+access-list 100 permit TCP any 150.30.0.3 0.0.0.0 EQ 21
+access-list 100 permit UDP any 150.30.0.3 0.0.0.0 EQ 20
+access-list 100 deny IP any any
+interface g0/1
+ip access-group 100 out
+
+access-list 101 permit TCP any 172.16.0.0 0.0.0.255 established
+access-list 101 deny ip any any
+interface g0/0
+ip access-group 101 out
+
+
+access-list 102 permit IP 172.16.0.0 0.0.0.255 any
+access-list 102 permit TCP 172.16.0.0 0.0.0.255 any
+access-list 102 permit UDP 172.16.0.0 0.0.0.255 any
+access-list 102 permit TCP any any
+access-list 102 permit UDP any any
+access-list 102 deny IP any any
+interface s0/1/0
+ip access-group 102 out
+
+
+
+
+
+
+
+
+
+
+
+

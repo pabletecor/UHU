@@ -1,0 +1,65 @@
+class hiloclub
+{
+
+Entraclub()
+//nadar sleep()
+saleclub()
+
+
+}
+
+
+class hilolibre
+{
+
+Entralibre()
+//nadar sleep()
+salelibre()
+
+
+}
+
+
+class piscina {
+
+int callelibre = 0;
+int calleclub = 0;
+int cual;
+
+
+void entraclub(){
+
+	while(calleclub = 4 &&  (callelibre = 1 || esperalibre > 0) ) {
+		
+		wait();
+
+	}
+
+
+	if calleclub <4 {
+		calleclub++;
+		cual=1;	
+			}
+	else{
+		callelibre++;	
+		cual=2;	
+}
+	return cual;
+		}
+
+
+void saleclub(int cual){
+
+	if cual = 1
+		calleclub--;
+
+	else callelibre--;
+
+	notifyAll();
+
+
+
+	}
+
+
+}

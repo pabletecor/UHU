@@ -1,0 +1,92 @@
+{Problema de los Lectores/Escritores}
+(* Prioridad en la escritura *)
+program LectEscr;
+
+const
+	NLEC = 5;
+	NESC = 2;
+var 
+	nl,ne, nle, nee : integer;
+	escribiendo: boolean;
+	mutex, slector, sescritor: semaphore;
+
+process type Lectores(id:integer);
+begin
+	repeat
+		(******Protocolo de entrada*******)
+		wait(mutex);
+		while escribiendo or (nee > 0) do begin 
+			nle:=nle+1;
+			signal(mutex);
+			wait(slector);
+			{wait(mutex);}
+			nle:=nle-1;
+		end;		
+		nl:=nl+1;
+		if nle > 0 then signal(slector) {desbloqueo encadenado}
+		else signal(mutex);
+
+		(*******************************)
+
+		{SECCIÓN CRÍTICA}
+		
+		(*****Protocolo de salida********)
+		wait(mutex);
+		nl:=nl-1;
+		if (nl=0) and (nee>0) then signal(sescritor) {signal(mutex)}
+		else signal(mutex);
+		(*******************************)
+	forever
+end; 
+
+process type Escritores(id:integer);
+begin
+	repeat
+		(******Protocolo de entrada********)
+		wait(mutex);
+		if escribiendo or (nl > 0) then begin
+			nee:=nee+1;
+			signal(mutex);
+			wait(sescritor);
+			{wait(mutex);}
+			nee:=nee-1;
+		end;
+		escribiendo:=true;
+		signal(mutex);
+		(*******************************)
+
+		{SECCIÓN CRÍTICA}
+
+		(*****Protocolo de salida*******)
+		wait(mutex);
+		escribiendo:=false;
+		if nee>0 then signal(sescritor) {signal(mutex)}
+		else if nle>0 then signal(slector) {signal(mutex)}
+			else signal(mutex)
+		(*******************************)
+	forever
+end;
+
+
+var
+   Escritor: array[1..NESC] of Escritores;
+	Lector: array[1..NLEC] of Lectores;
+	i:integer;
+
+begin
+
+	nle:=0;
+	nee:=0;
+	nl:=0;
+	ne:=0;
+	escribiendo:=false;
+	initial(mutex,1);
+	initial(sescritor,0);
+	initial(slector,0);
+	cobegin
+		for i := 1 to NLEC do Lector[i](i);
+		for i := 1 to NESC do Escritor[i](i)		
+	coend
+end.
+
+

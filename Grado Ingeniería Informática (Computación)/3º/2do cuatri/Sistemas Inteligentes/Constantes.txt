@@ -1,0 +1,18 @@
+package pablocordon113;
+
+public class Constantes {
+
+	final char VACIO = ' ';
+	final char PARED = 'H';
+	final char BANDERA_ROJA = 'A';
+	final char BANDERA_AZUL = 'B';
+	final char BASE_ROJA = 'C';
+	final char BASE_AZUL = 'D';
+	
+	final int DERECHA = 1;
+	final int IZQUIERDA = 0;
+	final int ARRIBA = 3;
+	final int ABAJO = 2;
+	
+	
+}

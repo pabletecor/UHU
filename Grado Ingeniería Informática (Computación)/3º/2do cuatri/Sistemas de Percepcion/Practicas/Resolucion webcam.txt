@@ -1,0 +1,24 @@
+Hola Víctor Manuel, no te preocupes y utiliza el formato que tienes disponible 'RGB24_640x480'. No pierdas más tiempo con esto.
+
+Lo único que tienes que hacer es, una vez generes el vídeo (con la opción 'Uncompressed AVI', para que no comprima las imágenes) y las imágenes de calibración con tu resolución (480 filas y 640 columnas):
+
+- Lees el vídeo generado y generas uno nuevo de salida (también con la opción 'Uncompressed AVI') de la siguiente forma: cada frame que lees del vídeo original, IFrame, lo reescalas así:
+
+IFrame_reescalado = imresize ( IFrame , [240 NaN] )
+
+Este IFrame_reescalado es  el que utilizas para generar el vídeo de salida.
+
+
+
+- Las imágenes de calibración las reescalas de la misma forma con esa configuracón de imresize.
+
+
+
+Una vez hecho esto, te puedes olvidar del vídeo e imágenes de calibración de resolución grande. Tu vídeo e imágenes de calibración serán todas estas que has generado a la resolución que se pide.
+
+Cualquier cuestión o problema que tengas, no dudes en volver a escribirme.
+
+Saludos,
+
+Diego
+

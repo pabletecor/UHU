@@ -1,0 +1,16 @@
+BORDE:g0/0
+acces-list 1 deny 192.3.2.0 0.0.0.255
+acces-list 1 deny 10.0.0.0 0.0.0.255
+
+acces-list 1 deny 150.30.0.0 0.0.0.255
+
+permit any 0.0.0.0 255.255.255.255
+interface g0/0
+ip acces-group 1 out
+
+BORDE:s0/1/0
+acces-list 2 permit 172.16.0.0 0.0.0.255
+interface s0/1/0
+ip acces-group 2 out
+
+

@@ -1,0 +1,12 @@
+
+Matriz de numeros aleatorios entre 0 y 255 de tipo uint8 20x40
+
+G = uint8 (255*rand(20,40))
+
+imshow -> Representa la matriz de numeros en una grafica, a cada numero le representa un color de la escala de grises (negro: valor bajo, blanco: valor alto)
+
+imtool -> Igual que imshow pero mejor
+
+En representaciones digitales, el eje Y es positivo hacia abajo. 
+
+G = uint8 (255*rand(20,40,3)) -> La tercera dimension es el numero de matrices que quiero hacer

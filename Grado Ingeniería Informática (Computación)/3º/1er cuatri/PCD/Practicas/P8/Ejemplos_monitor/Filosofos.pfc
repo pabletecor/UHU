@@ -1,0 +1,57 @@
+program Filosofos;
+
+{Definicion del monitor}
+monitor Tenedores;
+	export 
+		coger, soltar;
+	var
+		tenedores: array [0..4] of integer;
+		espera: array [0..4] of condition;
+		i: integer;
+
+	procedure coger(i: integer);
+	begin
+		if tenedores[i] <> 2 then
+		begin
+			writeln('Filosofo ',i,' esperando');
+			delay(espera[i])
+		end;
+		tenedores[(i+1) mod 5] := tenedores[(i+1) mod 5] - 1;
+		tenedores[(i+4) mod 5] := tenedores[(i+4) mod 5] - 1;
+		writeln('Filosofo ',i,' come')
+	end; 
+
+	procedure soltar(i: integer);
+	begin
+		writeln('Filosofo ',i,' termina');
+		tenedores[(i+1) mod 5] := tenedores[(i+1) mod 5] + 1;
+		tenedores[(i+4) mod 5] := tenedores[(i+4) mod 5] + 1;
+		if tenedores[(i+1) mod 5] = 2 then resume(espera[(i+1) mod 5]);
+		if tenedores[(i+4) mod 5] =2 then resume(espera[(i+4) mod 5])
+	end; 
+
+	begin 
+		for i := 0 to 4 do tenedores[i] := 2
+	end; 
+(* Fin del monitor *)
+
+process type Filosofo(n: integer);
+begin
+	repeat
+		sleep(random(5));   (* THINKING *)
+		Tenedores.coger(n);
+		sleep(random(5));   (* EATING *)
+		Tenedores.soltar(n)
+	forever
+end;  
+
+var
+	Filo: array[0..4] of Filosofo;
+	num: integer;
+
+begin  (* main *)
+	cobegin
+		for num := 0 to 4 do  Filo[num](num)
+	coend
+end.
+

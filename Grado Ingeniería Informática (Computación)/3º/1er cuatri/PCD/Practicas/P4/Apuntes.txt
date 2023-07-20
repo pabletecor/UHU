@@ -1,0 +1,47 @@
+Cada sincronización tiene una cola posible.
+
+this.wait()		//Pone a esperar a un hilo.
+this.notify()		//Activa a UN hilo de la cola de hilo esperando
+this.notifyAll()	//Activa a TODOS los hilos de la cola de hilos esperando
+
+
+synchronized(A){
+
+A.wait();
+A.notify();
+
+}
+
+
+synchronized(B){
+
+
+B.wait();
+B.notify();
+
+}
+
+
+--P4--
+
+Si la pila está llena, dejamos de apilar para siempre.
+Para romper el bucle hacemos un return o metemos todo dentro de un try catch.
+
+void apila{
+while(pilallena && intentos<3){
+wait();
+intentos++;
+}
+
+if(!pilallena) //He salido porque habia un hueco
+{
+apilar
+notifyAll();
+}
+
+else{ //Se me han acabado los intentos.
+throw...
+}
+
+}
+
