@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1511982970 source:c:\users\lenovo\desktop\etsi\fundamentos de programaci”n\youtube\numero_magico\main.cpp
+	<iostream>
+	<time.h>
+	<stdlib.h>
+
