@@ -1,0 +1,14 @@
+	#ESTE ES UN SCRIP DE GNUPLOT PARA ESTUDIO DE 1 METODO
+set title "kesimomenorit"
+set key top left vertical inside
+set grid
+set xlabel "Talla (n)"
+set ylabel "Tiempo (ms)"
+N(x) = a*x +b
+fit N(x) "kesimomenorit.dat" using 1:2 via a,b
+plot "kesimomenorit.dat" using 1:2 title "kesimomenorit", N(x)
+set logscale y
+set terminal pdf
+set output"kesimomenorit.pdf"
+replot
+pause-1 "Pulsa Enter para continuar..."

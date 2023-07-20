@@ -1,0 +1,12 @@
+	#ESTE ES UN SCRIP DE GNUPLOT PARA ESTUDIO DE 2 METODOS
+set title " Comparacion tiempos kesimomenorit y kesimomenorD"
+set key top left vertical inside
+set grid
+set xlabel "Talla (n)"
+set ylabel "Tiempo (ms)"
+set logscale y
+plot "kesimomenoritkesimomenorD.dat" using 1:2 with lines title "kesimomenorit","kesimomenoritkesimomenorD.dat" using 1:3 with lines title "kesimomenorD"
+set terminal pdf
+set output "kesimomenoritkesimomenorD.pdf"
+replot
+pause -1 "Pulsa Enter para continuar..."

@@ -1,0 +1,14 @@
+	#ESTE ES UN SCRIP DE GNUPLOT PARA ESTUDIO DE TODOS LOS METODOS
+set title " Comparacion tiempos de todos los algoritmos"
+set key top left vertical inside
+set grid
+set xlabel "Talla (n)"
+set ylabel "Tiempo (ms)"
+
+set logscale y
+plot "tBcompararTodos.dat" using 1:2 with lines title "SecuencialIt","tBcompararTodos.dat" using 1:3 with lines title "BinariaIt","tBcompararTodos.dat" using 1:4 with lines title "InterpolacionIt","tBcompararTodos.dat" using 1:5 with lines title "kesimomenorD","tBcompararTodos.dat" using 1:6 with lines title "kesimomenorit"
+
+set terminal pdf
+set output "CompararTodos.pdf"
+replot
+pause -1 "Pulsa Enter para continuar..."

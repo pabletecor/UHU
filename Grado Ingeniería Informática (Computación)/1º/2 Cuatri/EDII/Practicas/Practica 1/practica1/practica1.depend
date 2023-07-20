@@ -1,0 +1,99 @@
+# depslib dependency file v1.0
+1524142046 source:g:\uni\apuntes\2do cuatri\estructura de datos i\practica 1\practica1\main.cpp
+	<iostream>
+	<fstream>
+	<cstring>
+	<conio.h>
+	"maraton.h"
+	<stdlib.h>
+	<windows.h>
+
+1522934646 g:\uni\apuntes\2do cuatri\estructura de datos i\practica 1\practica1\maraton.h
+	<iostream>
+	<fstream>
+
+1524142342 source:g:\uni\apuntes\2do cuatri\estructura de datos i\practica 1\practica1\maraton.cpp
+	"Maraton.h"
+	"string.h"
+	<iostream>
+	<stdlib.h>
+	<windows.h>
+
+1523465894 source:h:\uni\apuntes\2do cuatri\estructura de datos i\practica 1\practica1\main.cpp
+	<iostream>
+	<fstream>
+	<cstring>
+	<conio.h>
+	"maraton.h"
+	<stdlib.h>
+
+1522934646 h:\uni\apuntes\2do cuatri\estructura de datos i\practica 1\practica1\maraton.h
+	<iostream>
+	<fstream>
+
+1523465966 source:h:\uni\apuntes\2do cuatri\estructura de datos i\practica 1\practica1\maraton.cpp
+	"Maraton.h"
+	"string.h"
+	<iostream>
+	<stdlib.h>
+
+1524748676 source:h:\uni\apuntes\2do cuatri\estructura de datos i\practicas\practica 1\practica1\main.cpp
+	<iostream>
+	<fstream>
+	<cstring>
+	<conio.h>
+	"maraton.h"
+	<stdlib.h>
+	<windows.h>
+
+1524751088 h:\uni\apuntes\2do cuatri\estructura de datos i\practicas\practica 1\practica1\maraton.h
+	<iostream>
+	<fstream>
+
+1524398896 source:h:\uni\apuntes\2do cuatri\estructura de datos i\practicas\practica 1\practica1\clasificacion.cpp
+	"Clasificacion.h"
+
+1524400028 h:\uni\apuntes\2do cuatri\estructura de datos i\practicas\practica 1\practica1\clasificacion.h
+	<iostream>
+	<stdlib.h>
+	<windows.h>
+	<fstream>
+
+1524751118 source:h:\uni\apuntes\2do cuatri\estructura de datos i\practicas\practica 1\practica1\maraton.cpp
+	"Maraton.h"
+	"string.h"
+	"Clasificacion.h"
+	<iostream>
+	<stdlib.h>
+	<windows.h>
+
+1524398896 source:g:\uni\apuntes\2do cuatri\estructura de datos i\practicas\practica 1\practica1\clasificacion.cpp
+	"Clasificacion.h"
+
+1524400028 g:\uni\apuntes\2do cuatri\estructura de datos i\practicas\practica 1\practica1\clasificacion.h
+	<iostream>
+	<stdlib.h>
+	<windows.h>
+	<fstream>
+
+1524748676 source:g:\uni\apuntes\2do cuatri\estructura de datos i\practicas\practica 1\practica1\main.cpp
+	<iostream>
+	<fstream>
+	<cstring>
+	<conio.h>
+	"maraton.h"
+	<stdlib.h>
+	<windows.h>
+
+1524751088 g:\uni\apuntes\2do cuatri\estructura de datos i\practicas\practica 1\practica1\maraton.h
+	<iostream>
+	<fstream>
+
+1524751118 source:g:\uni\apuntes\2do cuatri\estructura de datos i\practicas\practica 1\practica1\maraton.cpp
+	"Maraton.h"
+	"string.h"
+	"Clasificacion.h"
+	<iostream>
+	<stdlib.h>
+	<windows.h>
+

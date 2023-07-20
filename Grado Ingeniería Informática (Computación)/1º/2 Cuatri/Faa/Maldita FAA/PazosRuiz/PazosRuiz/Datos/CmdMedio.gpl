@@ -1,0 +1,14 @@
+	#ESTE ES UN SCRIP DE GNUPLOT PARA ESTUDIO DE 1 METODO
+set title "kesimomenorD"
+set key top left vertical inside
+set grid
+set xlabel "Talla (n)"
+set ylabel "Tiempo (ms)"
+Cuadrado(x) = a*x*x +b*x + c
+fit Cuadrado(x) "kesimomenorD.dat" using 1:2 via a,b,c
+plot "kesimomenorD.dat" using 1:2 title "kesimomenorD", Cuadrado (x)
+set logscale y
+set terminal pdf
+set output"kesimomenorD.pdf"
+replot
+pause-1 "Pulsa Enter para continuar..."

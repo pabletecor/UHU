@@ -1,0 +1,125 @@
+FAA
+
+
+Recurrencia Homogenea:
+
+    T(n) + a = 0
+
+    Forma Homogenea de la recurrencia:
+            (a₁xᵏ + a₂xᵏ⁻¹ + a₃xᵏ⁻² + ...) = 0
+
+    T(n) = c₁R₁ⁿ + c₂R₂ⁿ + ... + c₁ⁿPₙⁿ 
+
+    Ejemplo:    
+
+        (x¹-x⁰)(x-2)¹ = 0
+        (x - 1)(x-2)  = 0
+
+        r₁ = 1              | para que (x-1) = 0, x = 1 asi que c₁ = 1
+        r₂ = 2              | para que (x-2) = 0, x = 2 asi que c₂ = 2
+
+        T(n) = c₁*1ⁿ + c₂*2ⁿ = 0
+
+    -------------- Si hubieramos obtenido dos radicales iguales----------------------------
+ 
+        r₁ = 1          | Como el radica 1 se repite, multiplicamos el r₂ *n, si se repitiera en un r₃ seria *n²
+        r₂ = 1          |
+                        |
+                        
+        T(n) = c₁*1ⁿ + c₂n*1ⁿ = 0       
+             = c₁    + c₂n    = 0 
+
+Ejemplo Recurrencia no homogenea:
+
+    T(n) = 2T(n-1) + n
+    T(0) = 0
+
+
+    1º Buscar la forma (a₀*xᵏ + a₁*xᴷ⁻¹ + a₂*xᴷ⁻² ...... +aₖ)  (x-b₁)^(d₁+1)  (x-b₂)^(d₂+1).... = 0
+                        a₀*T(n) + a₁T(n-1) + a₂T(n-2) + ... + aₖT(n-k)                          = b₁ⁿ+P₁(n) * b₂+P₂(n) + ...
+
+        k -> Es el exponente de mayor valor. Por eso el ultimo elemento de la forma es aₖ
+             porque seria x^ᴷ⁻ᴷ = 1 => a*1 = aₖ
+        
+           T(n) = 2T(n-1) + n           |    (Buscamos pasar la recurrencia <T> a un lado)
+        => T(n) - 2T(n-1) = n           |    1x    -> El mayor exponente (a₀*xᵏ) osea 1;
+                                        |    2x⁰   -> El mayor exponente -1 (a₁^ᵏ⁻¹)
+                                        |    (x-1) -> (x - <Coeficiente de n>) ^ (<grado del polinomio que acompaña a n> + 1) --> T(n) -2T(n-1) = n*1 -> 1 = a⁰ por lo tanto el grado del polinomio es 0.
+        => (1x - 2x⁰) (x-1)¹ِ⁺¹    = 0   |       
+        => (x-2) (x-1)²           = 0   |
+        =>  x³-2x²+5x-2           = 0   V
+        =>
+        =>  Resolver como ecuacion homogenea
+
+
+    Podemos sacar mas casos base de la ecuacion principal:
+    
+        T(n) = 2T(n-1) + n 
+        T(0) = 0 
+
+        T(1)    = 2T(1-1) + 1  |
+        => T(1) = 2T(0) +1     | Sabemos que: T(0) = 0 <=> 2T(0) = 0
+        => T(1) = 1            |
+    
+
+Calculo de complejidad mediante cambio de variable (se hace cuando n es potencia de un numero)
+
+            |
+            |   1           si    n=1
+    T(n) = {
+            |   3T(n/2)+n   si    n>1
+            |
+
+    Sustituimos n=2ᵏ
+
+    T(n) = 3T(n/2)+n            |   2ᵏ / 2 = 2^ᵏ⁻¹
+    T(2^k) = 3T(2^ᵏ-¹)+2ᵏ    |
+
+    Una vez hecho el cambio de variable obtendremos la ecuacion en formato de recurrencia
+    no homogenea. 
+    
+                                 | T(2ᵏ) - 3(k-1) = 2ᵏ
+                                 | 
+                                 | n es un polinomio de grado d  
+                                 | como a 2ᵏ no le multiplica nada pues n = 1 por lo tanto n⁰ = 1
+                                 | 
+                                 | (x-2)⁰⁺¹ -> 2ᵏ * n
+                                 |
+     (1x¹ - 3x⁰)(x-2)⁰⁺¹ = 0     | 
+
+
+
+Notaciones Asintoticas
+
+    O       =   Cuota superior
+    0       =   Cuota actual
+    Omega   =   Cuota iActual  
+    Reglas Asintoticas
+
+        Superior     f(n) < g(n) <---> lim(n->Inf) f(n)/g(n) = 0
+        Inferior     f(n) > g(n) <---> g(n) < f(n)
+        Actual       f(n) = g(n) <---> f(n) !< g(n) && f(n) !> g(n)
+
+    Escala de complejidad:
+
+        1 < log(n) < n < n*log(n) < n² < n³ < 2ⁿ < n!
+
+
+    Mediante notacion informal de cuota superior:
+    
+        2n+5 € O(3n²-8n)
+
+        Dado que el lim(n->Inf) (2n+5) / (3n²-8n) = 0
+        Entonces es cierto
+
+        2n+5 € O(n+10)
+        lim(n->Inf) (2n+5)/(n+10) != 0
+        Por lo tanto 2n+5 no pertenece a O(n+10)
+        Por las reglas de las notaciones tampoco pertenece a Omega(n+10)
+
+
+    Reglas asintoticas demostracion teorica by Teresita 
+
+        Superior  T(n) <= cF(n)
+        Inferior  T(n) >= cF(n)
+        Actual    Intersenccion  Superior|Inferior

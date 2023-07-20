@@ -1,0 +1,85 @@
+# depslib dependency file v1.0
+1528069710 source:c:\users\pablo cordon\desktop\practica bien\practica_2_ed\cola.cpp
+	"cola.h"
+
+1526423510 c:\users\pablo cordon\desktop\practica bien\practica_2_ed\cola.h
+	<iostream>
+	<fstream>
+	<windows.h>
+	<cstring>
+
+1528116364 source:c:\users\pablo cordon\desktop\practica bien\practica_2_ed\lista.cpp
+	"lista.h"
+
+1527621082 c:\users\pablo cordon\desktop\practica bien\practica_2_ed\lista.h
+	"cola.h"
+
+1528241216 source:c:\users\pablo cordon\desktop\practica bien\practica_2_ed\oficina.cpp
+	"oficina.h"
+
+1528239526 c:\users\pablo cordon\desktop\practica bien\practica_2_ed\oficina.h
+	"lista.h"
+
+1528154682 source:c:\users\pablo cordon\desktop\practica bien\practica_2_ed\principal.cpp
+	"oficina.h"
+	<iostream>
+
+1528241157 source:c:\users\pablo cordon\desktop\practica bien\practica_2_ed\main.cpp
+	"oficina.h"
+	<iostream>
+	<windows.h>
+
+1528069710 source:h:\uni\apuntes\2do cuatri\estructura de datos i\practicas\practica 2\practica_2_ed\cola.cpp
+	"cola.h"
+
+1526423510 h:\uni\apuntes\2do cuatri\estructura de datos i\practicas\practica 2\practica_2_ed\cola.h
+	<iostream>
+	<fstream>
+	<windows.h>
+	<cstring>
+
+1528116366 source:h:\uni\apuntes\2do cuatri\estructura de datos i\practicas\practica 2\practica_2_ed\lista.cpp
+	"lista.h"
+
+1527621082 h:\uni\apuntes\2do cuatri\estructura de datos i\practicas\practica 2\practica_2_ed\lista.h
+	"cola.h"
+
+1528241158 source:h:\uni\apuntes\2do cuatri\estructura de datos i\practicas\practica 2\practica_2_ed\main.cpp
+	"oficina.h"
+	<iostream>
+	<windows.h>
+
+1528239528 h:\uni\apuntes\2do cuatri\estructura de datos i\practicas\practica 2\practica_2_ed\oficina.h
+	"lista.h"
+
+1528241218 source:h:\uni\apuntes\2do cuatri\estructura de datos i\practicas\practica 2\practica_2_ed\oficina.cpp
+	"oficina.h"
+
+1528069710 source:c:\users\usuario\desktop\prueba 2 ed\cola.cpp
+	"cola.h"
+
+1526423510 c:\users\usuario\desktop\prueba 2 ed\cola.h
+	<iostream>
+	<fstream>
+	<windows.h>
+	<cstring>
+
+1528116366 source:c:\users\usuario\desktop\prueba 2 ed\lista.cpp
+	"lista.h"
+
+1527621082 c:\users\usuario\desktop\prueba 2 ed\lista.h
+	"cola.h"
+
+1528382990 source:c:\users\usuario\desktop\prueba 2 ed\main.cpp
+	"oficina.h"
+	<iostream>
+	<windows.h>
+
+1528382308 c:\users\usuario\desktop\prueba 2 ed\oficina.h
+	"lista.h"
+
+1528382990 source:c:\users\usuario\desktop\prueba 2 ed\oficina.cpp
+	"oficina.h"
+	<string.h>
+	<cstring>
+
