@@ -1,0 +1,18 @@
+--EJERCICIO 1: Sea la función nsobrek tal que nsobrek n k es el número de combinaciones de n 
+elementos tomados de k en k;
+factorial::Int->Int
+factorial 0 = 1
+--VARIAS ECUACIONES
+nsobrek 0 _ = "Error"
+nsobrek _ 0 = "Error"
+--GUARDS
+
+
+--IF THEN ELSE
+
+
+
+--CASE
+
+
+--DEFINICIONES LOCALES

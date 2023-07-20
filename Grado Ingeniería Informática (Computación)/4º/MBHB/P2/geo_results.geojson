@@ -1,0 +1,261 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.781346135,
+          43.47180483
+        ]
+      },
+      "properties": {
+        "id": 8,
+        "pos_dataframe": 0,
+        "sol_ini": 5,
+        "sol_final": 19
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.798063871,
+          43.47573226
+        ]
+      },
+      "properties": {
+        "id": 3,
+        "pos_dataframe": 1,
+        "sol_ini": 7,
+        "sol_final": 13
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.810468391,
+          43.45838389
+        ]
+      },
+      "properties": {
+        "id": 14,
+        "pos_dataframe": 2,
+        "sol_ini": 13,
+        "sol_final": 21
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.824801242,
+          43.45796625
+        ]
+      },
+      "properties": {
+        "id": 12,
+        "pos_dataframe": 3,
+        "sol_ini": 6,
+        "sol_final": 26
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.773275976,
+          43.46914941
+        ]
+      },
+      "properties": {
+        "id": 9,
+        "pos_dataframe": 4,
+        "sol_ini": 8,
+        "sol_final": 19
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.806499478,
+          43.47016611
+        ]
+      },
+      "properties": {
+        "id": 7,
+        "pos_dataframe": 5,
+        "sol_ini": 13,
+        "sol_final": 12
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.792854496,
+          43.47196611
+        ]
+      },
+      "properties": {
+        "id": 5,
+        "pos_dataframe": 6,
+        "sol_ini": 8,
+        "sol_final": 8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.785781345,
+          43.47441267
+        ]
+      },
+      "properties": {
+        "id": 2,
+        "pos_dataframe": 7,
+        "sol_ini": 9,
+        "sol_final": 10
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.788005479,
+          43.46355212
+        ]
+      },
+      "properties": {
+        "id": 10,
+        "pos_dataframe": 8,
+        "sol_ini": 6,
+        "sol_final": 13
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.817978245,
+          43.46072554
+        ]
+      },
+      "properties": {
+        "id": 13,
+        "pos_dataframe": 9,
+        "sol_ini": 10,
+        "sol_final": 15
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.788653146,
+          43.47847181
+        ]
+      },
+      "properties": {
+        "id": 4,
+        "pos_dataframe": 10,
+        "sol_ini": 10,
+        "sol_final": 15
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.8021,
+          43.461719
+        ]
+      },
+      "properties": {
+        "id": 1,
+        "pos_dataframe": 11,
+        "sol_ini": 18,
+        "sol_final": 23
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.800586459,
+          43.47110611
+        ]
+      },
+      "properties": {
+        "id": 6,
+        "pos_dataframe": 12,
+        "sol_ini": 8,
+        "sol_final": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.871390683,
+          43.45281305
+        ]
+      },
+      "properties": {
+        "id": 16,
+        "pos_dataframe": 13,
+        "sol_ini": 13,
+        "sol_final": 7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.866900669,
+          43.45482606
+        ]
+      },
+      "properties": {
+        "id": 17,
+        "pos_dataframe": 14,
+        "sol_ini": 15,
+        "sol_final": 6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.797241449,
+          43.46214308
+        ]
+      },
+      "properties": {
+        "id": 11,
+        "pos_dataframe": 15,
+        "sol_ini": 14,
+        "sol_final": 13
+      }
+    }
+  ]
+}
