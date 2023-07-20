@@ -1,0 +1,75 @@
+RUTA ABSOLUTA
+/home/pablo.cordon113/ModuloI...
+
+--TIPOS SHELL--
+
+	-sh (Shell Bourne) -> /bin/sh (cambia el bash por una cacota)
+	-bash (Shell Bourne Again) -> /bin/bash
+	-exit/ ctrl + D -> Volver a la bash anterior
+
+--VARIABLES--
+
+	-VAR=valor ->Inicializacion de la cadena = cadena
+	-$VAR -> uso de la variable anteriormente creada
+	-set -> consultar variables del sistema (no inicia ninguna variable)
+	-unset $nombre_variable -> elimina la variable
+	-set -/+ z -> on/off opciones del bash
+
+--ALIAS--
+
+	alias n='cmd1' -> crear alias 
+	alias -> mostrar alias
+	
+--CONFIGURACIONES--
+
+	/etc -> directorio configuraciones globales
+	~ -> directorio configuraciones de usuario (. profile)
+	variable prompt principal -> PS1
+
+4.
+Ejecute  el  shell ksh.  ¿Qué  cambios  observa?¿Funciona  la  tecla  detabulación de la misma forma?
+
+/bin/ksh
+
+
+5.
+Ejecute   el   shell sh.   ¿Qué   cambios  observa?   ¿Funciona   la  tecla de tabulación de la misma forma?
+
+/bin/sh
+
+7.
+Active el atributo de la shell xtrace. 
+
+set -x
+
+
+10.
+Cree  una  variable  llamada  P4  que  contenga  la  ruta  absoluta  al  directorio Practica4.
+
+P4=/home/pablo.cordon113
+
+13.
+Visualice por pantalla el mensaje “El directorio de trabajo actual es <<ruta al directorio de trabajo actual>>”. Haga uso de la variable
+PWD.
+
+echo "El directorio de trabajo actual es << $PWD >> "
+
+16.
+Cree  un  fichero  llamado losalias,  en  el  directorio Practica4,  que 
+contenga todos los alias definidos ordenados en orden inverso.
+
+alias > ./ModuloI/Practica4/losalias
+
+17.Cree  un aliasllamado fecha, que visualice la fecha en formato “23 del 11 de 2009”
+
+alias fecha='date %d " del " date +%m " de " date %Y'
+
+
+20.
+Modifique  el prompt para  que  muestre  el  nombre  del  usuario  en  vez  del nombre  de  la  máquina,  únicamente  en  la  sesión  en  la  que  se  realiza  esta 
+orden.
+
+PS1='(\u)'
+
+
+21.Ç

@@ -1,0 +1,7 @@
+1 Componentes CPU
+2 Elegimos uno de los ejercicios
+3 Analizamos instrucciones y clasificamos
+4 Modos de direccionamiento
+5 Generamos cronograma y simulación de instrucciones (CRONOS)
+6 Encontramos errores en cronograma (si existen)
+7 Modificamos cronogramas y corregimos errores: GENCRON y MODIFICA (Voluntario)

@@ -1,0 +1,49 @@
+-- A.c --
+
+#include <stdio.h>
+#include <unistd.h>
+
+
+int main(){
+
+vpid=fork();
+if(vpid==0){
+	execl("8","9", NULL);
+	perror("execl");
+	exit(-1);
+
+}
+else if (vpid==1) perror("fork");
+printf("Fin de A\n");
+return 0;
+
+}
+
+
+-- B.c --
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int mian(){
+printf ("Hola, soy el proceso B\n");
+
+sleep(10);
+
+printf("B: He estado dormido un rato y acabo, mi padre es %d\n", getpid());
+
+exit (10);
+
+}
+
+
+--makefile--
+
+all: A B
+
+A: A.c
+
+	cc A.c -o A
+B: B.c
+	cc B.c -o B

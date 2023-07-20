@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1559656528 source:h:\uni\2do año\2do cuatri\edii\pract4\p4edii\practica4.cpp
+	<iostream>
+	<cstdlib>
+	"grafo.h"
+	"conjunto.h"
+	<queue>
+	<sstream>
+	<map>
+
+1525348986 h:\uni\2do año\2do cuatri\edii\pract4\p4edii\grafo.h
+	"vertice.h"
+	"arista.h"
+	"conjunto.h"
+	"excep_grafo.h"
+	<map>
+
+1525348996 h:\uni\2do año\2do cuatri\edii\pract4\p4edii\vertice.h
+
+1525348948 h:\uni\2do año\2do cuatri\edii\pract4\p4edii\arista.h
+	"vertice.h"
+
+1525348956 h:\uni\2do año\2do cuatri\edii\pract4\p4edii\conjunto.h
+	"excep_conjunto.h"
+
+1525348962 h:\uni\2do año\2do cuatri\edii\pract4\p4edii\excep_conjunto.h
+	"excepcion.h"
+
+1525348976 h:\uni\2do año\2do cuatri\edii\pract4\p4edii\excepcion.h
+	<string>
+	<stdexcept>
+
+1525348970 h:\uni\2do año\2do cuatri\edii\pract4\p4edii\excep_grafo.h
+	"excepcion.h"
+

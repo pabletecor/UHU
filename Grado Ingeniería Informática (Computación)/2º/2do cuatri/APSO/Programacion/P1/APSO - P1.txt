@@ -1,0 +1,81 @@
+MAN 1 - SHELL
+MAN 2 - LLAMADAS AL SISTEMA
+MAN 3 - FUNCIONES C 
+
+COMO HACER UN PROGRAMA
+
+-joe holamundo.c
+
+blabla
+
+-cc holamundo.c -> compilador. Genera el archivo a.out
+
+- ./a.out (Ejecuta)
+
+OTRA FORMA
+
+gedit holamundo.c & -> Abre el gedit, un editor de texto mas amigable
+
+ANTES DE COMPILAR IMPORTANTE GUARDAR CAMBIOS
+
+-cc holamundo.c -o holamundo
+
+Ahora ejecutamos con ./holamundo
+
+all: E1 E2
+
+E1: holamundo.c funciones1.c funciones2.c funciones1.h funciones2.h
+        cc holamundo.c funciones1.c funciones2.c -o E1
+
+E2: mascosas.c holamundo.c funciones1.c funciones2.c funciones1.h funciones2.h
+        cc mascosas.c holamundo.c funciones1.c funciones2.c -o E2 -lm
+
+-lm linka math.h 
+
+
+EJEMPLOS PROGRAMACION
+
+/home/so/pedro/ejemplos_programacion
+
+EJERCICIO I 
+
+--Menu.c--
+
+#include <stdio.h>
+
+int main(){
+
+int opcion=0;
+do
+clear
+printf ("1.Leer datos \n2. Visualizar media\n3.Visualizar coseno del m
+printf("Indique la opcion a elegir:\n");
+scanf ("%d",&opcion);
+
+switch (opcion){
+
+case 1:
+int tabla[10];
+printf("Introduzca los numeros que quiera hasta llegar a 10, o bien pu
+leerdatos();
+
+break;
+
+case 2:
+printf("La media de los numeros introducidos es:")
+printf(media());
+
+break;
+
+case 3:
+printf ("El menor numero introducido es:");
+printf(minimo());
+printf("Y su coseno es:");
+prinf(coseno());
+
+break;
+
+case 4:
+printf ("Adios!")
+
+

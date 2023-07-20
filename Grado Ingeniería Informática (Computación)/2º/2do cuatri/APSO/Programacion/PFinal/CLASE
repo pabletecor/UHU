@@ -1,0 +1,27 @@
+--SERVIDOR GRAFICO--
+
+para poder configurar el numero de filas y columnas
+
+	preferencias -> editar preferencias de perfil -> tipo de letra -> 8
+
+--Pintar cliente:
+
+Usamos una cola de mensajes.
+
+Los digitos de los clientes son los dos ultimos digitos de su PID (%100 + 1)
+
+servidor_ncurses --> CM fichcola.txt (cola mensajes)
+
+--Procesos
+
+Cliente
+
+Bus
+
+Para la comunicacion entre bus y cliente usamos una cola de mensajes
+
+Principal crea los clientes, el bus y el servidor gráfico.
+
+Para que principal le mande a bus su tiempo de recorrido usamos una pipe. y lo mismo con cliente
+
+

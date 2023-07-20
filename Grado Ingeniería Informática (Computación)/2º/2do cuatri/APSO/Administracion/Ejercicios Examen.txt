@@ -1,0 +1,148 @@
+1-Dados como parametros un numero y el nombre de un fichero, en una carpeta ya creada, crea un fichero llamado como el segundo parametro que contenga escrito el primer parametro tantas veces como este indique
+
+#!/bin/bash
+
+if [ $# -lt 2 ]
+then
+
+echo "ERROR, insuficiente numero de parametros"
+
+else
+
+
+
+for ((i=0;i<$1;i++))
+do
+
+
+
+echo "$1">> ./ModuloI/Practicando/$2
+
+
+done
+
+fi
+
+
+2-nombre y tamaño de todos los ficheros que cuelguen de tu directorio personal, que fuesen archivos ejecutables solo por el usuario ordenados de manera alfabetica inversa
+
+for i in $(find -perm 777 | ls -s | sort -r )
+do
+
+echo "$i"
+
+done
+
+
+3. Muévase al directorio guiones. Cree un guión en el directorio guiones
+llamado tratafichero. Este guión debe recoger un único parámetro. Si el
+parámetro es un fichero ordinario debe visualizar su contenido con el comando more. Si se trata de un directorio, se debe ver el contenido del mismo con el comando ls -la. Si no es ni un fichero ni un directorio debe hacerse un echo
+del parámetro. (Se necesita usar el comando test y la estructura if).
+else
+
+if  test -f $1
+then
+
+more $1
+
+elif  test -d $1
+then
+
+ls -la $1
+
+else
+
+echo "El parametro $1 no es un fichero ni un directorio"
+
+fi
+
+5. Muévase al directorio guiones. Cree un guión llamado fpfinal que haga
+lo siguiente:
+Si no se pasan 3 parámetros visualiza un mensaje que dice: Se
+necesitan al menos 3 parámetros.
+Si se pasan 3 parámetros se comprueba que el primero y el tercero son
+directorios. Si no lo son, visualiza el mensaje: El primer y tercer
+parámetro han de ser directorios.
+Copia todos los nombres (solo el nombre, no la ruta) de enlaces
+simbólicos (ficheros soft link) encontrados a partir del primer directorio especificado, cuyo nombre coincida con el segundo parámetro, en el directorio especificado en tercer lugar con el nombre enlaces.txt. Los errores no deben salir por pantalla.
+
+
+if [ $# -lt 3 ] 
+then
+
+echo "Se necesitan al menos 3 parametros"
+  
+elif [ test -d $1 ] && [test -d $3 ]
+then 
+
+find $1 -type l -name "$2" -printf "\n%f" >$3/enlaces.txt 2>/d
+
+else
+echo "El primer y el tercer parametro han de ser directorios"
+fi
+
+7. Copie todos los ficheros que tenga a partir de su directorio personal que
+empiecen con el texto sol y tengan una p en su nombre en el directorio tmp2
+del directorio prac32. Use para ello sustitución de comandos.
+
+cp $(find . -iname "sol*{p}*"  ) ./ModuloI/Practicando/ej7
+
+
+6. Cree un guión llamado mtam que muestre, para cada fichero encontrado a partir del directorio pasado como primer parámetro cuyo nombre coincide con el segundo parámetro, su tamaño. Compruebe que el número de parámetros es el correcto y que el primero es un directorio. Si hay algún error debe comunicarse por pantalla. (Usa el for en el guión).
+
+
+#!/bin/bash
+
+if [ $# -lt 2 ] 
+then
+
+echo "EL numero de parametros es incorrecto"
+
+elif [ test $1 -type -d]
+then
+  
+for I in $(find $1 -type f -name $2)
+do
+wc -c $I
+done
+  
+else
+
+echo "El primer parametro debe ser un directorio"
+fi
+
+
+7. Cree un guión llamado anida, al que se le pasará un parámetro y deberá hacer lo siguiente:
+
+Pedirá que se introduzca un número por el teclado.
+Creará tantos directorios anidados, con el nombre que se ha pasado como
+primer parámetro, como indique el número leído, a partir del directorio en
+el que nos encontramos
+
+Ejemplo: Se ejecuta anida p1 y el número que se lee es 3. Esto creará un
+directorio p1, que tiene dentro un directorio p1, que a su vez tiene dentro un
+directorio p1, a partir del directorio en el que estamos.
+NOTA: Se monta un bucle while, que itera tantas veces como indique el
+contador, y dentro se va creando la ruta de los subdirectorios sobre una variable,
+que es la usada para crear los subdirectorios
+
+#!/bin/bash
+
+echo "Introduzca un numero por pantalla: "
+read contador
+
+
+
+while [ $contador -ne 0 ]
+do
+
+contador=$(($contador-1))
+
+mkdir ./$1/
+#chmod 777 ./$1
+cd ./$1/
+
+done
+
+
+

@@ -1,0 +1,25 @@
+--lseek()--
+
+Sintaxis:
+off_t lseek(int fildes, off_t offset, int whence);
+Archivo de cabecera:
+
+#include <sys/types.h>
+#include <unistd.h>
+
+La función lseek reposiciona el puntero del descriptor de fichero fildes con el argumento
+offset de acuerdo con la directiva whence as follows:
+
+SEEK_SET
+El puntero se coloca a offset bytes.
+
+SEEK_CUR
+El número de bytes indicado en offset se suma a la dirección actual y el puntero se coloca
+en la dirección resultante.
+
+SEEK_END
+El puntero se coloca al final del fichero más offset bytes.
+
+La función lseek permite colocar el puntero de fichero después del final de fichero. Si
+después se escriben datos en este punto, las lecturas siguientes de datos dentro del hueco que
+se forma devuelven ceros (hasta que realmente se escriban datos dentro de ese hueco).

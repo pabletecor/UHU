@@ -1,0 +1,112 @@
+--GESTIÓN DE SCRIPTS/GUIONES--
+
+Conjuntos de lineas dentro de nuestro fichero de texto que contiene unas lineas que se ejecutan secuencialmente
+
+-CREACIÓN
+
+editor de texto + fichero (joe)
+# -> comentario
+command -> comando
+
+-EJECUCION
+
+permisos de ejecucion (777)
+./nombre_script -> ejecucion normal (extension .sh)
+source nombre_script -> ejecucion modo source
+exit [code] -> salida del script (0 -> OK)
+$? -> variable resultado último comando script
+
+-INTERACCION
+
+./script a b 1 (tantos parámetros como definamos)
+$0 -> ruta completa al script
+$n -> accede al parámetro n (1 < n < 9)
+${n} -> accede al parámetro n (n > 9)
+$# -> número de parámetros
+$* -> lista de todos los parámetros
+
+lectura de teclado
+
+read VAR -> Lee el nombre de la variable
+
+-EXPORTACIÓN DE VARIABLES
+
+export VAR
+
+
+3.
+Cree una variable llamada YO, que contenga su nombre y apellidos.
+ YO="PabloCordónHidalgo"
+
+4.
+Cree un script llamado saludos en el directorio Practica5 que realice lo siguiente:
+Visualice la Hora.
+Visualice el mensaje Saludos ,seguido del contenido de la variable YO.
+Visualice sus procesos de usuario.
+
+joe ./ModuloI/Practica5/saludos
+date %I
+echo $YO
+ps
+
+source ./ModuloI/Practica5/saludos
+
+6.
+Cree un script llamado contador en el directorio Practica5 que tome dos 
+parámetros. El primero de ellos será una ruta a un directorio, y el segundo una cadena de caracteres. El script
+deberá realizar lo siguiente:
+Mostrará  un  mensaje  con  el  nombre  del script y  el  número  de  parámetros pasados, con el formato "Al script <<nombre>>  se  le  han  pasado  
+<<n>> parámetros".
+Mostrará un mensaje con los valores de los parámetros pasados.
+Visualizará  el  siguiente  mensaje:  En  el  directorio  <<parámetro  1>>  hay <<n>> 
+ ficheros  que  contienen  la  cadena  <<parámetro  2>>,  donde 
+<<parámetro 1>> es el valor del primer parámetro, <<parámetro 2>> es el valor del segundo parámetro
+y <<n>> es la cantidad de ficheros que hay en el directorio que contienen la cadena pasada como segundo parámetro.
+Visualizará el mensaje Fin del script. Las comillas deben aparecer como 
+parte del mensaje. 
+
+echo "Al script $0 se le han pasado $# parametros."
+echo "$*"
+echo "En el directorio $1 hay " grep -l "$2" "$1" hay | wc -l   " ficheros que contienen la cadena $2"
+echo ""Fin del script.""
+
+8. Cree un script llamado personal en el directorio Practica5, que realice lo siguiente:
+Solicite que se introduzca por teclado su edad y la almacene en una
+variable llamada EDAD.
+Cree un alias llamado ocultos, que visualice los ficheros ocultos (aquellos cuyo nombre comienza por ‘.’) del directorio de trabajo.
+Espere un segundo y muestre el mensaje 'Fin del script'. Las comillas
+deben formar parte del mensaje.
+
+#!/bin/bash
+
+echo "Introduzca su edad por teclado: "
+read EDAD
+
+alias ocultos='ls -a'
+
+sleep 1
+
+echo "'fin del script'" -> OJO, para que salgan simbolos especiales en los nombres hay que usar doble comilla
+
+
+
+13.Cree dos scripts llamados padre e hijo respectivamente en el directorio
+Practica5, que realicen lo siguiente:
+* Proceso padre:
+Muestre por pantalla un mensaje que indique lo siguiente: “Proceso
+padre…”
+Exporte una variable V1 inicializada con el valor que deseemos
+Mostrar por pantalla el valor de la variable V1
+Visualice sus procesos de usuario
+Ejecutar el proceso hijo
+Mostrar de nuevo la variable V1
+* Proceso hijo:
+Muestre por pantalla un mensaje que indique lo siguiente: “Proceso
+hijo…”
+Mostrar por pantalla el valor de la variable V1
+Modificar el valor de la variable V1 a otro distinto al dado en el proceso
+padre
+Mostrar de nuevo la variable V1
+Visualice sus procesos de usuario
+
+

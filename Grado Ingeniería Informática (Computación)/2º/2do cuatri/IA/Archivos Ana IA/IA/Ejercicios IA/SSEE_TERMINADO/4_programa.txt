@@ -1,0 +1,4 @@
+(clear)
+(load 4_reglas.txt)
+(load 4_hechos.txt)
+(reset)

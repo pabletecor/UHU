@@ -1,0 +1,691 @@
+
+1.1 SELECT idAsig AS codigo,nombre,esp AS especialidad FROM ASIGNATUR WHERE curso=3 AND creditos > 4.5;
+
+1.2 SELECT * FROM PROFESOR;
+
+1.3 SELECT DISTINCT tipo FROM ORDENADOR;
+
+1.4 SELECT nombre,nH,nH*300 AS descuento FROM ALUMNO ORDER BY descuento DESC, nombre ASC;
+
+1.5 SELECT dni, nombre FROM ALUMNOS WHERE fechaNac BETWEEN '1/1/70' AND '31/12/74' AND lugar IN ('Huelva','Cádiz');
+
+
+
+1.6.-
+
+SELECT NOMBRE
+FROM ALUMNO 
+WHERE nombre LIKE 'M%' AND lugar LIKE '______%'
+	AND lugar NOT LIKE 'P%';
+
+
+1.7.- 
+
+SELECT DISTINCT EXTRACT (YEAR FROM fechaNac) AS años
+FROM ALUMNO
+ORDER BY años;
+
+
+--- EJERCICIOS ---
+
+MF-1. Obtener el nombre de las compañías cuya dirección web contenga la cadena ‘et’ y acabe en ‘com’
+
+SELECT NOMBRE
+FROM mf.compañia
+WHERE WEB LIKE '%et%' AND WEB LIKE '%com';
+
+
+MF-2. Obtener el nombre y dirección de los clientes nacidos en 1973 o 1985 y cuyo código postal comience por
+15, ordenado ascendentemente por el nombre y, en caso de igualdad, descendentemente por la dirección
+
+SELECT NOMBRE, DIRECCION
+FROM mf.cliente
+WHERE EXTRACT (YEAR FROM f_nac) IN (1973,1985)
+AND cp LIKE '15%'
+ORDER BY nombre, direccion DESC;
+
+
+MF-3. Obtener el teléfono de destino de las llamadas realizadas desde el número “666010101”, en el año 2006
+
+SELECT TF_DESTINO
+FROM mf.llamada
+WHERE TF_ORIGEN = '666010101' 
+AND EXTRACT (YEAR FROM fecha_hora)=2006;
+
+
+MF-4. Obtener los números de teléfono que han llamado alguna vez al “666010101”, entre las 10:00 y las 12:00
+
+
+SELECT TF_ORIGEN
+FROM mf.llamada
+WHERE TF_DESTINO = '666010101' 
+AND EXTRACT (HOUR FROM fecha_hora) BETWEEN 10 AND 12; 
+
+
+
+
+------------------ 14.NOVIEMBRE.2018 ----------------
+
+
+EI-8. Obtener los nombres de las asignaturas junto con el nombre del profesor responsable 
+
+/*
+(CON CLAUSULA INNER JOIN):
+*/
+	SELECT A.nombre as NomAsig, P.nombre as NomProf
+	FROM EI.ASIGNATURA A INNER JOIN EI.PROFESOR P ON A.prof = P.nPr;
+
+
+EI.9. Obtener los números de los alumnos que se han matriculado en Bases de Datos I en el curso 2002-03
+
+
+	SELECT alum
+	FROM EI.MATRICULA M INER JOIN EI.ASIGNATURA A USING(idAsig)
+	WHERE A.nombre = 'Bases de Datos I' AND año = 2001;
+
+
+EI.10. Obtener los nombres de los alumnos que han aprobado la asignatura Algoritmos y Estructuras de
+Datos I en la convocatoria de febrero_junio de 2001
+
+	
+	SELECT A.nombre
+	FROM (EI.ASIGNATURA ASIG INNER JOIN EI.MATRICULA M USING(idAsig))
+		INNER JOIN EI.ALUMNO A ON M.alum = A.nAI
+	WHERE ASIG.nombre = 'Algoritmos y Estructuras de Datos I'
+		AND año = 2001 AND feb_jun >= 5;
+
+EI.11.  Obtener un listado con el número de despacho, pero sólo de aquellos donde hay al menos 2
+profesores 
+
+	
+	SELECT DISTINCT despacho
+	FROM EI.PROFESOR P1 INNER JOIN EI.PROFESOR P2 USING (despacho)
+	WHERE P1.nombre <> P2.nombre;
+
+
+EI.12.  Obtener una lista con todas las asignaturas de las que es responsable o docente la profesora
+Dolores Toscano Barriga
+
+
+	(SELECT A.nombre
+	FROM EI.ASIGNATURA A INNER JOIN EI.PROFESOR P ON P.nPr = A.prof
+	WHERE P.nombre = 'Dolores Toscano Barriga')
+
+	UNION
+
+	(SELECT A.nombre
+	FROM EI.ASIGNATURA A INNER JOIN EI.MATRICULA M USING (idAsig))
+`		INNER JOIN EI.PROFESOR P ON M.prof = P.nPr
+	WHERE P.nombre = 'Dolores Toscano Barriga')
+
+
+
+EI.13.  Obtener los nombres de los alumnos que no se han presentado a ‘Bases de Datos I’ en diciembre
+de 2002 por haberla aprobado en una convocatoria anterior del mismo año
+
+
+	SELECT A.nombre
+	FROM (EI.ALUMNO A INNER JOIN EI.MATRICULA M ON A.nAl = M.alum )
+		INNER JOIN EI.ASIGNATURA ASIG USING(idAsig)
+	WHERE ASIG.nombre = 'Bases de Datos I' AND 
+		año = 2002 AND dic IS NULL AND
+		(feb_jun >=5 OR sep >=5 );
+
+
+
+
+--- EJERCICIOS ---
+
+
+MF-5.Mostrar el código y coste de las tarifas junto con el nombre de la compañía que las ofrecen, de aquellas
+tarifas cuya descripción indique que otras personas deben estar también en la misma compañía
+
+
+SELECT T.tarifa , T.coste, CMP.nombre
+FROM MF.TARIFA T INNER JOIN MF.COMPAÑIA CMP ON T.compañia = CMP.cif
+WHERE T.descripcion LIKE '%en la compañía%';
+
+
+
+MF-6.  Nombre y número de teléfonos de aquellos abonados con contrato que tienen tarifas inferiores a 0,20 €
+
+
+SELECT CL.nombre, TF.numero, T.coste
+FROM MF.TELEFONO TF INNER JOIN MF.CLIENTE CL ON TF.cliente = CL.dni
+  INNER JOIN MF.TARIFA T USING(tarifa,compañia)
+WHERE T.coste < 0.20 AND TF.tipo = 'C';
+
+
+MF-7.  Obtener el código de las tarifas, el nombre de las compañías, los números de teléfono y los puntos, de
+aquellos teléfonos que se contrataron en el año 2006 y que hayan obtenido más de 200 puntos.
+
+
+SELECT TEL.TARIFA, COM.NOMBRE, TEL.NUMERO, TEL.PUNTOS
+FROM MF.TELEFONO TEL INNER JOIN MF.COMPAÑIA COM ON COM.cif = TEL.compañia
+WHERE EXTRACT (YEAR FROM F_CONTRATO) IN 2006 AND TEL.PUNTOS >200;
+
+/*
+TARIFA-tarifa
+TELEFONO-num, puntos
+COMPAÑIA-nombre
+*/
+
+
+MF-8.  Obtener los números de teléfono (origen y destino), así como el tipo de contrato, de los clientes que
+alguna vez hablaron por teléfono entre las 8 y las 10 de la mañana
+
+
+/*
+SELECT LL.tf_origen, LL.tf_destino, TFD.tipo, TFO.tipo
+FROM MF.LLAMADA LL INNER JOIN MF.TELEFONO TFO ON LL.tf_origen = TFO.numero
+  INNER JOIN MF.TELEFONO TFD ON LL.tf_destino = TFD.numero
+WHERE EXTRACT (HOUR FROM fecha_hora)>=8 AND  EXTRACT (HOUR FROM fecha_hora)<10;
+
+*/ BIEN HECHO
+
+
+MF-9. Interesa conocer los nombres y números de teléfono de los clientes (origen y destino) que, perteneciendo
+a compañías distintas, mantuvieron llamadas que superaron los 15 minutos. Se desea conocer, también, la
+fecha y la hora de dichas llamadas así como la duración de esas llamadas
+	
+
+	/*Los 15 min pueden ser 900 s */
+
+--  SOLUCION BUENA   --
+
+SELECT  CLIO.nombre, LL.tf_origen, CLID.nombre, LL.tf_destino, LL.fecha_hora, LL.duracion
+FROM MF.LLAMADA LL INNER JOIN MF.TELEFONO TF1 ON LL.tf_origen = TF1.numero 
+  INNER JOIN MF.TELEFONO TF2 ON LL.tf_destino = TF2.numero
+  INNER JOIN MF.CLIENTE CLIO ON TF1.cliente = CLIO.dni
+  INNER JOIN MF.CLIENTE CLID ON TF2.cliente = CLID.dni
+WHERE TF1.compañia <> TF2.compañia AND LL.duracion > 900;
+
+
+
+--------------------------------------21.11.18-------------------------------------
+
+
+
+EI.14.  Obtener una lista de los alumnos que hayan nacido en la misma ciudad que Samuel Toscano
+Villegas y tengan el mismo número de hermanos que Beatriz Rico Vázquez
+
+
+SELECT nombre
+FROM ALUMNOS
+WHERE lugar = (SELECT lugar
+		FROM ALUMNO
+		WHERE nombre = 'Samuel Toscano Villegas')
+
+	AND nH = (SELECT nH
+		FROM ALUMNO
+		WHERE nombre = 'Beatriz Rico Vázquez');
+
+
+
+EI.15. Obtener una lista con los alumnos matriculados en BDII y no en BDI
+
+
+SELECT nombre
+FROM ALUMNO
+WHERE nAl IN (SELECT M.alum
+		FROM ASIGNATURA A INNER JOIN MATRICULA M USING (idAsig)
+		WHERE A.nombre = 'Bases de Datos II')
+AND nAl NOT IN (SELECT M.alum
+		FROM ASIGNATURA A INNER JOIN MATRICULA M USING (idAsig)
+		WHERE A.nombre = 'Bases de Datos I');
+
+
+
+
+EI.16. Obtener una lista de los profesores que tienen más antigüedad que alguno de los profesores del
+despacho FC-7366 (sin contar los del propio despacho FC-7366) 
+
+
+SELECT nombre
+FROM PROFESOR 
+WHERE despacho <> 'FC-7366' AND 
+	ant < ANY (SELECT ant
+		FROM PROFESOR
+		WHERE despacho = 'FC-7366');
+
+
+
+
+EI.17.  Obtener una lista con los nombres de los alumnos que hayan sacado una nota más alta en
+septiembre que la más alta de las notas de febrero/junio, en el año 2002 y en la asignatura Bases de
+Datos I
+
+
+SELECT AL.nombre
+FROM (MATRICULA M INNER JOIN ASIGNATURA A USING (idAsig)) 
+		INNER JOIN ALUMNO AL ON AL.nAL = alum
+WHERE A.nombre = 'Bases de Datos I' AND año = 2002
+	AND sep > ALL (SELECT feb_jun
+		FROM MATRICULA M INNER JOIN ASIGNATURA A USING (idAsig)
+		WHERE nombre = 'Bases de Datos I' AND
+			año = 2002 AND feb_jun IS NOT NULL);
+
+
+
+
+
+
+--MF-10.  Obtener la fecha (día-mes-año) en la que se realizó la llamada de mayor duración
+
+SELECT TO_CHAR(fecha_hora, 'DD/MM/YYYY') AS fecha_hora
+FROM MF.LLAMADA 
+WHERE DURACION >= ALL (SELECT DURACION FROM MF.LLAMADA);
+
+
+--MF-11.  Obtener el nombre de los abonados de la compañía ‘Aotra’ con el mismo tipo de tarifa que la del telefono
+“654123321”
+
+SELECT C.NOMBRE
+FROM MF.TELEFONO T INNER JOIN MF.CLIENTE C ON T.CLIENTE = C.DNI
+INNER JOIN MF.COMPAÑIA CP ON T.COMPAÑIA = CP.CIF
+WHERE CP.NOMBRE LIKE 'Aotra' AND T.TARIFA = (SELECT TARIFA
+        FROM MF.TELEFONO WHERE NUMERO='654123321'); 
+
+
+--MF-12.  Mostrar, utilizando para ello una subcobsulta, el número de teléfono, fecha de contrato y tipo de los
+abonados que han llamado a teléfonos de clientes de fuera de la provincia de La Coruña durante el mes de
+octubre de 2006.
+
+SELECT DISTINCT TF.NUMERO, TF.F_CONTRATO, TF.TIPO
+FROM MF.TELEFONO TF INNER JOIN MF.LLAMADA LL ON TF.NUMERO = LL.TF_ORIGEN
+WHERE LL.TF_DESTINO IN (SELECT TLF.NUMERO FROM MF.TELEFONO TLF INNER JOIN MF.CLIENTE CLI ON TLF.CLIENTE = CLI.DNI 
+WHERE CLI.PROVINCIA <> 'La Coruña' AND TO_CHAR(fecha_hora,'MM/YYYY') = '10/2006');
+
+
+
+
+
+MF-13. Se necesita conocer el nombre de los clientes que tienen teléfonos con tarifa “dúo” pero no “autónomos”.
+Utiliza subconsultas para obtener la solución.
+
+SELECT CLI.NOMBRE
+FROM MF.CLIENTE CLI
+WHERE CLI.DNI IN (SELECT TF.CLIENTE 
+				  FROM MF.TELEFONO TF
+				  WHERE TF.TARIFA = 'dúo')
+AND CLI.DNI NOT IN (SELECT TLF.CLIENTE 
+					FROM MF.TELEFONO TLF 
+					WHERE TLF.TARIFA = 'autónomos');
+
+
+
+--MF-14. 4. Obtener mediante subconsultas los nombres de clientes y números de teléfono de aquellos que hicieron
+llamadas a teléfonos de la compañía Petafón pero no Aotra
+
+SELECT CL.nombre, TEL.numero
+FROM MF.CLIENTE CL INNER JOIN MF.TELEFONO TEL ON CL.dni = TEL.cliente
+WHERE TEL.numero IN (SELECT LL.tf_origen
+                    FROM MF.LLAMADA LL INNER JOIN MF.TELEFONO TEL1 ON TEL1.numero = LL.tf_destino
+                    INNER JOIN MF."COMPAÑIA" COM ON COM.CIF=TEL1."COMPAÑIA"
+                    WHERE COM.NOMBRE = 'Petafón')
+AND TEL.NUMERO NOT IN  (SELECT LL.tf_origen
+                    FROM MF.LLAMADA LL INNER JOIN MF.TELEFONO TEL1 ON TEL1.numero = LL.tf_destino
+                    INNER JOIN MF."COMPAÑIA" COM ON COM.CIF=TEL1."COMPAÑIA"
+                    WHERE COM.NOMBRE = 'Aotra');
+					
+
+--MF-15.  Nombre de los clientes de la compañía Kietostar que hicieron las llamadas de mayor duración en
+septiembre de 2006
+
+SELECT CL.NOMBRE
+FROM MF.CLIENTE CL INNER JOIN MF.TELEFONO TEL ON TEL.CLIENTE = CL.DNI
+                  INNER JOIN MF.LLAMADA LL ON LL.TF_ORIGEN = TEL.NUMERO
+                  INNER JOIN MF.COMPAÑIA COM ON TEL.COMPAÑIA = COM.CIF
+WHERE LL.DURACION >= ALL (SELECT LL.DURACION
+                          FROM MF.LLAMADA LL INNER JOIN MF.TELEFONO TEL ON TEL.NUMERO = LL.TF_ORIGEN
+                          INNER JOIN MF.COMPAÑIA COM ON TEL.COMPAÑIA = COM.CIF
+                          WHERE TO_CHAR(LL.FECHA_HORA,'mm/yyyy') = '09/2006'
+                          AND COM.NOMBRE = 'Kietostar')
+                    AND COM.NOMBRE = 'Kietostar'
+                    AND  TO_CHAR(LL.FECHA_HORA,'mm/yyyy') = '09/2006';
+            
+
+                          
+
+--MF-16.  Se necesita conocer el nombre de los clientes que tienen teléfonos con fecha de contratación anterior a
+alguno de los teléfonos de Ramón Martínez Sabina, excluido, claro, el propio Ramón Martínez Sabina
+
+SELECT CL.nombre
+FROM MF.CLIENTE CL INNER JOIN MF.TELEFONO TEL ON TEL.cliente = CL.dni
+WHERE TEL.F_CONTRATO < ANY (SELECT TEL.F_CONTRATO
+                        FROM MF.TELEFONO TEL INNER JOIN MF.CLIENTE CL ON TEL.CLIENTE = CL.DNI
+                        WHERE CL.nombre = 'Ramón Martínez Sabina')
+AND CL.nombre <> 'Ramón Martínez Sabina';
+
+
+
+
+----------28.NOVIEMBRE.2018-----------
+
+
+
+EI.18.  Listado de los despachos donde hay profesores que no son responsables de ninguna asignatura 
+
+
+SELECT DISTINCT P.despacho	//DISTINCT elimina las tuplas repetidas 
+FROM PROFESOR P
+WHERE NOT EXISTS (SELECT * FROM ASIGNATURA A WHERE P.nPr = A.prof);
+
+
+EI.19. Listado de los alumnos que se han matriculado de alguna asignatura en el año 2000 o 2002, y de 
+ninguna asignatura en el año 2001
+
+
+SELECT A.nombre
+FROM ALUMNO A
+WHERE EXISTS (SELECT *
+	FROM MATRICULA M
+	WHERE (año = 2000 OR año = 2002) AND A.nAl = M.alum)
+AND NOT EXISTS (SELECT *
+	FROM MATRICULA M
+	WHERE año = 2001 AND A.nAl = M.alum);
+
+										
+
+
+EI.20. Obtener el nombre de los profesores y los números de sus despachos de aquellos profesores que no
+comparten despacho
+
+
+SELECT nombre, despacho
+FROM PROFESOR P1
+WHERE despacho NOT IN (SELECT despacho
+	FROM PROFESOR P2
+	WHERE P2.nPr <> P1.nPr);
+
+--EQUIVALENTE CON NOT EXISTS--
+
+SELECT nombre, despacho
+FROM PROFESOR P1
+WHERE NOT EXISTS (SELECT * 
+	FROM PROFESOR P2
+	WHERE P2.despacho = P1.despacho AND P2.nPr <> P1.nPr);
+
+
+
+
+--EJERCICIOS--
+
+
+MF-17. Utilizando consultas correlacionadas, mostrar el nombre de los abonados que han llamado el día ‘16/10/06’ 
+
+
+SELECT CLI.nombre
+FROM MF.CLIENTE CLI
+WHERE EXISTS (SELECT * 
+  FROM MF.LLAMADA LL INNER JOIN MF.TELEFONO TF ON LL.TF_ORIGEN = TF.NUMERO 
+  WHERE TF.CLIENTE = CLI.DNI AND TO_CHAR(fecha_hora,'DD/MM/YYYY') = '16/10/2006');
+
+
+
+MF-18.  Utilizando consultas correlacionadas, obtener el nombre de los abonados que han realizado llamadas de
+menos de 1 minuto y medio
+
+
+SELECT CLI.nombre
+FROM MF.CLIENTE CLI INNER JOIN MF.TELEFONO TF ON CLI.DNI = TF.CLIENTE
+WHERE EXISTS (SELECT * 
+  FROM MF.LLAMADA LL 
+  WHERE LL.DURACION < 90 AND LL.TF_ORIGEN = TF.NUMERO );
+
+
+
+MF-19. Utilizando consultas correlacionadas, obtener el nombre de los abonados de la compañía ‘KietoStar’ que
+no hicieron ninguna llamada el mes de septiembre
+
+
+SELECT CLI.nombre
+FROM MF.CLIENTE CLI INNER JOIN MF.TELEFONO TF ON CLI.DNI = TF.CLIENTE
+INNER JOIN MF.COMPAÑIA CMP ON TF.COMPAÑIA = CMP.CIF
+WHERE CMP.NOMBRE = 'Kietostar' AND 
+  NOT EXISTS (SELECT * 
+    FROM MF.LLAMADA LL WHERE TO_CHAR(LL.FECHA_HORA, 'mm') = '09' AND LL.TF_ORIGEN = TF.NUMERO);
+
+
+
+
+MF-20.  Utilizando consultas correlacionadas, mostrar todos los datos de los telefonos que hayan llamado al
+número 654234234 pero no al 666789789 
+
+
+SELECT *
+FROM MF.TELEFONO TF 
+WHERE EXISTS (SELECT *
+              FROM MF.LLAMADA LL WHERE LL.TF_ORIGEN = TF.NUMERO 
+              AND LL.TF_DESTINO='654234234')
+AND NOT EXISTS(SELECT *
+              FROM MF.LLAMADA LL WHERE LL.TF_ORIGEN = TF.NUMERO 
+              AND LL.TF_DESTINO= '666789789');
+
+
+--MF.21  Utilizando consultas correlacionadas, obtener el nombre y número de teléfono de los clientes de la
+compañía Kietostar que no han hecho llamadas a otros teléfonos de la misma compañía
+
+SELECT CL.NOMBRE, TEL.NUMERO
+FROM MF.COMPAÑIA COM INNER JOIN MF.TELEFONO TEL ON TEL.COMPAÑIA = COM.CIF INNER JOIN MF.CLIENTE CL ON CL.DNI = TEL.CLIENTE
+WHERE COM.NOMBRE = 'Kietostar'
+AND NOT EXISTS (SELECT *
+                FROM MF.TELEFONO TEL1 INNER JOIN MF.COMPAÑIA COM1 ON COM1.CIF = TEL1.COMPAÑIA 
+                                      INNER JOIN MF.LLAMADA LL ON TEL1.NUMERO = LL.TF_DESTINO
+                WHERE COM1.NOMBRE = 'Kietostar' AND TEL.NUMERO = LL.TF_ORIGEN);
+                
+  
+  
+EI.21 Obtener los nombres de todos los profesores junto con las asignaturas de las que son responsables
+
+SELECT P.nombre, A.nombre
+FROM PROFESOR P LEFT OUTER JOIN ASIGNATURA A ON P.nPr = A.prof;
+
+
+EI.22 Se desea saber cuántos despachos ocupan los profesores de la escuela 
+
+SELECT COUNT (DISTINCT despacho)
+FROM PROFESOR;
+
+--SIEMPRE QUE HAYA QUE CONTAR CLAVE AJENA, HAY QUE METER EL DISTINCT
+
+
+EI.23 Obtener el número de matriculados, la nota máxima, la mínima y la nota media de la asignatura 'Bases de Datos I' en la convocatoria de septiembre de  2002
+  
+  SELECT COUNT (*), MAX (sep) AS Máxima, MIN (sep) AS Mínima, AVG (sep) as Media
+	FROM ASIGNATURA A INNER JOIN MATRICULA M USING (idAsig)
+	WHERE A.nombre = 'Bases de Datos I' AND M.año =2002;
+	
+	
+EI-24. Obtener, mediante una consulta correlacionada, los nombres de las asignaturas que tienen recomendadas 
+2 o más asignaturas. 
+  
+  SELECT A.nombre
+  FROM ASIGNATURA A
+  WHERE (SELECT COUNT(*)
+		FROM RECOMENDACIONES R
+		WHERE A.idAsig = R.idAsig1)>=2;
+		
+		
+EI-25 Obtener, mediante una consulta correlacionada, los nombres de los profesores que tienen más 
+antigüedad que, al menos, otros cinco profesores. 
+
+SELECT P1.nombre
+FROM PROFESOR P1
+WHERE (SELECT COUNT(*)
+		FROM PROFESOR P2
+		WHERE P1.ant < P2.ant)>=5;
+		
+		
+EI-26 Para cada asignatura y año académico, mostrar el nombre de la asignatura, el año, el número de 
+alumnos que se han presentado y la nota media obtenida en la convocatoria de febrero_junio
+
+SELECT A.nombre, M.año, COUNT(feb_jun) AS Presentados, AVG (feb_jun) AS Media
+FROM ASIGNATURA A INNER JOIN MATRICULA M USING (idAsig)
+GROUP BY A.nombre, M.año;
+
+
+EI-27. Obtener un listado con el nombre del alumno,el nombre de la asignatura y el número de veces qu
+e se ha matriculado en esa asignatura, pero sólo cuando se haya matriculado 3 o más años
+
+SELECT A.nombre, ASIG.nombre, COUNT(*)
+FROM (ALUMNO A INNER JOIN MATRICULA M ON A.nAl = M.alum)
+	INNER JOIN ASIGNATURA USING (idAsig)
+GROUP BY A.nombre, ASIG.nombre
+HAVING COUNT (*)>=3;
+
+
+EI-28. Nombre de los alumnos que hayan sacado más de un 5 de nota media en junio del 2002
+
+SELECT A.nombre
+FROM ALUMNO A INNER JOIN MATRICULA M ON A.nAl=M.alum
+WHERE año =2002
+GROUP BY A.nombre
+HAVING AVG(feb_jun) > 5;
+
+
+EI-29. Nombre de las asignaturas y número de alumnos matriculados de las asignaturas donde se hayan 
+matriculado más alumnos en el año 2002
+
+SELECT A.nombre, COUNT(*)
+FROM ASIGNATURA A INNER JOIN MATRICULA M USING (idAsig)
+WHERE año = 2002
+GROUP BY A.nombre
+HAVING COUNT(*) >=ALL (SELECT COUNT(*)
+						FROM MATRICULA
+						WHERE año = 2002
+						GROUP BY idAsig);
+
+						
+EI- 30. Obtener el número total de alumnos que han suspendido en cada asignatura en junio de 2002, 
+pero sólo de aquellas asignaturas en las que se hayan matriculado más de 50 alumnos 		
+
+--BIEN--
+SELECT A.nombre, COUNT(*)
+FROM ASIGNATURA A INNER JOIN MATRICULA M USING (idAsig)
+WHERE M.año = 2002 AND M.feb_jun<5
+	idAsig IN (SELECT M.idAsig
+				FROM MATRICULA M
+				WHERE M.año = 2002
+				GROUP BY M.idAsig
+				HAVING COUNT (*)>50)
+GROUP BY A.nombre;
+
+
+EI-31.
+
+SELECT nombre
+FROM ALUMNO Al
+WHERE NOT EXISTS
+				
+				
+--MF-22. Mostrar la compañía con la que se realizaron más llamadas durante el día 16/10/06--
+
+SELECT DISTINCT COM.nombre
+FROM MF.COMPAÑIA COM INNER JOIN MF.TELEFONO TEL ON COM.cif = TEL.COMPAÑIA
+INNER JOIN MF.LLAMADA LL ON LL.tf_origen = TEL.numero
+WHERE TO_CHAR(LL.fecha_hora, 'DD/MM/YYYY') = '16/10/2006'
+GROUP BY COM.nombre
+HAVING COUNT(*)>=ALL (SELECT COUNT(*)
+                      FROM MF.LLAMADA LL INNER JOIN MF.telefono TEL ON LL.tf_origen=TEL.numero
+                      WHERE TO_CHAR(LL.fecha_hora, 'DD/MM/YYYY') = '16/10/2006';
+					  GROUP BY TEL.compañia);
+
+
+
+
+
+SELECT DISTINCT COM.NOMBRE
+FROM MF.COMPAÑIA COM INNER JOIN MF.TELEFONO TEL ON TEL.COMPAÑIA = COM.CIF
+                    INNER JOIN MF.LLAMADA LL ON LL.TF_ORIGEN = TEL.NUMERO
+WHERE TO_CHAR(LL.FECHA_HORA, 'DD/MM/YYYY') = '16/10/2006'
+GROUP BY COM.NOMBRE 
+
+HAVING COUNT(*)>= ALL (SELECT COUNT (*)
+                FROM MF.LLAMADA LL1
+                WHERE TO_CHAR(LL.FECHA_HORA, 'DD/MM/YYYY') = '16/10/2006'
+                GROUP BY LL1.TF_ORIGEN);
+		
+		
+		
+		--MF-23 ES DIVISION, NO HACER-- 
+		
+--MF-24. Mostrar el nombre de cada cliente junto con coste total de las llamadas que realiza con cada co
+--mpañia. El resultado debe mostrarse ordenado descendentemente por cliente y ascendentemente por compañia
+
+SELECT CL.NOMBRE AS CLIENTE, COM.NOMBRE AS COMPAÑIA, SUM ((TA.COSTE * LL.DURACION)/60)  AS COSTETOTAL
+FROM MF.TELEFONO TEL INNER JOIN MF.COMPAÑIA COM ON COM.CIF = TEL.COMPAÑIA
+      INNER JOIN MF.LLAMADA LL ON LL.TF_ORIGEN = TEL.NUMERO
+      INNER JOIN MF.TARIFA TA USING (TARIFA, COMPAÑIA)
+      INNER JOIN MF.CLIENTE CL ON CL.DNI = TEL.CLIENTE
+GROUP BY CL.NOMBRE, COM.NOMBRE
+ORDER BY CL.NOMBRE DESC, COM.NOMBRE ASC;
+		
+		
+		
+		
+
+		
+		
+--25.  Para cada cliente residente en la provincia de 'La Coruña', mostrar la duración de todas las llamadas
+realizadas a clientes residentes en 'Jaén'
+
+
+SELECT CL.NOMBRE AS CLIENTE, SUM (LL.DURACION) AS DURACION
+FROM MF.CLIENTE CL INNER JOIN MF.TELEFONO TEL ON TEL.CLIENTE = CL.DNI
+                   INNER JOIN MF.LLAMADA LL ON TEL.NUMERO = LL.TF_ORIGEN
+WHERE CL.PROVINCIA = 'La Coruña'
+AND LL.TF_DESTINO IN (SELECT LL.TF_DESTINO
+            FROM MF.CLIENTE CL INNER JOIN MF.TELEFONO TEL ON TEL.CLIENTE =CL.DNI
+            INNER JOIN MF.LLAMADA LL ON TEL.NUMERO = LL.TF_DESTINO
+            WHERE CL.PROVINCIA = 'Jaén')
+GROUP BY CL.NOMBRE;
+
+--26.  Mostrar los nombres de todos los clientes que hayan realizado más de 5 llamadas
+
+
+ SELECT CL.NOMBRE, COUNT (*)
+FROM MF.CLIENTE CL INNER JOIN MF.TELEFONO TEL ON TEL.CLIENTE = CL.DNI
+INNER JOIN MF.LLAMADA LL ON LL.TF_ORIGEN = TEL.NUMERO
+GROUP BY CL.NOMBRE
+HAVING COUNT (*) > 5;
+
+
+--27  Mostrar el nombre de aquellos clientes que hayan contratado con cualquier compañía, de media, una
+tarifa superior a la tarifa media total.
+
+SELECT CL.NOMBRE, AVG (TA.COSTE) AS MEDIA
+FROM MF.CLIENTE CL INNER JOIN MF.TELEFONO TEL ON TEL.CLIENTE = CL.DNI
+INNER JOIN MF.TARIFA TA USING (TARIFA, COMPAÑIA)
+GROUP BY CL.NOMBRE
+HAVING AVG(TA.COSTE)> (SELECT AVG(TA.COSTE)
+					   FROM MF.TARIFA TA);
+
+
+--28. Mostrar los nombres de los clientes que hayan realizado llamadas a telefonos de la compañia 'Kietostar'
+por un coste menor de 100€
+    
+
+		
+		SELECT DISTINCT CL.NOMBRE
+FROM MF.CLIENTE CL INNER JOIN MF.TELEFONO TEL ON TEL.CLIENTE =CL.DNI
+                  INNER JOIN MF.LLAMADA LL ON LL.TF_ORIGEN = TEL.NUMERO
+                 
+WHERE TEL.NUMERO IN (SELECT LL.TF_DESTINO
+                    FROM MF.TELEFONO TEL INNER JOIN MF.TARIFA TA ON TEL.TARIFA=TA.TARIFA
+                    INNER JOIN MF.LLAMADA LL ON TEL.NUMERO = LL.TF_DESTINO
+                    INNER JOIN MF.COMPAÑIA COM ON TEL."COMPAÑIA" = COM.CIF
+                    WHERE COM.NOMBRE = 'Kietostar' AND (TA.COSTE*LL.DURACION)/60 < 100);
+     
+	 
+	 
+	 
+	 
+	 ALTER TABLE nombre_tabla
+{ADD nuevo_nombre_atributo tipo [NOT NULL] [CONSTRAINT restricción]
+ | MODIFY nombre_atributo tipo_nuevo [CONSTRAINT restricción]
+ | DROP COLUMN nombre_atributo [CASCADE CONSTRAINT]
+ | DROP (nombre_atributo1, nombre_atributo2, .)
+ | ADD CONSTRAINT nombre_restricción restricción
+ | { DROP | ENABLE | DISABLE } CONSTRAINT nombre_restricción [CASCADE]
+ }; 

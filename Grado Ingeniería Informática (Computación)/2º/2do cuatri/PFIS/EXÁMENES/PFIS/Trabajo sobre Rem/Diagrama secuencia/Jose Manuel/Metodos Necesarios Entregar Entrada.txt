@@ -1,0 +1,14 @@
+Multicines:
+	EntregarReserva(DNI, Identificador, Fila, Columna):Establece la Butaca asociada a una Reserva de un Cliente como ocupada e imprime las entradas.
+	getCliente(DNI):Busca y devuelve un Cliente dado su DNI.
+	getEntrada(Identificador):Busca y devuelve una entrada perteneciente a un Cliente dado su Identificador
+	Imprimir_Entradas(Entrada):Dada una entrada, ejecuta la impresión de la misma en fisico.
+Cliente:
+	EntregarReservas(Identificador):Establece la Butaca asociada a una Reserva de un Cliente como ocupada
+	getReserva():Devuelve la Reserva asociada a un Cliente
+Reserva:	
+	getEntrada():Devuelve la Entrada asociada a una Reserva
+Entrada:
+	getButaca():Devuelve la Butaca asociada a una Entrada
+Butaca:
+	setDisponibilidad(Estado):Establece la disponibilidad de la butaca aun Estado dado.

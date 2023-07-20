@@ -1,0 +1,76 @@
+--MANEJO DE LA SHELL--
+
+RUTA ABSOLUTA
+
+/home/pablo.cordon113/ModuloI...
+
+
+-Redirección (p.ej, sacar el texto de salida en un doc o impresora)
+	*(0) Entrada estandar -> Teclado	ls more <
+	*(1/2) Salida estandar/errores -> Pantalla	ls > mifichero
+	*Salida estandar (añade)		>>
+	*Salida estandar y errores		&>
+	*Salida errores				2>
+	
+-Tuberías ( | )
+	*Listar detalles ficheros (ls)
+	*Presentar poco a poco (more)
+	*ls|more (todo a la vez)
+
+-Sustitucion de comandos
+	*Buscar fichero (find)
+	*Escribir en él (joe)
+	*joe $(find <<parametros>> file.txt) (todo a la vez)
+
+-Ejecución segundo plano
+	*comando1 & comando2 (Lanza los dos procesos a la vez, mezclandose sin orden)
+	*comando1 ; comando2 (Lanza primero uno y luego otro)
+	*comando1 & (ejecuta en segundo plano)
+	*jobs (vemos lo que se está ejecuntando en segundo plano)
+	bg / fg (intercambio de planos) 
+
+3 - Use  la  orden  find para  visualizar  los  nombres  y  los  tamaños  de  todos  los ficheros (sólo los ficheros) que cuelguen de su directorio de usuario y cuyo 
+tamaño sea inferior a 100 caracteres. Sólo deben aparecer los nombres de fichero (sin la ruta) y los tamaños. ->   
+
+find ./ -type f -size -100c -printf "%f %s\n"  2>/dev/null
+
+
+13.
+Usando las órdenes necesarias, cree un fichero llamado minfo, dentro del directorio Practica3, que contenga tres líneas: la primera con su nombrede usuario, la segunda con el terminal que está usando, y la última con el 
+nombre del grupo al que pertenece.
+
+whoami >ModuloI/Practica3/minfo
+tty >>ModuloI/Practica3/minfo
+id >>ModuloI/Practica3/minfo
+
+14.
+Visualice  los  ficheros  que  cuelgan  del  directorio  /etc y  que  hace  más  de 100  días  que  han  sido  modificados.  Los  errores  no  deben  aparecer  por  la pantalla.
+
+find /etc -mtime +100 2>/dev/null
+
+16.
+Genere un fichero en el directorio Practica3, llamando crons, que contenga el resultado de buscar todos los ficheros que cuelguen a partir del directorio /var  que  comiencen  por  cr.  Los  errores  también  deben  aparecer  en  el 
+fichero
+
+ find /var -name "cr*" -type f &>./ModuloI/Practica3/crons
+
+17 Visualice el número (sólo el número) de directorios que existan a partir de 
+su directorio de usuario.
+
+ls ./ -R|wc -w
+
+18. Genere un fichero, en el directorio Practica3, llamado usersort, que
+contenga los nombres de los usuarios conectados al sistema en ese
+instante, ordenados alfabéticamente en orden inverso
+
+who|ls -r >>/home/pablo.cordon113/ModuloI/Practica3/usersort/
+
+19. Con una sola orden, busque, a partir de su directorio de usuario, todos los ficheros que comiencen por s o c, y visualice el contenido de todos ellos pantalla a pantalla. (Use sustitución de comandos)
+
+ls|more $(find ./ -type f -name {s,c}*)
+
+
+20. Con una sola orden, copie cualquier fichero que esté en vuestro directorio de usuario, o dentro de cualquier subdirectorio, y que haya sido creado hace más de 15 días, al directorio Practica3. (Use sustitución de comandos)
+
+cp $(find ./ -type f -mtime 15) ./ModuloI/Practica3
+

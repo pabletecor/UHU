@@ -1,0 +1,225 @@
+--1
+create or replace FUNCTION facturacion (tf char, anio INT)
+
+RETURN FLOAT IS
+  factura FLOAT;
+  TT LLAMADA.DURACION%TYPE;
+  precio_fac NUMBER(3,2);
+  E1 EXCEPTION;
+  E2 EXCEPTION;
+BEGIN
+  SELECT SUM(L.DURACION) INTO TT FROM LLAMADA L WHERE L.TF_ORIGEN LIKE tf AND EXTRACT(YEAR FROM L.FECHA_HORA) = anio;
+  IF TT=0 THEN
+    RAISE E1;
+  END IF;
+  SELECT T1.COSTE INTO precio_fac FROM TARIFA T1 JOIN TELEFONO TF1 USING(TARIFA,COMPAÑIA) WHERE NUMERO = tf;
+  factura := (TT/60)*precio_fac;
+  IF(factura < 1)THEN
+    RAISE E2;
+  END IF;
+  RETURN ROUND(factura,2);
+EXCEPTION
+  WHEN E1 THEN
+    dbms_output.put_line('telefono no existe o no ha echo llamadas');
+  WHEN E2 THEN
+    dbms_output.put_line('Factura inferior a un euro');
+END facturacion;
+
+
+
+
+
+--2
+set serveroutput on;
+create or replace PROCEDURE llamadaFacturacion (anio INTEGER) is
+
+telefono char(9);
+  Cursor c_factura is 
+    SELECT distinct tf_origen 
+    FROM llamada
+    where EXTRACT(YEAR FROM FECHA_HORA) = anio;
+
+BEGIN
+  for v_factura in c_factura loop
+  telefono:=v_factura.tf_origen;
+    dbms_output.put_line(telefono||'   '||
+      facturacion(telefono,anio));
+  end loop;
+ 
+END LLAMADAFACTURACION;
+
+
+
+
+
+
+--3 
+
+set serveroutput on;
+create or replace PROCEDURE llamadas_cia(ncom compañia.nombre%TYPE, fecha DATE ) is
+
+duracion2 LLAMADA.DURACION%TYPE;
+tel char(9);
+nll integer;
+n100 integer;
+nllt integer;
+por integer;
+
+cursor c_compañia is
+    select t.NUMERO		--Se podria poner select *
+    from "COMPAÑIA" c inner join telefono t on t.compañia=c.CIF
+    where c.nombre=ncom;
+    
+cursor c_llamadas(tf llamada.tf_origen%type) is
+  select tf_destino, duracion
+  from llamada 
+  where to_char(fecha_hora,'dd/mm/yy')=fecha and tf=tf_origen;
+
+NO_NUMEROS EXCEPTION;  
+
+BEGIN
+dbms_output.put_line('Llamadas realizadas por los telefonos de la Compañia'||ncom);
+dbms_output.put_line('___________________________________________________________');
+dbms_output.put_line('Tlf Origen Num_LL Num_100 %');
+dbms_output.put_line('____________________________________________________________');
+nllt:=0;
+por:=0;
+    
+for v_compañia in c_compañia loop
+  tel:=v_compañia.numero;
+  nll:=0;
+  n100:=0;
+  for v_llamadas in c_llamadas(tel) loop
+    nll:=nll+1;
+    nllt:=nllt+1;
+    if v_llamadas.duracion>100 then
+      n100:=n100+1;
+    end if;
+  end loop;
+  if nll>0 then
+    por:=((n100/nll)*100);
+  end if;
+  dbms_output.put_line(v_compañia.numero||'   '||nll||'   '||n100||'   '||por);
+end loop;
+      
+IF nllt<1 THEN
+        RAISE NO_NUMEROS;
+      END IF;
+
+      EXCEPTION
+        WHEN NO_NUMEROS THEN
+          dbms_output.put_line('No hay llamadas en la fecha ' || fecha || ' en la BD');
+
+
+END llamadas_cia;
+
+
+
+--Examen miercoles
+
+--Dada una compañía por parámetro, mostrar para cada una de sus tarifas,
+--los datos de las líneas(número, nombre del cliente, puntos..) 
+--con esa tarifa en esa compañía. Y contar el total de las líneas 
+--y las líneas por cada tarifa
+
+set serveroutput
+
+create or replace PROCEDURE tarifas_cia(p_cif Compañia.cif%type) is
+
+--Declaro las variables
+nlineas integer;
+nlineast integer;
+
+--declaro los cursores
+
+cursor c_tarifas is
+
+select *
+from Compañia c INNER JOIN Tarifa t on c.cif = t.compañia
+where c.cif = p_cif;
+
+
+cursor c_datos (tar tarifa.tarifa%type) is
+
+select tl.numero, cl.nombre, tl.puntos
+from Telefono tl INNER JOIN Cliente cl on tl.cliente = cl.dni
+where tl.compañia = p_cif and tar = tl.tarifa;
+
+--declaro las excepciones (no piden)
+
+--empiezo el codigo
+
+begin
+
+for v_tarifas in c_tarifas loop
+nlineas = 0;
+dbms_output.put_line('Tarifas de la compañia ' ||v_tarifas.nombre);
+dbms_output.put_line('Tarifa: '|| v_tarifas.tarifa);
+dbms_output.put_line('Numero 	nombre		puntos');
+
+for v_datos in c_datos(v_tarifas.tarifa) loop
+
+nlineas := nlineas + 1;
+nlineast := nlineas + 1;
+dbms_output.put_line(v_datos.numero || ' ' || v_datos.nombre || '  ' || v_datos.puntos);
+
+end loop;
+
+dbms_output.put_line('Hay' || nlineas || ' lineas en esta tarifa');
+
+end loop;
+
+dbms_output.put_line('Hay ' || nlineast || ' lineas en total');
+
+end tarifas_cia;
+
+
+
+
+--Esquema procedure PL/SQL
+
+set serveroutput on;
+create or replace procedure NOMBRE_PROCEDURE (ATRIBUTOS) is
+
+--1º declaracion de variables
+
+(ej)
+	TEL CHAR(9);
+	NLL INTEGER;
+
+--2º declaracion de cursores
+
+cursor NOMBRE_CURSOR is
+	
+	select ... *	// si pones * selecionas todas las tuplas
+	from...
+	where... ;	//IMPORTANTE acabar con ;
+
+--3º declaracion de excepciones
+
+	NOMBRE_EXCEPCION exception;
+
+--4º comienzo de codigo
+
+BEGIN
+
+dbms_output.put.line ('blablabla' || VARIABLE o ATRIBUTO || 'blablabla');
+
+--5º bucle for con cursores e if
+
+for V_NOMBRE in NOMBRE_CURSOR loop
+
+	if X > Y then
+
+	end if;
+
+end loop;
+
+--6º programar excepciones
+
+exception
+
+when NOMBRE_EXCEPCION then
+	blablabla; 
+
+end NOMBRE_PROCEDURE;

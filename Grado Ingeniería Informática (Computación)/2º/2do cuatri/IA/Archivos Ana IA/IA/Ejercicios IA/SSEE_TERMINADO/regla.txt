@@ -1,0 +1,141 @@
+(deftemplate Pregunta
+(field P1) 
+(field P2)
+(field P3)
+(field P4)) 
+
+
+(defrule Respuesta11
+(declare(salience 5)) 
+(Pr1 verano) 
+(Pr2 playa)
+  => 
+  (printout t "Huelva (España): " crlf) 
+) 
+
+(defrule Respuesta12 
+(declare(salience 5))
+(Pr1 verano) 
+(Pr2 naturaleza)
+  => 
+  (printout t "Asturias (España): " crlf) 
+)
+(defrule Respuesta13 
+(declare(salience 5))
+(Pr1 verano) 
+(Pr2 ciudad)
+  => 
+  (printout t "Madrid (España): " crlf) 
+)
+(defrule Respuesta21
+(declare(salience 5))  
+(Pr1 invierno) 
+(Pr2 playa)
+  => 
+  (printout t "Leknes (Noruega): " crlf) 
+)
+
+(defrule Respuesta22 
+(declare(salience 5))
+(Pr1 invierno) 
+(Pr2 naturaleza)
+  => 
+  (printout t "Bergen (Noruega): " crlf) 
+)
+
+(defrule Respuesta23 
+(declare(salience 5))
+(Pr1 invierno) 
+(Pr2 ciudad) 
+  => 
+  (printout t "Oslo (Noruega): " crlf) 
+)
+
+
+
+(defrule Respuesta31
+(declare(salience 5)) 
+(Pr1 primavera) 
+(Pr2 playa)
+  => 
+  (printout t "Ishigaki (Japon): " crlf) 
+)
+
+
+
+(defrule Respuesta32 
+(declare(salience 5))
+(Pr1 primavera) 
+(Pr2 naturaleza)
+  => 
+  (printout t "Hitachi (Japon): " crlf) 
+)
+
+
+(defrule Respuesta33 
+(declare(salience 5)) 
+(Pr1 primavera) 
+(Pr2 ciudad)
+  => 
+  (printout t "Tokio (Japon): " crlf) 
+)
+
+
+(defrule Respuesta41 
+(declare(salience 5)) 
+(Pr1 otonyo) 
+(Pr2 playa)
+  => 
+  (printout t "Tanger (Marruecos): " crlf) 
+)
+
+(defrule Respuesta42 
+(declare(salience 5))  
+(Pr1 otonyo) 
+(Pr2 naturaleza)
+  => 
+  (printout t "Laayoune (Marruecos): " crlf) 
+)
+
+
+(defrule Respuesta43
+(declare(salience 5)) 
+(Pr1 otonyo) 
+(Pr2 ciudad) 
+  => 
+  (printout t "Rabat (Marruecos): " crlf) 
+)
+
+
+
+(defrule RespuestaDep1 
+(declare(salience 1)) 
+(Pr3 si)
+  => 
+  (printout t "Futbol, baloncesto, tenis" crlf) 
+)
+
+
+
+(defrule RespuestaDep2
+(declare(salience 1))
+(Pr3 no)
+  => 
+  (printout t "Senderismo, ir al teatro, ir al cine" crlf) 
+)
+
+
+(defrule RespuestaSal1
+(declare(salience 1)) 
+(Pr4 si) 
+  => 
+  (printout t "Discotecas: Mangu, Teatre, Ego" crlf) 
+)
+
+(defrule RespuestaSal2
+(declare(salience 1))
+(Pr4 no)
+  => 
+  (printout t "Pubs: Antiqua, Tabernita, Browns" crlf) 
+)
+

@@ -1,0 +1,66 @@
+# depslib dependency file v1.0
+1543867760 source:c:\users\usuario\desktop\pract1- mod\cliente.cpp
+	"CLIENTE.H"
+
+1543867760 c:\users\usuario\desktop\pract1- mod\cliente.h
+	"fecha.h"
+	<iostream>
+	<string.h>
+	<stdio.h>
+
+1543865750 c:\users\usuario\desktop\pract1- mod\fecha.h
+	<iostream>
+
+1543684288 source:c:\users\usuario\desktop\pract1- mod\contrato.cpp
+	"contrato.h"
+
+1543166688 c:\users\usuario\desktop\pract1- mod\contrato.h
+	"fecha.h"
+	<string.h>
+
+1543686522 source:c:\users\usuario\desktop\pract1- mod\contratomovil.cpp
+	"contratomovil.h"
+
+1542661440 c:\users\usuario\desktop\pract1- mod\contratomovil.h
+	"contrato.h"
+
+1543663766 source:c:\users\usuario\desktop\pract1- mod\contratotp.cpp
+	"contratotp.h"
+
+1543663704 c:\users\usuario\desktop\pract1- mod\contratotp.h
+	"contrato.h"
+
+1543867760 source:c:\users\usuario\desktop\pract1- mod\fecha.cpp
+	"fecha.h"
+
+1543915903 source:c:\users\usuario\desktop\pract1- mod\empresa.cpp
+	"empresa.h"
+	<windows.h>
+	<conio.h>
+
+1543919082 c:\users\usuario\desktop\pract1- mod\empresa.h
+	"fecha.h"
+	"cliente.h"
+	"contrato.h"
+	"contratotp.h"
+	"contratomovil.h"
+	"contratomovilduo.h"
+	<typeinfo>
+
+1543915655 c:\users\usuario\desktop\pract1- mod\contratomovilduo.h
+	"contrato.h"
+
+1543875494 source:c:\users\usuario\desktop\pract1- mod\main.cpp
+	<cstdlib>
+	<iostream>
+	<iomanip>
+	"fecha.h"
+	"CLIENTE.H"
+	"contrato.h"
+	"contratomovil.h"
+	"contratotp.h"
+	"empresa.h"
+
+1543915951 source:c:\users\usuario\desktop\pract1- mod\contratomovilduo.cpp
+	"contratomovilduo.h"
+

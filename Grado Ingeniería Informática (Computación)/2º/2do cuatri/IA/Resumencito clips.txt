@@ -1,0 +1,78 @@
+--Registros--
+
+Para evitar errores asociados a la utilización de vectores ordenados de características,
+normalmente resulta más recomendable definir registros (templates).
+Primero, definiremos el tipo de dato registro con (deftemplate). A continuación,
+utilizaremos (assert) para establecer uno o varios hechos del tipo definido.
+
+CLIPS> (deftemplate Persona
+(field Nombre)
+(field Edad)
+(field Sexo)
+(field EstadoCivil) )
+
+CLIPS> (assert (Persona
+(Nombre Juan)
+(Edad 30)
+(EstadoCivil casado)
+(Sexo V)))
+
+
+--multifield--
+
+Dentro de un template, si queremos que un campo sea un vector ordenado de
+características, usamos el identificador multifield, en vez de field:
+
+(deftemplate Persona
+(field Nombre)
+(field Edad)
+)
+
+(assert (Persona
+(Nombre Juan Carlos Cubero)
+(Edad 39))
+)
+
+Error: “The single field slot Nombre can only contain a single field”
+
+(deftemplate Persona
+(multifield Nombre)
+(field Edad)
+)
+(assert (Persona
+(Nombre Juan Carlos Cubero)
+(Edad 33))
+)
+
+Correcto!!
+
+
+--retract --
+(retract <índice de hecho>+ )
+
+CLIPS> (retract 1 2)
+
+Suprime los hechos con identificadores 1 y 2.
+
+CLIPS> (retract *)
+borra todos los hechos
+
+
+
+--Hechos y reglas en clips.--
+
+Los hechos en clips se pueden alterar en su contenido: eliminar, duplicar, modificar,
+insertar y consultar. Para ejemplificar estas operaciones sobre los hechos en
+clips, se hace uso de un menú de opciones, llamada a reglas y a patrones de hechos.
+
+Las reglas en clips tienen la siguiente sintaxis:
+SI condición_1, condición_2, condición_n se cumplen, ENTONCES
+hacer acción_1, acción_2, acción_n, un ejemplo sencillo es la regla EdadMayor:
+
+(defrule EdadMayor "imprime el nombre del alumno mayor o igual a 18 años"
+(alumno (nombre ?nom) (edad ?edad))(test (>= ?edad 18))
+=>
+(printout t "Es mayor de edad "?nom crlf)
+)
+
+

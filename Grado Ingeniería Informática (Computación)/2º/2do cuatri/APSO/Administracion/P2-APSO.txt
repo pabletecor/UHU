@@ -1,0 +1,71 @@
+RUTA ABSOLUTA
+
+/home/pablo.cordon113/ModuloI...
+
+COMANDOS - MANEJOS DE FICHEROS
+
+-chmod (permisos)
+
+r	w	x (lectura escritura ejecucion)
+0	0	0 (0)
+1	0	1 (5)
+
+-ln (link)
+
+COMANDOS - PROCESAMIENTO DE FICHEROS
+
+-wc (word count)
+
+-sort (ordenar) -> ordena dos ficheros de diferentes maneras
+
+-tail (ultimas lineas)
+
+-head (primeras lineas)
+
+-grep  (Get Regular Expression and Print) -> busca DENTRO de un fichero
+
+-find -> busca el NOMBRE (ruta) de un fichero
+
+COMANDOS - UNIDADES Y DISPODITIVOS
+
+-df (disk free)
+
+COMANDOS - MANEJO DE PROCESOS
+
+-ps (process status) -> Saca por pantalla todos los procesos que se estan ejecutando
+
+-kill (envio de señales)
+
+-top (procesos activos con refresco) -> un ps que se refresca cada x segundos
+
+COMANDOS - OBTENCION DE INFORMACION
+
+-who
+
+-whoami
+
+-tty
+
+-id
+
+COMANDOS - COMUNICACION
+
+-mesg
+
+-write
+
+7. Visualice, con la orden find, todos los directorios (sólo directorios) que cuelguen a partir de /var y cuyo nombre contenga la cadena ‘data’.
+
+find /var -type d -name *data* -> LA RUTA VA ANTES DE LOS PARAMETROS
+
+
+8. Visualice, con la orden find, todos los ficheros regulares (sólo ficheros) que cuelguen a partir de /etc y cuyo contenido haya sido modificado hace menos de 100 días.
+
+find /etc -type f -mtime -100
+
+
+10.Busque su nombre de usuario en los ficheros passwd y group que acaba
+de copiar
+
+ grep "pablo.cordon113" ./ModuloI/Practica2/
+

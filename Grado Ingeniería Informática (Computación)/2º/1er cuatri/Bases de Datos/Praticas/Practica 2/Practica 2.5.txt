@@ -1,0 +1,95 @@
+EI-21
+Obtener los nombres de todos los profesores junto con las asignaturas de las que son responsables
+
+SELECT P.nombre, A.nombre
+From EI.PROFESOR P LEFT OUTER JOIN EI.ASIGNATURA A ON P.nPr = A.prof
+
+
+EI - 22 
+Se desea saber cuántos despachos ocupan los profesores de la escuela
+
+SELECT COUNT (DISTINC despacho)
+FROM EI.PROFESOR;
+
+
+EI-23. Obtener el número de matriculados, la nota máxima, la mínima y la nota media de la asignatura
+‘Bases de Datos I’ en la convocatoria de septiembre de 2002
+
+SELECT COUNT (*) AS MATRICULADOS, MAX (sep) AS MAXIMA,
+	MIN (sep) AS Minima, AVG (sep) AS Media
+FROM EI.ASIGNATURA A INNER JOIN EI.MATRICULA M USING (idasig)
+WHERE A.nombre = 'Bases de Datos I' AND M.año = 2002;
+
+
+
+EI-24. Obtener, mediante una consulta correlacionada, los nombres de las asignaturas que tienen
+recomendadas 2 o más asignaturas.
+
+SELECT A.nombre
+FROM EI.ASIGNATURA A 
+WHERE (SELECT COUNT (*)
+	FROM EI.RECOMENDACIONES R
+	WHERE A.idasig = R.idasig) >=2;
+
+
+EI-25. Obtener, mediante una consulta correlacionada, los nombres de los profesores que tienen más
+antigüedad que, al menos, otros cinco profesores.
+
+SELECT P1.nombre
+FROM EI.PROFESOR P1
+WHERE(SELECT COUNT (*))
+	FROM EI.PROFESOR P2
+	WHERE P1.ant < p2.ant) >=5;
+
+
+EI-26. Para cada asignatura y año académico, mostrar el nombre de la asignatura, el año, el número de
+alumnos que se han presentado y la nota media obtenida en la convocatoria de febrero_junio
+
+SELECT A.Nombre, M.año, Count(feb_jun) AS presentados, AVG (feb_jun) AS media
+FROM EI.ASIGNATURA A INNER JOIN EI.MATRICULA M USING (idasig)
+GROUP BY A.nombre, M.año;
+
+EI-27. Obtener un listado con el nombre del alumno, el nombre de la asignatura y el número de veces que
+se ha matriculado en esa asignatura, pero sólo cuando se haya matriculado 3 o más años
+
+
+EI-28. Nombre de los alumnos que hayan sacado más de un 5 de nota media en junio del 2002
+
+SELECT A.nombre
+FROM EI.ALUMNO A INNER JOIN EI.MATRICULA M ON A.nAL = M.alum
+WHERE año = 2002
+GROUP BY A.nombre
+HAVING AVG (feb_jun) > 5;
+
+EI-29. Nombre de las asignaturas y número de alumnos matriculados de las asignaturas donde se hayan
+matriculado más alumnos en el año 2002
+
+SELECT A.nombre, COUNT (*)
+FROM EI.ASIGNATURA A INNER JOIN EI.MATRICULA M USING (idAsig)
+WHERE año = 2002 
+GROUP BY A.nombre
+HAVING COUNT (*) >= ALL (SELECT COUNT (*) 
+			 FROM EI.MATRICULA
+			 WHERE año = 2002
+			 GROUP BY idasig);
+
+
+EI- 30. Obtener el número total de alumnos que han suspendido en cada asignatura en junio de 2002,
+pero sólo de aquellas asignaturas en las que se hayan matriculado más de 50 alumnos
+
+
+
+MF-22. Mostrar la compañía con la que se realizaron más llamadas durante el día 16/10/06
+
+SELECT c.nombre
+FROM MF.llamada ll INNER JOIN mf.telefono t on ll.tf_origen = t.numero
+	inner join MF.compañia co on t.compañia = co.cif
+WHERE to_char (fecha_hora, 'dd/mm/yyyy') = '16/10/06'
+GROUP BY co.nombre
+HAVING COUNT (*) >= ALL (SELECT COUNT (*)
+			 FROM mf.llamada ll inner join MF.telefono t on ll.tf_origen = c.numero
+			 WHERE to_char (fecha_hora, 'dd/mm/yyyy') = '16/10/06'
+			 GROUP BY t.compañia);
+
+MF-24. Mostrar el nombre de cada cliente junto con coste total de las llamadas que realiza con cada compañia.
+El resultado debe mostrarse ordenado descendentemente por cliente y ascendentemente por compañia

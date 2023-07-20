@@ -1,0 +1,88 @@
+Turbo Assembler	 Version 3.2	    04/04/19 09:39:22	    Page 1
+Reside.asm
+
+
+
+      1	0000			     .model small
+      2	0000			     .code
+      3				     org 100h
+      4	0100			     programa_int:
+      5	0100  EB 2A 90		     jmp reside
+      6	0103  00		     contador_int db 0
+      7
+      8	0104			     Rutina_servicio PROC
+      9	0104  FA		     cli
+     10	0105  50		     push ax
+     11	0106  52		     push dx
+     12	0107  56		     push si
+     13	0108  57		     push di
+     14	0109  06		     push es
+     15	010A  2E: FE 06	0103r	     inc contador_int
+     16	010F  2E: 80 3E	0103r 02     cmp contador_int,2
+     17	0115  75 0E		     jne fin
+     18	0117  B4 00		     mov ah,0
+     19	0119  CD 16		     int 16h
+     20	011B  B0 03		     mov al,03h
+     21	011D  B4 00		     mov ah,0
+     22	011F  CD 10		     int 10h
+     23
+     24	0121  B4 4C		     mov ah,4ch
+     25	0123  CD 21		     int 21h
+     26	0125			     fin:
+     27	0125  07		     pop es
+     28	0126  5F		     pop di
+     29	0127  5E		     pop si
+     30	0128  5A		     pop dx
+     31	0129  58		     pop ax
+     32	012A  FB		     sti
+     33	012B  CF		     iret
+     34	012C			     endp
+     35
+     36	012C			     reside:
+     37	012C  BA 0104r		     mov dx,offset Rutina_servicio
+     38	012F  B8 0000		     mov ax,0
+     39	0132  8E C0		     mov es,ax
+     40	0134  BE 0070		     mov si,1ch*4
+     41	0137  FA		     cli
+     42	0138  26: 89 14		     mov es:[si],dx
+     43	013B  26: 8C 4C	02	     mov es:[si+2],cs
+     44	013F  FB		     sti
+     45	0140  BA 012Cr		     mov dx,offset reside
+     46	0143  CD 27		     int 27h
+     47				     end programa_int
+Turbo Assembler	 Version 3.2	    04/04/19 09:39:22	    Page 2
+Symbol Table
+
+
+
+
+Symbol Name			  Type	 Value
+
+??DATE				  Text	 "04/04/19"
+??FILENAME			  Text	 "Reside  "
+??TIME				  Text	 "09:39:22"
+??VERSION			  Number 0314
+@32BIT				  Text	 0
+@CODE				  Text	 _TEXT
+@CODESIZE			  Text	 0
+@CPU				  Text	 0101H
+@CURSEG				  Text	 _TEXT
+@DATA				  Text	 DGROUP
+@DATASIZE			  Text	 0
+@FILENAME			  Text	 RESIDE
+@INTERFACE			  Text	 00H
+@MODEL				  Text	 2
+@STACK				  Text	 DGROUP
+@WORDSIZE			  Text	 2
+CONTADOR_INT			  Byte	 _TEXT:0103
+FIN				  Near	 _TEXT:0125
+PROGRAMA_INT			  Near	 _TEXT:0100
+RESIDE				  Near	 _TEXT:012C
+RUTINA_SERVICIO			  Near	 _TEXT:0104
+
+Groups & Segments		  Bit Size Align  Combine Class
+
+DGROUP				  Group
+  _DATA				  16  0000 Word	  Public  DATA
+_TEXT				  16  0145 Word	  Public  CODE
+

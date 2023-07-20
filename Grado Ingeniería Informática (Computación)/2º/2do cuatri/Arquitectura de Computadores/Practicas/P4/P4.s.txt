@@ -1,0 +1,20 @@
+.data 0
+
+.global a
+	a: .double 7,5,0,2,2,0,4,1,8,0
+
+.global b
+	b: .double 0
+
+.global atop
+	atop: .double 11
+
+	.text 256
+
+start:  ld f2,a
+	add r1,r0,atop
+	
+loop:   ld f0,0(r1)	;CARGA EL ELEMENTO DEL VECTOR EMPEZANDO POR EL ULTIMO
+seq f4,f0,R0    ;Comparacion de registros (set if equals) (No se si puedo comparar asi)
+bnez f4,loop
+b+1

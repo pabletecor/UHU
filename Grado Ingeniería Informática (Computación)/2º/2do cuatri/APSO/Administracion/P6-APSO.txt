@@ -1,0 +1,349 @@
+--Scripts/Guiones--
+
+--Condicionales
+
+-if [expr]; then	(si ponemos el then debajo no hace falta el ;)
+...
+
+else
+...
+
+elif (else if)
+...
+
+fi
+
+es lo mismo que
+
+-if test expr then
+
+-expr -> evalúa una expresión (p.ej expr 1+1 = 2 , )
+
+-case val in
+	opc1)
+	...;;
+	opc2)
+	...;;
+	*)
+	...;;
+esac
+
+--Iterativas
+
+-for
+
+for i in 8 10 2 5 pepe
+do
+	echo "esta es la iteracion para $i"
+done
+
+
+for i in $(find ./ -name "e*")
+do
+	echo "el fichero $i comienza por e"
+done
+
+
+for ((i=1; i<10;i++))
+do
+	echo "esta es la iteracion para $i"
+done
+
+
+for i in {1..10}
+do
+	echo "esta es la iteracion numero $i"
+done
+
+for i in {1..10..2} (se incrementa de 2 en 2)
+do
+	echo "esta es la iteracion numero $i"
+done
+
+
+-while
+
+NUM=1
+while [$NUM -le 5] (-le es <=)
+do
+	echo "NUM vale $NUM"
+	NUM=$(($$NUM+1))
+done
+
+
+-until
+
+NUM=1
+while [$NUM -gt 5] (-gt es >=)
+do
+	echo "NUM vale $NUM"
+	NUM=$(($$NUM+1))
+done
+
+
+break
+
+
+Ejemplos estructuras de control 
+
+/home/so/jose.ponce/ejemplos_script
+
+
+3.
+Dentro  del  directorio Practica6 cree  un script llamado primeros. 
+Dicho script deberá  tomar  dos  parámetros. 
+El  primer  parámetro  deberá ser  un  directorio,  y  el  segundo  un  número.  El 
+script deberá  realizar  las siguientes acciones.
+Visualizará  los  primeros  n  ficheros  del  listado  del  directorio  pasado 
+como  primer  parámetro,  donde  n  se  corresponde  con  el  segundo 
+parámetro.
+
+#!/bin/bash
+
+contador=0
+for i in $(ls $1 )
+do
+        contador=$(($contador+1))
+if [ $contador -le $2 ]
+then
+        echo "El fichero numero $contador es $i"
+else
+
+break
+        fi
+done
+
+
+4.
+Dentro del  directorio Practica6 cree un script llamado nprimeros,  que tome  dos  parámetros.  
+El  primer  parámetro  deberá  ser  un  directorio,  y  el segundo un número. El script
+deberá realizar las siguientes acciones:Si el primer parámetro no es un directorio, se dará un mensaje de 
+error y finalizará el script Si  el  primer  parámetro  es  un  directorio  válido,  visualizará  los 
+primeros   n   ficheros   del   listado   del   directorio   (donde   n   se corresponde con el segundo parámetro) 
+con el siguiente mensaje: El nombre del fichero i es <<nombre del fichero>>. Donde i es el orden del fichero en el listado.
+NOTA:  El  número  i  se  implementa  con  un  contador  que  va incrementándose   en   un   bucle   controlado   por   los   ficheros   a 
+visualizar.
+
+#!/bin/bash
+
+if  test -d $1
+then
+contador=0
+for i in $(ls $1)
+do
+        contador=$(($contador+1))
+if [ $contador -le $2 ]
+then
+        echo "El nombre del fichero $contador es << $i >>"
+else
+        break
+
+   fi
+
+
+
+done
+
+else 
+echo "No es un fichero valido"
+
+fi
+
+5.
+En  el directorio Practica6 cree  un script llamado miron.
+Este script debe recoger un único parámetro y realizar las siguientes acciones.
+Si  no  se  pasa  un  parámetro  se  visualizará  un  mensaje  de  error  y 
+finalizará. Si el parámetro es un fichero ordinario debe visualizar su contenido con el comando more.
+
+if [ $# -lt 1  ]
+then
+echo "ERROR: El numero de parametros es incorrecto "
+elif  test -f $1
+then
+more $1
+elif  test -d $1
+then
+ls -la  $1
+else echo "errorsito"
+
+fi
+
+
+
+7.
+Cree,  dentro  de Practica6,  un script llamado selector que  puede tomar  una  secuencia  de  parámetros  de  cualquier  longitud.  Para  cada parámetro se comprobará si se corresponde con un fichero del directorio de 
+trabajo,  y  de  ser  así  lo  copia al directorio largos si  su  nombre  tiene  más de  6  caracteres  y  al  directorio cortos,  si  su  nombre  tiene  seis  o  menos caracteres.
+
+
+#!/bin/bash
+
+for i in $*
+do
+
+ case $i in
+  ????*) cp $i /home/pablo.cordon113/ModuloI/Practica6/largos	//Las interrogaciones quieren decir caracteres obligatorios
+  ;;
+  *) cp $i /home/pablo.cordon113/ModuloI/Practica6/largos
+  ;;
+  esac
+ done
+
+
+8.Cree un script en el directorio Practica6 llamado replica, que tome un parámetro y haga lo siguiente:Pedirá que se introduzca un número por el teclado 
+Creará  tantos  directorios  anidados,  con  el  nombre  que  se  ha  pasado como primer parámetro, como indique el número leído.Ejemplo:  se  ejecuta replicap1 ,y  el  número  que  se  lee  es  3.  Esto 
+creará  un  directorio  p1,  que  tiene  dentro  un  directorio  p1,  que  asu  vez tiene dentro un directorio p1.
+NOTA: 
+se monta un bucle while, que itera tantas veces como indique el contador, y dentro se va creando la ruta de los subdirectorios sobre una variable, que es la usada para crear los subdirectorios.
+
+#!/bin/bash
+
+
+direccion=./ModuloI/Practica6/
+echo -n  "Introduce un numero por teclado:"
+read NUM
+clear
+
+while [ $NUM -gt 0 ]
+do
+        mkdir ./$1
+        chmod 777 ./$1
+        cd./$1
+        NUM=$(($NUM-1))
+done
+
+
+10. Cree un script llamado gente, que visualice la lista de usuarios
+conectados al sistema. Dicha lista sólo contendrá los nombres de los
+usuarios y sólo aparecerán los nombres una vez, es decir, no se repetirán,
+con el siguiente mensaje:
+<<Nombre de usuario>> está conectado a <<Nombre de Host>>
+
+EJEMPLO DE USO COMANDO CUT 
+
+-Sacar el primer campo en pantalla de un fichero delimitado por un espacio:
+
+cut -d " " -f 1 fichero.txt
+
+-Sacar el primer y tercer campo en pantalla en un fichero delimitado por espacios:
+
+cut -d " " -f 1,3 fichero.txt
+
+SOLUCION:
+
+for i in $(who|sort|cut -d " " -f 1|uniq)
+do
+echo $i " esta conectado a "
+done
+
+
+11. Dentro del directorio Practica6, cree un script llamado argumentos que visualice los siguientes mensajes:
+
+Se han pasado ‘n’ argumentos, y son:
+El argumento 1 vale ‘valor del argumento’
+El argumento 2 vale ‘valor del argumento’
+El argumento 3 vale ‘valor del argumento’
+………..
+
+Donde n es el número de argumentos pasados y el valor de cada
+argumento deberá aparecer entrecomillado.
+
+NOTAS:con
+Se deberá hacer un for controlado por los parámetros pasados.
+El número correspondiente al argumento se implementa con un
+contador que se va incrementando en el bucle.
+
+
+  
+#!/bin/bash
+
+echo "Se han pasado $# argumentos y son: "
+contador=1
+for i in $*
+do
+echo "El argumento $contador vale '<< $i >>'"
+        contador=$(($contador+1))
+
+done
+
+
+12. En el directorio Practica6, cree un script llamado verdire. Este script
+deberá mostrar de forma continuada el contenido de un directorio. Este
+script podrá recoger un parámetro.
+Si se ha pasado el parámetro y se corresponde a un directorio válido,
+mostrará el contenido de dicho directorio cada segundo de forma
+continuada.
+Si el parámetro pasado no se corresponde con un directorio válido, dará
+un mensaje de error y finalizará.
+Si no se pasa ningún parámetro, se deberá visualizar el directorio de
+trabajo.
+El script no finalizará nunca, es decir, se deberá ‘romper su ejecución’
+con CTRL+C cuando se quiera finalizar.
+
+#!/bin/bash
+
+contador=1
+
+while [ $contador -eq 1 ]
+do
+
+if [ $# -eq 0 ]
+then
+ls ./
+echo " "
+fi
+
+if test -d $1
+then
+ls $1
+echo " "
+else
+
+echo "ERROR: El directorio no es valido"
+echo " "
+fi
+
+sleep 1
+
+done
+
+
+
+13. Cree un script llamado busca en el directorio Practica6. En dicho script
+no se podrá usar la orden find y realizará lo siguiente:
+Comprueba que se han pasado dos parámetros, y de no ser así da un
+mensaje de error.
+Comprueba que el primero de los parámetros pasados es un directorio, y
+de no ser así da un mensaje de error.
+Visualiza los nombres y el tamaño de todos los directorios que cuelgan
+directamente del que se ha pasado como primer parámetro, y que
+contienen en alguna posición de su nombre la cadena pasada como
+segundo parámetro.
+
+NOTA: Hay que hacer un for controlado por los ficheros o directorios
+que cumplen el patrón de la cadena pasada como segundo parámetro, y
+dentro controlar con un if si son directorios y visualizarlos con la opción de ls que da el tamaño.
+
+if [ $# -eq 2 ]
+then
+
+	if [ test -d $1 ]
+	then
+		for i in ls -R -s *$2*
+		do
+		
+				
+		$i
+
+		else
+		echo "ERROR: EL PRIMER PARAMETRO NO ES UN DIRECTORIO"	
+		fi	
+	done	
+
+else
+echo "ERROR EN EL NUMERO DE PARAMETROS"
+
+fi
+
+
+
+

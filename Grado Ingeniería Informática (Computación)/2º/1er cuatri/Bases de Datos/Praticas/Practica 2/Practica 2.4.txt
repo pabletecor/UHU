@@ -1,0 +1,46 @@
+EI-19
+
+SELECT A.nombre
+From EI.ALUMNO A //Alias que tenemos que poner al alumno en la subconsulta
+WHERE EXISTS (SELECT * 
+	      FROM EI.MATRICULA M
+	      	
+
+EI-20
+
+SELECT nombre, despacho
+FROM EI.PROFESOR P1
+WHERE despacho NOT IN (SELECT despacho
+			FROM EI.PROFESOR P2
+			WHERE P1.nPr <> P2.nPr		// <> es el operador !=
+
+
+MF-17
+
+SELECT c.NOMBRE
+FROM mf.CLIENTE c
+WHERE EXISTS (SELECT *
+		FROM MF.TELEFONO tf INNER JOIN MF.LLAMADA ll ON ll.tf_origen = tf.numero WHERE tf.CLIENTE = c.DNI AND TO_CHAR (ll.FECHA_HORA, 'dd/mm/yyyy' = '16/10/06')
+
+MF-18
+
+SELECT c.nombre
+FROM mf.cliente c
+WHERE EXISTS (SELECT *
+		FROM mf.teledono tf INNER JOIN MF.LLAMADA ll ON ll.tf_origen = tf.numero WHERE tf.CLIENTE = c.DNI AND ll.duracion <'90');
+
+MF-19
+
+SELECT T.numero, C.nombre
+FROM MF.CLIENTE C INNER JOIN MF.TELEFONO T ON C.dni = t.CLIENTE
+	INNER JOIN MF.COMPAÑIA CO ON CO.CIF = T.COMPAÑIA
+WHERE CO.nombre = 'kietostar' AND
+	NOT EXISTS (SELECT*
+		    FROM MF.LLAMADA L
+		    WHERE T.numero = L.tf_origen AND
+			EXTRACT (month FROM L.fecha_hora) = 9);
+
+MF-20
+
+SELECT * 
+F

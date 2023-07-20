@@ -1,0 +1,4 @@
+(deffacts Destino
+(Pregunta  (P1 nil) (P2 nil) (P3 nil) (P4 nil))  
+) 
+

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Pract1- MOD" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Pract1- MOD" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Pract1- MOD" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="CLIENTE.CPP" />
+		<Unit filename="CLIENTE.H" />
+		<Unit filename="contrato.cpp" />
+		<Unit filename="contrato.h" />
+		<Unit filename="contratomovil.cpp" />
+		<Unit filename="contratomovil.h" />
+		<Unit filename="contratomovilduo.cpp" />
+		<Unit filename="contratomovilduo.h" />
+		<Unit filename="contratotp.cpp" />
+		<Unit filename="contratotp.h" />
+		<Unit filename="empresa.cpp" />
+		<Unit filename="empresa.h" />
+		<Unit filename="fecha.cpp" />
+		<Unit filename="fecha.h" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

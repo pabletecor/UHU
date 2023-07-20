@@ -1,0 +1,6446 @@
+<html xmlns:rem="http://rem.lsi.us.es">
+<head>
+<title>Proyecto Multicines Al-Ándalus</title>
+<style type="text/css">
+<!--
+            body {
+                font-family: arial,verdana;
+                font-size: 10pt;
+                text-align: justify
+            }
+
+            h1 { font-size: 14pt }
+            h2 { font-size: 13pt }
+            h3 { font-size: 12pt }
+            h4 { font-size: 11pt }
+            h5 { font-size: 10pt }
+            h6 { font-size: 10pt }
+
+			h1.cover { font-size: 20pt }
+
+            tr { font-size: 10pt }
+    
+	        table { border: black solid; }
+		    table.TOC { border: none; }
+		    ul {
+				margin-top:    0pt;
+				margin-bottom: 0pt;
+				margin-left:   12pt
+			}
+        -->
+</style>
+</head>
+<body>
+<center>
+<h3>Proyecto Multicines Al-Ándalus</h3>
+<p />
+<h1 class="cover">Documento de Requisitos del Sistema</h1>
+<p />
+<h3>Versión 1.0</h3>
+<h3>Fecha 10/04/2018</h3>
+<p />
+<h3>Preparado para:</h3>
+<a href="#ORG-0001"><p>
+Multicines Al-Ándalus</p>
+</a>
+<p />
+<h3>Preparado por:</h3>
+<a href="#ORG-0002"><p>
+Abstergo</p>
+</a>
+<p />
+</center>
+<hr size="4" />
+<p />
+<h1 align="left">Índice</h1>
+<p />
+<table border="0" width="100%" class="TOC">
+<tr>
+<th align="left" valign="top">1 </th>
+<th align="left" valign="top" width="100%" colspan="3">
+<a href="#SEC-0001">
+Introducción</a>
+</th>
+</tr>
+<tr>
+<th align="left" valign="top">2 </th>
+<th align="left" valign="top" width="100%" colspan="3">
+<a href="#SEC-0002">
+Participantes en el proyecto</a>
+</th>
+</tr>
+<tr><td />
+<td align="left" valign="top">2.1 </td>
+<td align="left" valign="top" width="100%" colspan="2">
+<a href="#SEC-0003">
+Organizaciones</a>
+</td>
+</tr>
+<tr><td />
+<td align="left" valign="top">2.2 </td>
+<td align="left" valign="top" width="100%" colspan="2">
+<a href="#SEC-0004">
+Personal</a>
+</td>
+</tr>
+<tr><td /><td />
+<td albgn="left" valign="top">2.2.1 </td>
+<td align="left" valign="top" width="100%">
+<a href="#SEC-0005">
+Usuarios</a>
+</td>
+</tr>
+<tr><td /><td />
+<td albgn="left" valign="top">2.2.2 </td>
+<td align="left" valign="top" width="100%">
+<a href="#SEC-0006">
+Analistas</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">3 </th>
+<th align="left" valign="top" width="100%" colspan="3">
+<a href="#SEC-0007">
+Objetivos del sistema</a>
+</th>
+</tr>
+<tr>
+<th align="left" valign="top">4 </th>
+<th align="left" valign="top" width="100%" colspan="3">
+<a href="#SEC-0008">
+Catálago de requisitos del sistema</a>
+</th>
+</tr>
+<tr><td />
+<td align="left" valign="top">4.1 </td>
+<td align="left" valign="top" width="100%" colspan="2">
+<a href="#SEC-0009">
+Requisitos de información</a>
+</td>
+</tr>
+<tr><td />
+<td align="left" valign="top">4.2 </td>
+<td align="left" valign="top" width="100%" colspan="2">
+<a href="#SEC-0010">
+Requisitos funcionales</a>
+</td>
+</tr>
+<tr><td /><td />
+<td albgn="left" valign="top">4.2.1 </td>
+<td align="left" valign="top" width="100%">
+<a href="#SEC-0011">
+Diagramas de casos de uso</a>
+</td>
+</tr>
+<tr><td /><td />
+<td albgn="left" valign="top">4.2.2 </td>
+<td align="left" valign="top" width="100%">
+<a href="#SEC-0012">
+Definición de actores</a>
+</td>
+</tr>
+<tr><td /><td />
+<td albgn="left" valign="top">4.2.3 </td>
+<td align="left" valign="top" width="100%">
+<a href="#SEC-0013">
+Casos de uso del sistema (especificación textual detallada) </a>
+</td>
+</tr>
+<tr><td />
+<td align="left" valign="top">4.3 </td>
+<td align="left" valign="top" width="100%" colspan="2">
+<a href="#SEC-0014">
+Requisitos no funcionales</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">5 </th>
+<th align="left" valign="top" width="100%" colspan="3">
+<a href="#SEC-0015">
+Matrices de rastreabilidad</a>
+</th>
+</tr>
+<tr><td />
+<td align="left" valign="top">5.1 </td>
+<td align="left" valign="top" width="100%" colspan="2">
+<a href="#SEC-0016">
+Matriz Requisitos (información y Funcionales)-Objetivos</a>
+</td>
+</tr>
+<tr><td />
+<td align="left" valign="top">5.2 </td>
+<td align="left" valign="top" width="100%" colspan="2">
+<a href="#SEC-0017">
+Matriz Casos de Uso/Requisitos de Información</a>
+</td>
+</tr>
+<tr><td />
+<td align="left" valign="top">5.3 </td>
+<td align="left" valign="top" width="100%" colspan="2">
+<a href="#SEC-0018">
+Matriz Casos de Uso/Casos de Uso</a>
+</td>
+</tr>
+</table>
+<p />
+<hr size="4" />
+<p />
+<a name="SEC-0001" />
+<h1 align="left">1 
+Introducción</h1><a name="PRG-0001" />
+<p>
+La empresa multicines Ál-Ándalus ha llevado a cabo nuestra contratación con el fin de asentar las nuevas tecnologías del cine en Huelva. Consiguiendo así que los onubenses puedan disfrutar del cine convencional, 3D, 4D y con una resolución 4K.
+<br />
+<br />Sin embargo, el software que la empresa ha estado usando está obsoleto para administrar su base de datos. Consideramos oportuna la implementación del software en el lenguaje Java solventando así la compatibilidad con la misma. Por lo tanto, el desarrollo debe comenzar desde cero dado que no se puede reutilizar código.
+<br />
+<br />Tras una reunión con la empresa todos los requisitos se han validado a excepción de los relacionados con la venta de entradas por Internet. De todos ellos, los más prioritarios son los referentes a la venta en taquilla.
+<br />
+<br />
+</p>
+<a name="SEC-0002" />
+<h1 align="left">2 
+Participantes en el proyecto</h1><a name="SEC-0003" />
+<h2 align="left">2.1 
+Organizaciones</h2><a name="ORG-0001" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Organización</th>
+<th align="left" valign="top" width="100%">
+Multicines Al-Ándalus</th>
+</tr>
+<tr>
+<th align="left" valign="top">Dirección</th>
+<td align="left" valign="top" colspan="1">Ronda Exterior Zona Sur</td>
+</tr>
+<tr>
+<th align="left" valign="top">Teléfono</th>
+<td align="left" valign="top" colspan="1">667 57 28 65</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fax</th>
+<td align="left" valign="top" colspan="1">-</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="ORG-0002" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Organización</th>
+<th align="left" valign="top" width="100%">
+Abstergo</th>
+</tr>
+<tr>
+<th align="left" valign="top">Dirección</th>
+<td align="left" valign="top" colspan="1">Montreal </td>
+</tr>
+<tr>
+<th align="left" valign="top">Teléfono</th>
+<td align="left" valign="top" colspan="1">916 40 46 00</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fax</th>
+<td align="left" valign="top" colspan="1">-</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="SEC-0004" />
+<h2 align="left">2.2 
+Personal</h2><a name="SEC-0005" />
+<h3 align="left">2.2.1 
+Usuarios</h3><a name="STK-0005" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Participante</th>
+<th align="left" valign="top" width="100%">
+María Pilar Polo Almohano</th>
+</tr>
+<tr><th align="left" valign="top">Organización</th>
+<td align="left" valign="top">
+<a href="#ORG-0001">
+Multicines Al-Ándalus</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Rol</th>
+<td align="left" valign="top" colspan="1">Directora Multicines Al-Ándalus</td>
+</tr>
+<tr><th align="left" valign="top" nowrap="1">Es desarrollador</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr><th align="left" valign="top">Es cliente</th>
+<td align="left" valign="top">Sí</td>
+</tr>
+<tr><th align="left" valign="top">Es usuario</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="SEC-0006" />
+<h3 align="left">2.2.2 
+Analistas</h3><a name="STK-0001" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Participante</th>
+<th align="left" valign="top" width="100%">
+Raúl Castilla Bravo</th>
+</tr>
+<tr><th align="left" valign="top">Organización</th>
+<td align="left" valign="top">
+<a href="#ORG-0002">
+Abstergo</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Rol</th>
+<td align="left" valign="top" colspan="1">Analista</td>
+</tr>
+<tr><th align="left" valign="top" nowrap="1">Es desarrollador</th>
+<td align="left" valign="top">Sí</td>
+</tr>
+<tr><th align="left" valign="top">Es cliente</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr><th align="left" valign="top">Es usuario</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="STK-0002" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Participante</th>
+<th align="left" valign="top" width="100%">
+Fco. Javier Aquino Piosa</th>
+</tr>
+<tr><th align="left" valign="top">Organización</th>
+<td align="left" valign="top">
+<a href="#ORG-0002">
+Abstergo</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Rol</th>
+<td align="left" valign="top" colspan="1">Analista</td>
+</tr>
+<tr><th align="left" valign="top" nowrap="1">Es desarrollador</th>
+<td align="left" valign="top">Sí</td>
+</tr>
+<tr><th align="left" valign="top">Es cliente</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr><th align="left" valign="top">Es usuario</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="STK-0003" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Participante</th>
+<th align="left" valign="top" width="100%">
+Daniel Pérez Rodríguez</th>
+</tr>
+<tr><th align="left" valign="top">Organización</th>
+<td align="left" valign="top">
+<a href="#ORG-0002">
+Abstergo</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Rol</th>
+<td align="left" valign="top" colspan="1">Analista</td>
+</tr>
+<tr><th align="left" valign="top" nowrap="1">Es desarrollador</th>
+<td align="left" valign="top">Sí</td>
+</tr>
+<tr><th align="left" valign="top">Es cliente</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr><th align="left" valign="top">Es usuario</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="STK-0004" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">Participante</th>
+<th align="left" valign="top" width="100%">
+José Manuel Rodríquez Camacho</th>
+</tr>
+<tr><th align="left" valign="top">Organización</th>
+<td align="left" valign="top">
+<a href="#ORG-0002">
+Abstergo</a>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Rol</th>
+<td align="left" valign="top" colspan="1">Analista</td>
+</tr>
+<tr><th align="left" valign="top" nowrap="1">Es desarrollador</th>
+<td align="left" valign="top">Sí</td>
+</tr>
+<tr><th align="left" valign="top">Es cliente</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr><th align="left" valign="top">Es usuario</th>
+<td align="left" valign="top">No</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="SEC-0007" />
+<h1 align="left">3 
+Objetivos del sistema</h1><a name="OBJ-0001" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">OBJ-0001</th>
+<th align="left" valign="top" width="100%">
+Gestionar las actividades de la gerencia</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 10/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+gestionar las actividades correspondientes a la gerencia del cine.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Subobjetivos</th>
+<td align="left" valign="top">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="OBJ-0002" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">OBJ-0002</th>
+<th align="left" valign="top" width="100%">
+Gestionar las actividades de la taquilla</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 10/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+gestionar las actividades de la taquilla del cine.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Subobjetivos</th>
+<td align="left" valign="top">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="OBJ-0003" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">OBJ-0003</th>
+<th align="left" valign="top" width="100%">
+Gestionar la venta de entradas por Internet</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 10/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+gestionar la venta de entradas por Internet del cine.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Subobjetivos</th>
+<td align="left" valign="top">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="SEC-0008" />
+<h1 align="left">4 
+Catálago de requisitos del sistema</h1><a name="SEC-0009" />
+<h2 align="left">4.1 
+Requisitos de información</h2><a name="IRQ-0001" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">IRQ-0001</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Información de entrada.</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0 
+			( 24/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0003">
+                                [OBJ-0003] 
+Gestionar la venta de entradas por Internet</a>
+</li>
+<li>
+<a href="#OBJ-0002">
+                                [OBJ-0002] 
+Gestionar las actividades de la taquilla</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá almacenar la información correspondiente a 
+<em>
+las entradas del cine.
+				</em>
+    En concreto:
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Datos específicos</th>
+<td colspan="2" align="left" valign="top">
+<ul>
+<li>
+<a name="DAT-0018" />
+Precio.
+<br />
+</li>
+<li>
+<a name="DAT-0059" />
+Fecha</li>
+<li>
+<a name="DAT-0060" />
+Película</li>
+<li>
+<a name="DAT-0061" />
+Sesión</li>
+<li>
+<a name="DAT-0078" />
+Fila</li>
+<li>
+<a name="DAT-0079" />
+Columna</li>
+<li>
+<a name="DAT-0080" />
+Identificador</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Tiempo de vida</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Ocurrencias simultáneas</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">hay presión</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="IRQ-0003" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">IRQ-0003</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Información de reserva</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0 
+			( 24/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0003">
+                                [OBJ-0003] 
+Gestionar la venta de entradas por Internet</a>
+</li>
+<li>
+<a href="#OBJ-0002">
+                                [OBJ-0002] 
+Gestionar las actividades de la taquilla</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá almacenar la información correspondiente a 
+<em>
+la reserva de entradas.
+				</em>
+    En concreto:
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Datos específicos</th>
+<td colspan="2" align="left" valign="top">
+<ul>
+<li>
+<a name="DAT-0025" />
+Identificador
+								(<em>
+Es el mismo que el identificador de entrada.</em>)
+							</li>
+<li>
+<a name="DAT-0027" />
+DNI cliente</li>
+<li>
+<a name="DAT-0069" />
+Nombre cliente</li>
+<li>
+<a name="DAT-0081" />
+Precio
+<br />
+</li>
+<li>
+<a name="DAT-0082" />
+Fecha de proyección
+<br />
+</li>
+<li>
+<a name="DAT-0083" />
+Película</li>
+<li>
+<a name="DAT-0084" />
+Sesión</li>
+<li>
+<a name="DAT-0085" />
+Fila</li>
+<li>
+<a name="DAT-0086" />
+Columna</li>
+<li>
+<a name="DAT-0087" />
+Fecha de reserva</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Tiempo de vida</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Ocurrencias simultáneas</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="CRQ-0001" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">CRQ-0001</th>
+<th align="left" valign="top" width="100%">
+Fecha límite de reserva</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 24/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#OBJ-0002">
+                                [OBJ-0002] 
+Gestionar las actividades de la taquilla</a>
+</li>
+<li>
+<a href="#OBJ-0003">
+                                [OBJ-0003] 
+Gestionar la venta de entradas por Internet</a>
+</li>
+<li>
+<a href="#IRQ-0003">
+                                [IRQ-0003] 
+Información de reserva</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+	La información almacenada por el sistema deberá satisfacer la siguiente restricción: 
+<em>
+no se pueden hacer reservas a dos días o menos de la proyección de la película.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="IRQ-0004" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">IRQ-0004</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Información de película</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0 
+			( 24/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0002">
+                                [OBJ-0002] 
+Gestionar las actividades de la taquilla</a>
+</li>
+<li>
+<a href="#OBJ-0003">
+                                [OBJ-0003] 
+Gestionar la venta de entradas por Internet</a>
+</li>
+<li>
+<a href="#OBJ-0001">
+                                [OBJ-0001] 
+Gestionar las actividades de la gerencia</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá almacenar la información correspondiente a 
+<em>
+Se detalla todas la información relevante sobre el cortometraje.
+				</em>
+    En concreto:
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Datos específicos</th>
+<td colspan="2" align="left" valign="top">
+<ul>
+<li>
+<a name="DAT-0029" />
+Título original</li>
+<li>
+<a name="DAT-0030" />
+Director</li>
+<li>
+<a name="DAT-0031" />
+Intérpretes
+<br />
+</li>
+<li>
+<a name="DAT-0032" />
+Duración</li>
+<li>
+<a name="DAT-0033" />
+Género</li>
+<li>
+<a name="DAT-0034" />
+Fecha de estreno</li>
+<li>
+<a name="DAT-0035" />
+Calificación</li>
+<li>
+<a name="DAT-0036" />
+Resumen</li>
+<li>
+<a name="DAT-0037" />
+Idioma</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Tiempo de vida</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Ocurrencias simultáneas</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">hay presión</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="IRQ-0005" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">IRQ-0005</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Información de sala</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0 
+			( 24/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0002">
+                                [OBJ-0002] 
+Gestionar las actividades de la taquilla</a>
+</li>
+<li>
+<a href="#OBJ-0001">
+                                [OBJ-0001] 
+Gestionar las actividades de la gerencia</a>
+</li>
+<li>
+<a href="#OBJ-0003">
+                                [OBJ-0003] 
+Gestionar la venta de entradas por Internet</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá almacenar la información correspondiente a 
+<em>
+Muestra las características de la salas existentes.
+				</em>
+    En concreto:
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Datos específicos</th>
+<td colspan="2" align="left" valign="top">
+<ul>
+<li>
+<a name="DAT-0038" />
+Identificador 
+<br />
+</li>
+<li>
+<a name="DAT-0053" />
+Estado de la sala
+								(<em>
+Disponible, En mantenimiento</em>)
+							</li>
+<li>
+<a name="DAT-0054" />
+Tipo de proyección que soporta
+								(<em>
+Digital, 3D, 4K</em>)
+							</li>
+<li>
+<a name="DAT-0055" />
+Tamaño en filas por columnas </li>
+</ul>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Tiempo de vida</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Ocurrencias simultáneas</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">importante</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">hay presión</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="IRQ-0006" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">IRQ-0006</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Informacion de la Proyección</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0 
+			( 24/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0002">
+                                [OBJ-0002] 
+Gestionar las actividades de la taquilla</a>
+</li>
+<li>
+<a href="#OBJ-0003">
+                                [OBJ-0003] 
+Gestionar la venta de entradas por Internet</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá almacenar la información correspondiente a 
+<em>
+la proyección de las peliculas.
+				</em>
+    En concreto:
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Datos específicos</th>
+<td colspan="2" align="left" valign="top">
+<ul>
+<li>
+<a name="DAT-0044" />
+Pelicula</li>
+<li>
+<a name="DAT-0047" />
+Sala</li>
+<li>
+<a name="DAT-0048" />
+Tipo de Proyeccion
+								(<em>
+3D, 4D,...</em>)
+							</li>
+<li>
+<a name="DAT-0072" />
+Fecha</li>
+<li>
+<a name="DAT-0073" />
+Hora</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Tiempo de vida</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Ocurrencias simultáneas</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+No asignar una pelicula a una sala que no este preparada para su proyección</td>
+</tr>
+</table>
+<p />
+<a name="CRQ-0002" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">CRQ-0002</th>
+<th align="left" valign="top" width="100%">
+Asignación de películas</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 24/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">
+<li>
+<a href="#IRQ-0006">
+                                [IRQ-0006] 
+Informacion de la Proyección</a>
+</li>
+<li>
+<a href="#OBJ-0001">
+                                [OBJ-0001] 
+Gestionar las actividades de la gerencia</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+	La información almacenada por el sistema deberá satisfacer la siguiente restricción: 
+<em>
+No asignar una película con cierto formato (4D, 3D o 4K) a una sala que no soporta dicho formato</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="IRQ-0007" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">IRQ-0007</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Información de empleados</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0 
+			( 24/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0001">
+                                [OBJ-0001] 
+Gestionar las actividades de la gerencia</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá almacenar la información correspondiente a 
+<em>
+los datos de los empleados.
+				</em>
+    En concreto:
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Datos específicos</th>
+<td colspan="2" align="left" valign="top">
+<ul>
+<li>
+<a name="DAT-0050" />
+Nombre</li>
+<li>
+<a name="DAT-0051" />
+DNI</li>
+<li>
+<a name="DAT-0052" />
+Contraseña de acceso al sistema</li>
+<li>
+<a name="DAT-0075" />
+Login</li>
+<li>
+<a name="DAT-0077" />
+Cargo
+<br />
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Tiempo de vida</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Ocurrencias simultáneas</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="IRQ-0008" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">IRQ-0008</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Información de butaca</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0 
+			( 27/05/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá almacenar la información correspondiente a 
+<em>
+<font color="red"><b>PD</b></font>.
+				</em>
+    En concreto:
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Datos específicos</th>
+<td colspan="2" align="left" valign="top">
+<ul>
+<li>
+<a name="DAT-0062" />
+Fila</li>
+<li>
+<a name="DAT-0063" />
+Columna</li>
+<li>
+<a name="DAT-0065" />
+Estado físico</li>
+<li>
+<a name="DAT-0066" />
+Disponibilidad
+								(<em>
+disponible, ocupado, reservado</em>)
+							</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Tiempo de vida</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th rowspan="2" align="left" valign="top">Ocurrencias simultáneas</th>
+<th align="left" valign="top">Medio</th>
+<th align="left" valign="top">Máximo</th>
+</tr>
+<tr>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+<td>
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="SEC-0010" />
+<h2 align="left">4.2 
+Requisitos funcionales</h2><a name="SEC-0011" />
+<h3 align="left">4.2.1 
+Diagramas de casos de uso</h3><a name="GRF-0001" />
+<p align="center">
+<img src=".\Casos de usos\Gerente\gerente.png" />
+</p>
+<p align="center">
+<b>Figura 1</b>:
+                
+Diagrama de casos de uso de gerente</p>
+<a name="GRF-0002" />
+<p align="center">
+<img src=".\Casos de usos\PersonalTaquilla\PersonalTaquilla.png" />
+</p>
+<p align="center">
+<b>Figura 2</b>:
+                
+Diagrama de casos de uso de Personal de Taquilla</p>
+<a name="GRF-0003" />
+<p align="center">
+<img src=".\Casos de usos\ClienteInternet\ClienteInternet.png" />
+</p>
+<p align="center">
+<b>Figura 3</b>:
+                
+Diagrama de casos de uso de Cliente Internet</p>
+<a name="SEC-0012" />
+<h3 align="left">4.2.2 
+Definición de actores</h3><a name="ACT-0002" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">ACT-0002</th>
+<th align="left" valign="top" width="100%">
+Personal de Taquillas</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 10/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    Este actor representa
+<em>al personal de taquillas</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="ACT-0003" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">ACT-0003</th>
+<th align="left" valign="top" width="100%">
+Gerente</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 10/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    Este actor representa
+<em>al gerente</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="ACT-0004" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">ACT-0004</th>
+<th align="left" valign="top" width="100%">
+Cliente vía Internet</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 10/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    Este actor representa
+<em>a los clientes de Internet</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="SEC-0013" />
+<h3 align="left">4.2.3 
+Casos de uso del sistema (especificación textual detallada) </h3><a name="UC-0001" />
+<table border="1" width="100%">
+<tr bgcolor="#c0c0c0">
+<th align="left" valign="top">UC-0001</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Reservar entradas</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0
+            ( 10/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<ul>
+<li>
+<a href="#STK-0001">
+Raúl Castilla Bravo</a>
+<br />
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#IRQ-0006">
+                                [IRQ-0006] 
+Informacion de la Proyección</a>
+</li>
+<li>
+<a href="#IRQ-0003">
+                                [IRQ-0003] 
+Información de reserva</a>
+</li>
+<li>
+<a href="#OBJ-0003">
+                                [OBJ-0003] 
+Gestionar la venta de entradas por Internet</a>
+</li>
+<li>
+<a href="#OBJ-0002">
+                                [OBJ-0002] 
+Gestionar las actividades de la taquilla</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá comportarse tal como se describe en el siguiente
+
+    caso de uso cuando
+<em>
+el cliente desee reservar una entrada.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Precondición</th>
+<td align="left" valign="top" colspan="2">
+El Personal de Taquilla debe estar identificado en el sistema.</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="7">Secuencia normal</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<a name="STP-0004" />
+<td align="center" valign="top">1</td>
+<td>El
+     
+    sistema<em>
+pide: nombre, DNI, sala y sesión.</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0057" />
+<td align="center" valign="top">2</td>
+<td>El actor<a href="&#xA;            #ACT-0002">
+Personal de Taquillas
+        (ACT-0002)
+    </a>
+<em>
+introduce los datos en el sistema</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0005" />
+<td align="center" valign="top">3</td>
+<td>El
+     
+    sistema<em>
+propone un grupo de butacas contiguas de las disponibles en ese momento.</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0058" />
+<td align="center" valign="top">4</td>
+<td>El actor<a href="&#xA;            #ACT-0002">
+Personal de Taquillas
+        (ACT-0002)
+    </a>
+<em>
+selecciona las butacas a reservar de entre todas las disponibles
+<br />
+</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0006" />
+<td align="center" valign="top">5</td>
+<td>El
+     
+    sistema<em>
+marca la butaca como reservada y asigna automáticamente un identificador para la reserva.</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0007" />
+<td align="center" valign="top">6</td>
+<td>El actor<a href="&#xA;            #ACT-0002">
+Personal de Taquillas
+        (ACT-0002)
+    </a>
+<em>
+comunica el identificador al cliente.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Postcondición</th>
+<td align="left" valign="top" colspan="2">
+La butaca seleccionada pasa a estar reservada.</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Excepciones</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Rendimiento</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Tiempo máximo</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Frecuencia esperada</th>
+<td colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">importante</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">puede esperar</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">validado</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="UC-0020" />
+<table border="1" width="100%">
+<tr bgcolor="#c0c0c0">
+<th align="left" valign="top">UC-0020</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Entregar Reservas</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0
+            ( 29/05/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<ul>
+<li>
+<a href="#STK-0004">
+José Manuel Rodríquez Camacho</a>
+<br />
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0002">
+                                [OBJ-0002] 
+Gestionar las actividades de la taquilla</a>
+</li>
+<li>
+<a href="#IRQ-0003">
+                                [IRQ-0003] 
+Información de reserva</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá comportarse tal como se describe en el siguiente
+
+    caso de uso cuando
+<em>
+el Personal de Taquilla seleccione la opcion de Recogida de Entradas Previamente Reservadas</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Precondición</th>
+<td align="left" valign="top" colspan="2">
+El Personal de Taquilla deberá identificarse con su login en el sistema y un cliente físico ha de pasarse a recoger sus entradas previamente reservadas.</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="7">Secuencia normal</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<a name="STP-0092" />
+<td align="center" valign="top">1</td>
+<td>El actor<a href="&#xA;            #ACT-0002">
+Personal de Taquillas
+        (ACT-0002)
+    </a>
+<em>
+solicitará al cliente su DNI.</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0093" />
+<td align="center" valign="top">2</td>
+<td>El
+     
+    sistema<em>
+buscará la reserva que posee dicho Cliente en base al DNI que este le ha proporcionado.
+<br />
+</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0094" />
+<td align="center" valign="top">3</td>
+<td>El
+     
+    sistema<em>
+imprimirá las entradas asociadas a la reserva del Cliente.
+<br />
+</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0095" />
+<td align="center" valign="top">4</td>
+<td>El
+     
+    sistema<em>
+marcará la/s butaca/s correspodiente a la/las entradas como ocupadas.</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0096" />
+<td align="center" valign="top">5</td>
+<td>El actor<a href="&#xA;            #ACT-0002">
+Personal de Taquillas
+        (ACT-0002)
+    </a>
+<em>
+realizara el cobro al Cliente.</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0097" />
+<td align="center" valign="top">6</td>
+<td>El actor<a href="&#xA;            #ACT-0002">
+Personal de Taquillas
+        (ACT-0002)
+    </a>
+<em>
+entregará las entradas imprimidas al Cliente</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Postcondición</th>
+<td align="left" valign="top" colspan="2">
+Las butacas quedarán marcadas como vendidas.</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Excepciones</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Rendimiento</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Tiempo máximo</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Frecuencia esperada</th>
+<td colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">importante</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">puede esperar</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">validado</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="UC-0019" />
+<table border="1" width="100%">
+<tr bgcolor="#c0c0c0">
+<th align="left" valign="top">UC-0019</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Vender entradas.</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0
+            ( 29/05/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<ul>
+<li>
+<a href="#STK-0002">
+Fco. Javier Aquino Piosa</a>
+<br />
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0002">
+                                [OBJ-0002] 
+Gestionar las actividades de la taquilla</a>
+</li>
+<li>
+<a href="#IRQ-0001">
+                                [IRQ-0001] 
+Información de entrada.</a>
+</li>
+<li>
+<a href="#OBJ-0003">
+                                [OBJ-0003] 
+Gestionar la venta de entradas por Internet</a>
+</li>
+<li>
+<a href="#IRQ-0006">
+                                [IRQ-0006] 
+Informacion de la Proyección</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá comportarse tal como se describe en el siguiente
+
+    caso de uso cuando
+<em>
+el personal de taquillas haya seleccionado la opción vender entradas.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Precondición</th>
+<td align="left" valign="top" colspan="2">
+El personal de la taquilla debe haberse identificado.</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="5">Secuencia normal</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<a name="STP-0088" />
+<td align="center" valign="top">1</td>
+<td>El
+     
+    sistema<em>
+solicita un asiento.</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0089" />
+<td align="center" valign="top">2</td>
+<td>El actor<a href="&#xA;            #ACT-0002">
+Personal de Taquillas
+        (ACT-0002)
+    </a>
+<em>
+selecciona el asiento deseado por el cliente.</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0090" />
+<td align="center" valign="top">3</td>
+<td>El
+     
+    sistema<em>
+guarda los cambios (venta efectuada y asientos seleccionados) en la Base de Datos.</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0091" />
+<td align="center" valign="top">4</td>
+<td>El
+     
+    sistema<em>
+muestra un mensaje donde se hace saber que la asignación se ha llevado a cabo.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Postcondición</th>
+<td align="left" valign="top" colspan="2">
+El sistema imprimirá las entradas.Además, las butacas se marcarán como vendidas.</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="2">Excepciones</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<a name="STX-0003" />
+<td align="center" valign="top">2</td>
+<td>Si<em>
+la butaca seleccionada ya habia sido elegida por otro cliente con anterioridad,
+                            </em>el
+     
+    sistema<em>
+mostrará un mensaje donde se indique el error producido</em>,
+                            a continuación este caso de uso
+                             
+                            <em>queda sin efecto</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Rendimiento</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Tiempo máximo</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Frecuencia esperada</th>
+<td colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">importante</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">hay presión</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="UC-0021" />
+<table border="1" width="100%">
+<tr bgcolor="#c0c0c0">
+<th align="left" valign="top">UC-0021</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Anular reserva</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0
+            ( 29/05/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<ul>
+<li>
+<a href="#STK-0003">
+Daniel Pérez Rodríguez</a>
+<br />
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0002">
+                                [OBJ-0002] 
+Gestionar las actividades de la taquilla</a>
+</li>
+<li>
+<a href="#OBJ-0003">
+                                [OBJ-0003] 
+Gestionar la venta de entradas por Internet</a>
+</li>
+<li>
+<a href="#IRQ-0003">
+                                [IRQ-0003] 
+Información de reserva</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá comportarse tal como se describe en el siguiente
+
+    caso de uso cuando
+<em>
+se desee anular una reserva.</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Precondición</th>
+<td align="left" valign="top" colspan="2">
+Se requerirá haber reservado una entrada previamente</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="7">Secuencia normal</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<a name="STP-0098" />
+<td align="center" valign="top">1</td>
+<td>El
+     
+    sistema<em>
+solicita el identificador de la entrada</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0099" />
+<td align="center" valign="top">2</td>
+<td>El actor<a href="&#xA;            #ACT-0002">
+Personal de Taquillas
+        (ACT-0002)
+    </a>
+<em>
+introduce el identificador proporcionado por el cliente</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0100" />
+<td align="center" valign="top">3</td>
+<td>El
+     
+    sistema<em>
+comprueba que el identificador suministrado por el taquillero es válido</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0101" />
+<td align="center" valign="top">4</td>
+<td>El
+     
+    sistema<em>
+mostrará la entrada reservada por pantalla y solicitará confirmar la anulación</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0102" />
+<td align="center" valign="top">5</td>
+<td>El actor<a href="&#xA;            #ACT-0002">
+Personal de Taquillas
+        (ACT-0002)
+    </a>
+<em>
+confirma la anulación de la reserva</em>
+</td>
+</tr>
+<tr>
+<a name="STP-0103" />
+<td align="center" valign="top">6</td>
+<td>El
+     
+    sistema<em>
+eliminará la reserva y cambiará el estado de la butaca a disponible</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Postcondición</th>
+<td align="left" valign="top" colspan="2">
+El sistema volverá a mostrar la butaca como disponible</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Excepciones</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Rendimiento</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Tiempo máximo</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Frecuencia esperada</th>
+<td colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="UC-0005" />
+<table border="1" width="100%">
+<tr bgcolor="#c0c0c0">
+<th align="left" valign="top">UC-0005</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Consultas de racaudación</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0
+            ( 17/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0001">
+                                [OBJ-0001] 
+Gestionar las actividades de la gerencia</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá comportarse tal como se describe en el siguiente
+
+    caso de uso cuando
+<em>
+<font color="red"><b>PD</b></font>
+</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Precondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="2">Secuencia normal</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Postcondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Excepciones</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Rendimiento</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Tiempo máximo</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Frecuencia esperada</th>
+<td colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="UC-0006" />
+<table border="1" width="100%">
+<tr bgcolor="#c0c0c0">
+<th align="left" valign="top">UC-0006</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Reservar todas las entradas</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0
+            ( 17/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0002">
+                                [OBJ-0002] 
+Gestionar las actividades de la taquilla</a>
+</li>
+<li>
+<a href="#IRQ-0006">
+                                [IRQ-0006] 
+Informacion de la Proyección</a>
+</li>
+<li>
+<a href="#OBJ-0003">
+                                [OBJ-0003] 
+Gestionar la venta de entradas por Internet</a>
+</li>
+<li>
+<a href="#UC-0001">
+                                [UC-0001] 
+Reservar entradas</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá comportarse tal como se describe en el siguiente
+
+    caso de uso cuando
+<em>
+<font color="red"><b>PD</b></font>
+</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Precondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="2">Secuencia normal</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Postcondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Excepciones</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Rendimiento</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Tiempo máximo</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Frecuencia esperada</th>
+<td colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="UC-0007" />
+<table border="1" width="100%">
+<tr bgcolor="#c0c0c0">
+<th align="left" valign="top">UC-0007</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Anular todas las reservas</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0
+            ( 17/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#IRQ-0003">
+                                [IRQ-0003] 
+Información de reserva</a>
+</li>
+<li>
+<a href="#OBJ-0002">
+                                [OBJ-0002] 
+Gestionar las actividades de la taquilla</a>
+</li>
+<li>
+<a href="#UC-0021">
+                                [UC-0021] 
+Anular reserva</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá comportarse tal como se describe en el siguiente
+
+    caso de uso cuando
+<em>
+<font color="red"><b>PD</b></font>
+</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Precondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="2">Secuencia normal</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Postcondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Excepciones</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Rendimiento</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Tiempo máximo</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Frecuencia esperada</th>
+<td colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="UC-0008" />
+<table border="1" width="100%">
+<tr bgcolor="#c0c0c0">
+<th align="left" valign="top">UC-0008</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Identificarse</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0
+            ( 17/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0001">
+                                [OBJ-0001] 
+Gestionar las actividades de la gerencia</a>
+</li>
+<li>
+<a href="#IRQ-0007">
+                                [IRQ-0007] 
+Información de empleados</a>
+</li>
+<li>
+<a href="#OBJ-0002">
+                                [OBJ-0002] 
+Gestionar las actividades de la taquilla</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá comportarse tal como se describe en el siguiente
+
+    caso de uso cuando
+<em>
+<font color="red"><b>PD</b></font>
+</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Precondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="2">Secuencia normal</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Postcondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Excepciones</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Rendimiento</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Tiempo máximo</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Frecuencia esperada</th>
+<td colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="UC-0009" />
+<table border="1" width="100%">
+<tr bgcolor="#c0c0c0">
+<th align="left" valign="top">UC-0009</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Añadir salas</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0
+            ( 17/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0001">
+                                [OBJ-0001] 
+Gestionar las actividades de la gerencia</a>
+</li>
+<li>
+<a href="#IRQ-0005">
+                                [IRQ-0005] 
+Información de sala</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá comportarse tal como se describe en el siguiente
+
+    caso de uso cuando
+<em>
+<font color="red"><b>PD</b></font>
+</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Precondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="2">Secuencia normal</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Postcondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Excepciones</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Rendimiento</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Tiempo máximo</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Frecuencia esperada</th>
+<td colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="UC-0010" />
+<table border="1" width="100%">
+<tr bgcolor="#c0c0c0">
+<th align="left" valign="top">UC-0010</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Actualizar salas</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0
+            ( 17/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0001">
+                                [OBJ-0001] 
+Gestionar las actividades de la gerencia</a>
+</li>
+<li>
+<a href="#IRQ-0005">
+                                [IRQ-0005] 
+Información de sala</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá comportarse tal como se describe en el siguiente
+
+    caso de uso cuando
+<em>
+<font color="red"><b>PD</b></font>
+</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Precondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="2">Secuencia normal</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Postcondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Excepciones</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Rendimiento</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Tiempo máximo</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Frecuencia esperada</th>
+<td colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="UC-0011" />
+<table border="1" width="100%">
+<tr bgcolor="#c0c0c0">
+<th align="left" valign="top">UC-0011</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Introducir película</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0
+            ( 17/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0001">
+                                [OBJ-0001] 
+Gestionar las actividades de la gerencia</a>
+</li>
+<li>
+<a href="#IRQ-0004">
+                                [IRQ-0004] 
+Información de película</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá comportarse tal como se describe en el siguiente
+
+    caso de uso cuando
+<em>
+<font color="red"><b>PD</b></font>
+</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Precondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="2">Secuencia normal</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Postcondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Excepciones</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Rendimiento</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Tiempo máximo</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Frecuencia esperada</th>
+<td colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="UC-0012" />
+<table border="1" width="100%">
+<tr bgcolor="#c0c0c0">
+<th align="left" valign="top">UC-0012</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Solicitar por película</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0
+            ( 17/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0001">
+                                [OBJ-0001] 
+Gestionar las actividades de la gerencia</a>
+</li>
+<li>
+<a href="#UC-0016">
+                                [UC-0016] 
+Informe económico</a>
+</li>
+<li>
+<a href="#IRQ-0004">
+                                [IRQ-0004] 
+Información de película</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá comportarse tal como se describe en el siguiente
+
+    caso de uso cuando
+<em>
+<font color="red"><b>PD</b></font>
+</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Precondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="2">Secuencia normal</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Postcondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Excepciones</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Rendimiento</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Tiempo máximo</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Frecuencia esperada</th>
+<td colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="UC-0013" />
+<table border="1" width="100%">
+<tr bgcolor="#c0c0c0">
+<th align="left" valign="top">UC-0013</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Solicitar por mes</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0
+            ( 17/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#UC-0016">
+                                [UC-0016] 
+Informe económico</a>
+</li>
+<li>
+<a href="#OBJ-0001">
+                                [OBJ-0001] 
+Gestionar las actividades de la gerencia</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá comportarse tal como se describe en el siguiente
+
+    caso de uso cuando
+<em>
+<font color="red"><b>PD</b></font>
+</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Precondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="2">Secuencia normal</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Postcondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Excepciones</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Rendimiento</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Tiempo máximo</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Frecuencia esperada</th>
+<td colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="UC-0014" />
+<table border="1" width="100%">
+<tr bgcolor="#c0c0c0">
+<th align="left" valign="top">UC-0014</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Solicitar por año</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0
+            ( 17/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0001">
+                                [OBJ-0001] 
+Gestionar las actividades de la gerencia</a>
+</li>
+<li>
+<a href="#UC-0016">
+                                [UC-0016] 
+Informe económico</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá comportarse tal como se describe en el siguiente
+
+    caso de uso cuando
+<em>
+<font color="red"><b>PD</b></font>
+</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Precondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="2">Secuencia normal</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Postcondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Excepciones</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Rendimiento</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Tiempo máximo</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Frecuencia esperada</th>
+<td colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="UC-0016" />
+<table border="1" width="100%">
+<tr bgcolor="#c0c0c0">
+<th align="left" valign="top">UC-0016</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Informe económico</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0
+            ( 17/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0001">
+                                [OBJ-0001] 
+Gestionar las actividades de la gerencia</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá comportarse tal como se describe en el siguiente
+
+    caso de uso cuando
+<em>
+<font color="red"><b>PD</b></font>
+</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Precondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="2">Secuencia normal</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Postcondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Excepciones</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Rendimiento</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Tiempo máximo</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Frecuencia esperada</th>
+<td colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="UC-0017" />
+<table border="1" width="100%">
+<tr bgcolor="#c0c0c0">
+<th align="left" valign="top">UC-0017</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Consultar Graficamente las Ubicaciones Disponibles</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0
+            ( 17/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0003">
+                                [OBJ-0003] 
+Gestionar la venta de entradas por Internet</a>
+</li>
+<li>
+<a href="#IRQ-0005">
+                                [IRQ-0005] 
+Información de sala</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá comportarse tal como se describe en el siguiente
+
+    caso de uso cuando
+<em>
+<font color="red"><b>PD</b></font>
+</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Precondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="2">Secuencia normal</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Postcondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Excepciones</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Rendimiento</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Tiempo máximo</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Frecuencia esperada</th>
+<td colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="UC-0018" />
+<table border="1" width="100%">
+<tr bgcolor="#c0c0c0">
+<th align="left" valign="top">UC-0018</th>
+<th align="left" valign="top" width="100%" colspan="2">
+Realizar Compras a Traves de Internet</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top" colspan="2">1.0
+            ( 17/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="2">
+<li>
+<a href="#OBJ-0003">
+                                [OBJ-0003] 
+Gestionar la venta de entradas por Internet</a>
+</li>
+<li>
+<a href="#IRQ-0001">
+                                [IRQ-0001] 
+Información de entrada.</a>
+</li>
+<li>
+<a href="#IRQ-0006">
+                                [IRQ-0006] 
+Informacion de la Proyección</a>
+</li>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td colspan="2">
+    El sistema deberá comportarse tal como se describe en el siguiente
+
+    caso de uso cuando
+<em>
+<font color="red"><b>PD</b></font>
+</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Precondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="2">Secuencia normal</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Postcondición</th>
+<td align="left" valign="top" colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Excepciones</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Acción</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top" rowspan="&#xA;                            2&#xA;                        ">Rendimiento</th>
+<th align="center" valign="top">Paso</th>
+<th align="left" valign="top" width="100%">Tiempo máximo</th>
+</tr>
+<tr>
+<td align="center" valign="top">
+                        -
+                    </td>
+<td>
+                        -
+                    </td>
+</tr>
+<tr>
+<th align="left" valign="top">Frecuencia esperada</th>
+<td colspan="2">
+<font color="red"><b>PD</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="2">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="2">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="2">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="2">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="2">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="SEC-0014" />
+<h2 align="left">4.3 
+Requisitos no funcionales</h2><a name="NFR-0001" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">NFR-0001</th>
+<th align="left" valign="top" width="100%">
+Tiempo máximo de respuesta</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 24/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+responder al usuario en menos de 5 segundos</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="NFR-0002" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">NFR-0002</th>
+<th align="left" valign="top" width="100%">
+Usuarios concurrentes</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 24/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+soportar hasta 150 usuarios simultáneos</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="NFR-0003" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">NFR-0003</th>
+<th align="left" valign="top" width="100%">
+Seguridad del sistema</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 24/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+bloquear una operación en caso de amenaza o brecha en el sistema</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="NFR-0004" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">NFR-0004</th>
+<th align="left" valign="top" width="100%">
+Requisitos web</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 24/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+funcionar con navegadores web HTML 5 y JavaScript</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="NFR-0005" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">NFR-0005</th>
+<th align="left" valign="top" width="100%">
+Disponibilidad del sistema</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 24/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+tener una disponibilidad del 99'5 % al año</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="NFR-0006" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">NFR-0006</th>
+<th align="left" valign="top" width="100%">
+Idiomas</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 24/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+mostrar la información en idiomas latinos y anglosajones</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="NFR-0007" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">NFR-0007</th>
+<th align="left" valign="top" width="100%">
+Entorno de explotación</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 24/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+funcionar al menos con 1 Gb de RAM, 5 Gb de disco duro y una versión de Windows 98 o superior </em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="NFR-0008" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">NFR-0008</th>
+<th align="left" valign="top" width="100%">
+Ayuda en línea</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 24/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+contar con mensajes de ayuda en línea</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="NFR-0009" />
+<table border="1" width="100%">
+<tr bgcolor="#c8e0e0">
+<th align="left" valign="top">NFR-0009</th>
+<th align="left" valign="top" width="100%">
+Copias de seguridad</th>
+</tr>
+<tr>
+<th align="left" valign="top">Versión</th>
+<td align="left" valign="top">1.0 
+			( 24/04/2018 )
+        </td>
+</tr>
+<tr>
+<th align="left" valign="top">Autores</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Fuentes</th>
+<td align="left" valign="top" colspan="1">
+<font color="red"><b>?</b></font>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Dependencias</th>
+<td align="left" valign="top" colspan="1">Ninguno</td>
+</tr>
+<tr>
+<th align="left" valign="top">Descripción</th>
+<td align="left" valign="top">
+    El sistema deberá 
+<em>
+guardar copias de seguridad de los datos almacenados</em>
+</td>
+</tr>
+<tr>
+<th align="left" valign="top">Importancia</th>
+<td align="left" valign="top" colspan="1">vital</td>
+</tr>
+<tr>
+<th align="left" valign="top">Urgencia</th>
+<td align="left" valign="top" colspan="1">inmediatamente</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estado</th>
+<td align="left" valign="top" colspan="1">en construcción</td>
+</tr>
+<tr>
+<th align="left" valign="top">Estabilidad</th>
+<td align="left" valign="top" colspan="1">alta</td>
+</tr>
+<tr>
+<th align="left" valign="top">Comentarios</th>
+<td align="left" valign="top" colspan="1">
+Ninguno</td>
+</tr>
+</table>
+<p />
+<a name="SEC-0015" />
+<h1 align="left">5 
+Matrices de rastreabilidad</h1><a name="SEC-0016" />
+<h2 align="left">5.1 
+Matriz Requisitos (información y Funcionales)-Objetivos</h2><a name="TRM-0001" />
+<table border="1" width="100%">
+<tr>
+<th bgcolor="#c8e0e0">TRM-0001</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#OBJ-0001">OBJ-0001</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#OBJ-0002">OBJ-0002</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#OBJ-0003">OBJ-0003</a>
+</th>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#IRQ-0001">IRQ-0001</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#IRQ-0003">IRQ-0003</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#IRQ-0004">IRQ-0004</a>
+</th>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#IRQ-0005">IRQ-0005</a>
+</th>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#IRQ-0006">IRQ-0006</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#IRQ-0007">IRQ-0007</a>
+</th>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#IRQ-0008">IRQ-0008</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+</table>
+<p align="center">
+<b>Matriz de rastreabilidad</b>: 
+        
+Matriz requisitos Información y Funcionales - Objetivos</p>
+<a name="SEC-0017" />
+<h2 align="left">5.2 
+Matriz Casos de Uso/Requisitos de Información</h2><a name="TRM-0002" />
+<table border="1" width="100%">
+<tr>
+<th bgcolor="#c8e0e0">TRM-0002</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#IRQ-0001">IRQ-0001</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#IRQ-0003">IRQ-0003</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#IRQ-0004">IRQ-0004</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#IRQ-0005">IRQ-0005</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#IRQ-0006">IRQ-0006</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#IRQ-0007">IRQ-0007</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#IRQ-0008">IRQ-0008</a>
+</th>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0001">UC-0001</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0005">UC-0005</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0006">UC-0006</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0007">UC-0007</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0008">UC-0008</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0009">UC-0009</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0010">UC-0010</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0011">UC-0011</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0012">UC-0012</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0013">UC-0013</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0014">UC-0014</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0016">UC-0016</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0017">UC-0017</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0018">UC-0018</a>
+</th>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0019">UC-0019</a>
+</th>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0020">UC-0020</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0021">UC-0021</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+</table>
+<p align="center">
+<b>Matriz de rastreabilidad</b>: 
+        
+Matriz Casos de Uso - Requisitos Información</p>
+<a name="SEC-0018" />
+<h2 align="left">5.3 
+Matriz Casos de Uso/Casos de Uso</h2><a name="TRM-0003" />
+<table border="1" width="100%">
+<tr>
+<th bgcolor="#c8e0e0">TRM-0003</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0001">UC-0001</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0005">UC-0005</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0006">UC-0006</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0007">UC-0007</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0008">UC-0008</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0009">UC-0009</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0010">UC-0010</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0011">UC-0011</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0012">UC-0012</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0013">UC-0013</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0014">UC-0014</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0016">UC-0016</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0017">UC-0017</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0018">UC-0018</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0019">UC-0019</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0020">UC-0020</a>
+</th>
+<th align="center" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0021">UC-0021</a>
+</th>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0001">UC-0001</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0005">UC-0005</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0006">UC-0006</a>
+</th>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0007">UC-0007</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0008">UC-0008</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0009">UC-0009</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0010">UC-0010</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0011">UC-0011</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0012">UC-0012</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0013">UC-0013</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0014">UC-0014</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+<img src="&#xA;C:\Program Files (x86)\REM 1.2.2 (pre-release)\xml\default\trace.gif&#xA;" />
+</td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0016">UC-0016</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0017">UC-0017</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0018">UC-0018</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0019">UC-0019</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0020">UC-0020</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+<tr>
+<th align="left" valign="top" bgcolor="#c8e0e0">
+<a href="&#xA;						#UC-0021">UC-0021</a>
+</th>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+<td align="center" valign="top">
+				-
+            </td>
+</tr>
+</table>
+<p align="center">
+<b>Matriz de rastreabilidad</b>: 
+        
+Matriz Casos de uso - Casos de uso</p>
+</body>
+</html>

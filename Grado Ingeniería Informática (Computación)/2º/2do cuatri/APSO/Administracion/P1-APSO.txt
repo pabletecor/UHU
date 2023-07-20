@@ -1,0 +1,89 @@
+--PRACTICA 1 APSO--
+
+-LOS COMODINES "*" Y "?"
+
+El comodín “*” hace referencia cualquier cadena de caracteres en el nombre del archivo. Cuando se usa el carácter “*” para referirse al nombre de un archivo, el intérprete de comandos lo sustituye por todas las combinaciones posibles provenientes de los archivos en el directorio al cual nos estamos refiriendo.
+
+Veamos un ejemplo rápido. Supongamos que diego tiene los archivos hugo, paco y luis en el directorio actual.
+
+    /home/diego$ ls
+
+    hugo luis paco
+
+    /home/diego$
+
+Para listar todos los archivos con la letra “o” en su nombre, usamos la orden:
+
+    /home/diego$ ls *o*
+
+    hugo paco
+
+    /home/diego$
+
+
+Otro carácter comodín es “?”. Este carácter comodín sólo expande un único carácter. Luego “ls ?” mostrará todos los nombres de archivos con un carácter de longitud, y “ls termca?”, por ejemplo, mostrará “termcap” pero no “termcap.backup”. Aquí tenemos otro ejemplo:
+
+    /home/diego$ ls hu?o
+
+    hugo
+
+    /home/diego$ ls p??o
+
+    paco
+
+EN RESUMEN 
+
+- La interrogación (?) representa a cualquier carácter (igual que en MS-DOS).
+
+-El asterisco (*) representa a cualquier secuencia de caracteres, incluso una secuencia vacía (igual que en
+MS-DOS, pero puede colocarse en cualquier parte del patrón).
+
+-Un conjunto de caracteres encerrados entre corchetes ([]) representa a cualquiera de los caracteres
+especificados entre los corchetes. Para utilizar el carácter ] dentro de los corchetes, lo debemos poner como
+el primero de los caracteres justo detrás de [ .
+
+-Dos caracteres encerrados entre corchetes ([]) y separados por un guión (-) representa a cualquiera de los
+caracteres del rango delimitado por los caracteres especificados (incluidos éstos), según el orden ASCII.
+Para utilizar el guión dentro de los corchetes como carácter de la máscara, lo debemos poner al final (antes
+de [ ), o al principio (después de [ ).
+
+-También podemos especificar un conjunto de caracteres que no deben formar parte del nombre de fichero.
+Para ello ponemos una admiración ( ! ) justo después de [
+
+16 Copie todos los ficheros del directorio /home/so/ficheros cuyo nombre
+comience por f al directorio Datos.
+
+cp /home/so/ficheros/f* /home/pablo.cordon113/ModuloI/Practica1/Datos/
+
+El f* (comodin) se usa EN La ruta, no aparte.
+
+17. Ubicados en el directorio anterior, liste detalladamente todos los ficheros:
+a) cuyos nombres terminen con un número
+
+ls *[0-9] -> El corchete y los guiones se usan para indicar el rango de numeros
+
+b) cuyos nombres no comiencen con ninguna vocal (ni mayúsculas ni
+minúsculas)
+
+ls [!aeiouAEIOU]* -> IMPORTANTE EL ASTERISCO
+
+c) cuyos nombres no comiencen por ningún número
+
+ls [!0-9]*
+
+d) cuya extensión tenga exactamente 3 caracteres
+
+ls ???
+
+e) cuya extensión tenga más de 3 caracteres
+
+ls ???*
+
+f) cuya extensión sea bak y el nombre comience por una letra
+
+ls [a-z]*.bak
+
+
+
+
+

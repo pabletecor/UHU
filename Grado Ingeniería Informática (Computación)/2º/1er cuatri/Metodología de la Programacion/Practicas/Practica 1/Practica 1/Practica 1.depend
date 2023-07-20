@@ -1,0 +1,63 @@
+# depslib dependency file v1.0
+1543867760 source:h:\uni\apuntes\2do año\metodología de la programacion\practicas\practica 1\practica 1\cliente.cpp
+	"CLIENTE.H"
+
+1543867760 h:\uni\apuntes\2do año\metodología de la programacion\practicas\practica 1\practica 1\cliente.h
+	"fecha.h"
+	<iostream>
+	<string.h>
+	<stdio.h>
+
+1543865750 h:\uni\apuntes\2do año\metodología de la programacion\practicas\practica 1\practica 1\fecha.h
+	<iostream>
+
+1543684288 source:h:\uni\apuntes\2do año\metodología de la programacion\practicas\practica 1\practica 1\contrato.cpp
+	"contrato.h"
+
+1543166688 h:\uni\apuntes\2do año\metodología de la programacion\practicas\practica 1\practica 1\contrato.h
+	"fecha.h"
+	<string.h>
+
+1543686522 source:h:\uni\apuntes\2do año\metodología de la programacion\practicas\practica 1\practica 1\contratomovil.cpp
+	"contratomovil.h"
+
+1542661440 h:\uni\apuntes\2do año\metodología de la programacion\practicas\practica 1\practica 1\contratomovil.h
+	"contrato.h"
+
+1543663766 source:h:\uni\apuntes\2do año\metodología de la programacion\practicas\practica 1\practica 1\contratotp.cpp
+	"contratotp.h"
+
+1543663704 h:\uni\apuntes\2do año\metodología de la programacion\practicas\practica 1\practica 1\contratotp.h
+	"contrato.h"
+
+1543867760 source:h:\uni\apuntes\2do año\metodología de la programacion\practicas\practica 1\practica 1\fecha.cpp
+	"fecha.h"
+
+1543875494 source:h:\uni\apuntes\2do año\metodología de la programacion\practicas\practica 1\practica 1\main.cpp
+	<cstdlib>
+	<iostream>
+	<iomanip>
+	"fecha.h"
+	"CLIENTE.H"
+	"contrato.h"
+	"contratomovil.h"
+	"contratotp.h"
+	"empresa.h"
+
+1543915316 h:\uni\apuntes\2do año\metodología de la programacion\practicas\practica 1\practica 1\empresa.h
+	"fecha.h"
+	"cliente.h"
+	"contrato.h"
+	"contratotp.h"
+	"contratomovil.h"
+	"contratomovilduo.h"
+	<typeinfo>
+
+1543913700 source:h:\uni\apuntes\2do año\metodología de la programacion\practicas\practica 1\practica 1\empresa.cpp
+	"empresa.h"
+	<windows.h>
+	<conio.h>
+
+1543915250 h:\uni\apuntes\2do año\metodología de la programacion\practicas\practica 1\practica 1\include\contratomovilduo.h
+	"contrato.h"
+

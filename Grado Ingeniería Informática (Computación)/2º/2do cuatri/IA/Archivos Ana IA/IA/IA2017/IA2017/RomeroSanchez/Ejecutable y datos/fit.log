@@ -1,0 +1,46 @@
+
+
+*******************************************************************************
+Fri May 20 12:13:18 2016
+
+
+FIT:    data read from "SecuencialI.dat" using 1:2
+        format = x:z
+        #datapoints = 9
+        residuals are weighted equally (unit weight)
+
+function used for fitting: Lineal(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 2.84875e+008      delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-005
+ lambda	  : 3979.11
+
+initial set of free parameter values
+
+m               = 1
+n               = 1
+
+After 7 iterations the fit converged.
+final sum of squares of residuals : 0.0580543
+rel. change during last iteration : -5.64523e-008
+
+degrees of freedom    (FIT_NDF)                        : 7
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.0910685
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.00829348
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+m               = 0.00033427       +/- 1.176e-005   (3.517%)
+n               = 0.275793         +/- 0.06616      (23.99%)
+
+
+correlation matrix of the fit parameters:
+
+               m      n      
+m               1.000 
+n              -0.889  1.000 

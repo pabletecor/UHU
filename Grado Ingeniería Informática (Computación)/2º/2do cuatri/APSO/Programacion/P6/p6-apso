@@ -1,0 +1,32 @@
+key_t ftok ( char *camino, int proy ) 
+
+-*Camino -> ruta cualquiera a un fichero. Identifica el nombre de la cola 
+-proy -> numero cualquiera
+
+
+ejemplo:
+
+key_t ftok ("./makefile", 18)
+
+key_t nombrecola;
+nombrecola = ftok ("./paracolas.txt", 19);
+
+
+idcola = msgget(nombrecola, 0600 | IPC_CREAT);
+
+msgsnd (idcola,&datos,sizeof(datos)-sizeof(long));
+
+&datos --> Variable en la que se escribe el dato  (igual que el write)
+
+msgrcv (idcola, &datos, sizeof(datos)-sizeof(long), n , 0 || IPC_NOWAIT)
+
+OJO!!
+SI QUIERO ESPERAR, EN EL ÚLTIMO PARAMETRO ESPERO, SI PONGO IPC_NOWAIT NO ESPERO
+
+-Borrar cola de mensajes
+
+int msgctl ( int msgqid, int cmd, struct msqid_ds *buf )
+
+ej:
+
+int msgctl ( idcola, IPC_RMID, 0 )

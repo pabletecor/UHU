@@ -1,0 +1,18 @@
+Llamada fichero (comando open)
+
+open ("f1.txt",O_RDONLY) -> Abrir fichero para lectura
+open ("f1.txt",O_WRONLY) -> Abrir fichero para escritura
+
+devuelve un entero 
+
+open ("f1.txt",O_CREAT,0777) -> Crear fichero, el primer numero es un numero especial, los tres restantes son los permisos con los que se crea el fichero
+
+-Ej
+int f1, dato;
+
+f1 = open ("f1.txt", O_RDONLY);
+(read (f1, &dato,sizeof(dato))
+
+cerrar afichero (comando close)
+
+

@@ -1,0 +1,29 @@
+MULTICINE
+	introducirDatos(Nombre, DNI, fecha, sala, sesion, num_entradas, fila)
+	getSala(sala)
+	mostrarMatriz(matriz, fila, num_entradas)
+
+SALA
+	getButacas(fecha, sesion)
+	getProyeccion(fecha, sesion)
+
+PROYECCION
+
+	getButacas()
+
+CLIENTE
+	
+	setIdentificadorReserva(identificador)
+
+RESERVA
+	
+	setIdentificador(identificador)
+	setFecha()
+BUTACA
+
+	setDisponibilidad(fila, columna, estado)
+	getEntrada()
+
+ENTRADA
+
+	getIdentificador()

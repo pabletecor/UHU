@@ -1,0 +1,104 @@
+.model small
+.code
+	org 100h
+main:
+	jmp residente:
+	contador_int db 18
+	msj_tiempo db '00:00'
+
+;RTI
+
+tiempo_proc proc:	;proc indica que es un programa residente
+	cli
+	push ax
+	push dx
+	push si
+	push di
+	dec contador_int
+	cmp contador_int,0
+	je suma
+	jmp fin_rsi
+suma:
+	mov contador_int,0
+	add msj_tiempo[4],1
+	cmp msj_tiempo[4],10
+	je decenas
+	jmp imprime_mensaje
+decenas:
+	mov msj_tiempo[4],0
+	inc msj_tiempo[3]
+	cmp msj_tiempo[3],6
+	je minutos
+	jmp imprime_mensaje
+minutos:
+	mov msj_tiempo[3],0
+	inc msj_tiempo[1]
+	cmp msj_tiempo[1],10
+	je decenas_minutos
+	jmp imprime_mensaje
+decenas_minutos:
+	mov msj_tiempo[1],0
+	inc msj_tiempo[0]
+	cmp msj_tiempo[0],6
+	je reset
+	jmp imprime_mensaje
+reset:
+mov msj_tiempo[0],0
+mov msj_tiempo[1],0
+mov msj_tiempo[3],0
+mov msj_tiempo[4],0
+jmp imprime_mensaje
+;HACER CODIGO	
+
+imprime_mensaje:
+	mov al,03h	;pantalla en modo texto
+	mov ah,0
+	int 10h
+	
+	mov ax, 0b800h	;direccion de memoria de video
+	mov es, ax	;El segmento extra esta definiendo la memoria de video
+;IMPRIMIR POR PANTALLA	
+
+
+
+pinta:
+	mov si,0
+	mov di,1640h	;VALOR A ELEGIR
+
+	bucle:
+		mov al, msj_tiempo[si]
+		mov ah,10111000b
+	
+		mov es:[di],ax
+		add di,2
+		inc si
+		cmp si,4
+	jbe bucle
+	
+fin_rsi:	;Saltar directamente si el contador no ha llegado a 0
+
+
+	pop ax
+	pop dx
+	pop si
+	pop si
+	sti	;Habilitamos las interrupciones
+	iret	;Devolvemos el control al programa principal
+
+endp
+
+
+;Inicializa el vector de interrupcion a la direccion donde va a estar la rutina y deja residente en memoria el codigo de esta rutina
+
+residente:
+
+mov dx, offset tiempo_proc
+mov ax,0
+mov es,ax
+mov si,1Ch*4
+cli ;desactivamos las interrupciones
+mov es:[si], dx	;dx es el offset(desplazamiento)
+mov es:[si+2], cs
+sti 	;reactivamos las interrupciones
+mov dx, offset residente
+int 27h	;Deja residente el codigo de la RTI

@@ -1,0 +1,4 @@
+
+Soy el proceso C, mi PID es 6660, y el PID de mi padre es 6658
+
+Fin del proceso C

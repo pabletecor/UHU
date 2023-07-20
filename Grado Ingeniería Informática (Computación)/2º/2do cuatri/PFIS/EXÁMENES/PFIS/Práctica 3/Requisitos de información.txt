@@ -1,0 +1,51 @@
+
+**** CLASES DE INFORMACIÓN ***
+1. Información de películas
+	- Título original.
+	- Director.
+	- Intérprete.
+	- Duración.
+	- Género.
+	- Fecha de estreno.
+	- Calificación.
+	- Resumen (sinopsis).
+	- Idioma.
+
+2. Información de reserva.
+	- Identificador.
+	- Estado de la reserva. (MIRAR ESTO)
+	- Butacas reservadas.
+	- DNI del comprador
+	- Entidad bancaria. (MIRAR ESTO)
+	- Comisión por gastos de intermediación. (MIRAR ESTO)
+	- Fecha (AÑADIDO POR MI. MIRAR ESTO)
+	2.1 Restricción
+		-No se puede hacer la reserva a dos días de la proyección.
+3. Información de sala.
+	- Numero de sala.
+	- Número de butacas totales.
+	- Butacas ocupadas.
+	- Butacas disponibles.
+	- Butacas reservadas. 
+	- Butacas en mal estado.	
+
+4. Información de proyección
+	- Pelicula.
+	- Hora.
+	- Fecha.
+	- Número de sala.
+	- Tipo de proyección (3D, 4D...)
+	4.1 Restricción
+		- No asignar una película 4D a una sala que no tiene 4D.
+
+5. Información de entrada
+	- Precio.
+	- Identificador de entrada.
+	- Número de butaca.
+	- Fila.
+	- Columna.
+
+6. Información de venta.
+	- Número de entradas vendidas.
+	- Recaudación.
+

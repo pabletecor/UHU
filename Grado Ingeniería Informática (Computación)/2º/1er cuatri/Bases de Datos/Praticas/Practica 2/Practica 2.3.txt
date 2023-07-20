@@ -1,0 +1,42 @@
+MF-10
+
+SELECT TO_CHAR (fecha_hora, 'dd/mm/yyyy') Fecha
+FROM MF LLAMADA
+Where duracion >= ALL (SELECT duracion FROM mf.LLAMADA);
+
+
+MF- 11
+
+SELECT C.nombre
+FROM (mf.Cliente c INNER JOIN mf.Telefono T ON dni=t.cliente) INNER JOIN
+	MF.COMPAÑIA CO ON CO.cif = t.compañia
+WHERE CO.NOMBRE= 'Aotra' AND
+	T.tarifa = (SELECT T.tarifa FROM MF.TELEFONO T WHERE T.NUMERO = '654123321');
+
+
+
+MF- 12
+
+SELECT DISTINC t.numero, t.f_contrato, t.tipo
+FROM mf.telefono t INNER JOIN mf.llamada ll ON t.numero = ll.tf_origen
+WHERE TO_CHAR (ll.fecha_hora, 'mm/yy') = '10/06'
+	AND ll.tf_destino NOT IN
+		(SELECT t.numero FROM mf.telefono t INNER JOIN mf.cliente c ON c.c.dni = t.cliente WHERE provincia = 'La Coruña' )
+
+
+MF - 14
+
+
+select c1.nombnre, tf.numero 
+from mf.cliente Cl INNER JOIN Mf.telefono tf on Cl.DNI = tf.cliente
+where tf.Numero in
+(select ll.tf_origen
+from (mf.llamada ll INNER JOIN mf.telefono tf on ll.tf_destino = tf.numero)
+	INNER JOIN mf.compañia C on C.Cif = tf.compañia
+where C.nombre = 'petafon')
+
+and tf.numero Not in 
+	(Select ll.tf_origen
+	from (mf.llamada ll INNER JOIN mf.telefono tf on ll.tf_destino = tf.numero)
+		INNER JOIN mf.compañia C on c.cif = tf.compañia
+	where c.nombre = 'aotra');

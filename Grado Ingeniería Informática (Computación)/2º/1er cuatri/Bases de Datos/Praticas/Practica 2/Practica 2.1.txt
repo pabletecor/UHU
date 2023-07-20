@@ -1,0 +1,32 @@
+PRACTICA 2 BD
+
+MF-1. 
+
+SELECT nombre
+FROM MF.COMPANY
+WHERE web LIKE '%et%' and web like '%com';
+
+
+MF-2.
+
+select nombre,direccion
+FROM mf.CLIENTE
+WHERE (extract (year from f_nac) = '1973' OR 
+extract (year from f_nac) = '1985')
+AND cp LIKE '15%'
+ORDER BY nombre asc, direccion dec;
+
+MF-3.
+
+SELECT tf_destino
+FROM mf.LLAMADA
+where tf_origen = '666010101' AND 
+extract (year FROM fecha_hora) = '2006'
+
+MF-4.
+
+SELECT tf_origen 
+From mf.LLAMADA
+WHERE tf_destino = '666010101' AND
+	EXTRACT (hour FROM fecha_hora) >=10 AND
+	EXTRACT (hour FROM fecha_hora) < 2;

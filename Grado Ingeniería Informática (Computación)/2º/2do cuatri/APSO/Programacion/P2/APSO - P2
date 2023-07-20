@@ -1,0 +1,118 @@
+--Como compilar manualmente en linux--
+
+cc conhilos.c -o conhilos -pthread
+
+
+--Sinhilos.c--
+
+#include <stdio.h>
+#include <unistd.h>
+int main (){
+
+printf ("Comienza la main \n");
+f1();
+f2();
+printf ("Termina la main \n");
+return 0;
+
+}
+
+void f1(){
+	int i;
+	for (i=0;i<3;i++){
+		printf("Soy la funcion 1 \n");
+		sleep (1);
+}
+
+
+}
+
+void f2(){
+	int i;
+	for (i=0;i<3;i++){
+		printf("Soy la funcion 2 \n");
+		sleep (1);
+}
+
+
+}
+
+--Conhilos.c--
+
+#include <stdio.h>
+#include <unistd.h>
+#include <pthread.h>
+
+void *f1();
+void *f2();
+
+int main (){
+
+pthread_t h1, h2;
+int *devuelto;
+
+printf ("Comienza la main \n");
+//f1();
+pthread_create(&h1,NULL,&f1, NULL );	//Se pone & delante de f1 para indicar que es una rutina a puntero (doble puntero)
+pthread_create(&h2,NULL,&f2, NULL );
+
+pthread_join(h2,NULL);
+prinf("main: ha finalizado el hilo 2\n");
+pthread_join(h1,(void *) &devuelto);
+prinf("ha finalizado el hilo 2\n");
+
+printf ("Termina la main \n");
+return 0;
+
+}
+
+void *f1(){
+	int i;
+	int *retorno;
+	for (i=0;i<3;i++){
+		printf("Soy la funcion 1 \n");
+		sleep (1);
+	}
+	*retorno =15;
+
+return retorno;
+
+}
+
+void *f2(){
+	int i;
+	for (i=0;i<3;i++){
+		printf("Soy la funcion 2 \n");
+		sleep (1);
+}
+
+
+}
+
+
+
+
+
+
+--Makefile--
+
+all: hilos conhilos
+
+sinhilos: hilos.c
+	cc hilos.c -o hilos
+
+conhilos: conhilos.c
+	cc conhilos.c -o conhilos -pthread
+
+-- EJERCICIO P2--
+#include <stdio.h>
+#include <unistd.h>
+#include <pthread.h>
+
+int retardo =2;
+
+while (retardo !=0){
+printf("Mi PID es " getpid " y el retardo es de " retardo)
+sleep (retardo);
+}
+

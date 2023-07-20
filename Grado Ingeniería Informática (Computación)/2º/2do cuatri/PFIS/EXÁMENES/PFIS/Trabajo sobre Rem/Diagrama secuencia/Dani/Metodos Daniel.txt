@@ -1,0 +1,16 @@
+Multicines:
+-VerReservasCliente(DNI)
+-CancelarReserva(Identificador)
+-getCliente(DNI)
+
+Cliente:
+-getReservas()
+
+Reserva:
+-getEntrada()
+
+Entrada:
+-getButaca()
+
+Butaca:
+-getDiponibilidad(Fila,Colunma,Disponibilidad)

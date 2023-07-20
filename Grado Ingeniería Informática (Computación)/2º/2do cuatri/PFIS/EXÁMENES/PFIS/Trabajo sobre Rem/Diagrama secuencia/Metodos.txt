@@ -1,0 +1,59 @@
+MULTICINE
+	introducirDatos(Nombre, DNI, fecha, sala, sesion, num_entradas, fila)
+	getSala(sala)
+	mostrarMatriz(matriz, fila, num_entradas)
+
+	//Fran
+	Seleccasiento(sala, proyeccion, fecha, hora, fila, columna)
+
+	//Nanié
+	VerReservasCliente(DNI)
+	CancelarReserva(Identificador)
+	getCliente(DNI)
+SALA
+	getButacas(fecha, sesion)
+	getProyeccion(fecha, sesion)
+
+	//Fran
+	seleccionsala(Sala)
+
+PROYECCION
+
+	getButacas() //Devuelve matriz
+	bool existeButaca(fila, columna)
+
+	//Fran
+	seleccproyeccion(Proyección,fecha,hora)
+	
+CLIENTE
+	
+	setIdentificadorReserva(identificador)
+
+	//Nanié
+	getReservas()
+
+RESERVA
+	
+	setIdentificador(identificador)
+	setFecha()
+
+	//Nanié
+	getEntrada()
+
+		
+BUTACA
+
+	setDisponibilidad(fila, columna, disponibilidad)
+	getEntrada()
+
+	//Fran
+	getbutaca(fila,columna)
+	setDisponibilidad(disponibilidad)
+
+	//Nanié
+	
+ENTRADA
+	getIdentificador()
+	
+	//Nanié
+	getButaca()

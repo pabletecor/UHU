@@ -1,0 +1,12 @@
+(deftemplate plantilla
+(field nom) 
+(field tip) 
+(field pre) 
+(field res)
+(field est)
+(field lug)
+(field dist)
+(field dep)
+(field exc)
+(field salida)
+) 

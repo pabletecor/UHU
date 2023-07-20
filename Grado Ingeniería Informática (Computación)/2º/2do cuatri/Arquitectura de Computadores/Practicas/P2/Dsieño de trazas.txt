@@ -1,0 +1,17 @@
+-Nº de procesadores = 1
+-Protocolo de coherencia = MESI
+-Arbitracion bus = aleatoria
+-Definimos tamaño palabra, bloque, memoria princip., mem caché...
+-Diseñamos fichero1.prg
+-Diseñamos fichero2.prg
+-Diseñamos fichero3.prg
+
+
+FORMATO DE DIRECCION
+
+Directa
+e= n-b-f
+
+tot.asociativa
+e=n-p
+

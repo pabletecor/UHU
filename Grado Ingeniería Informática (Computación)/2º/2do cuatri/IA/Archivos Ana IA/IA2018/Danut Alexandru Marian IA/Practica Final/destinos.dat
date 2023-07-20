@@ -1,0 +1,583 @@
+(node (name root) (type decision) (question "En que estacion le gustaria viajar?") (otonyo-node node1) (invierno-node node2) (primavera-node node3)(verano-node node4)(answer nil))
+
+(node (name node1) (type decisionpaisaje) (question "Que le apetece?") (playa-node node11) (ciudad-node node12) (naturaleza-node node13)  (answer nil))
+
+(node (name node2) (type decisionpaisaje) (question "Que le apetece?")  (playa-node node21) (ciudad-node node22) (naturaleza-node node23)(answer nil))
+
+(node (name node3) (type decisionpaisaje) (question "Que le apetece?") (playa-node node31) (ciudad-node node32) (naturaleza-node node33)(answer nil))
+
+(node (name node4) (type decisionpaisaje) (question "Que le apetece?") (playa-node node41) (ciudad-node node42) (naturaleza-node node43)(answer nil))
+
+(node (name node11) (type decisioncerca) (question "Quiere irse...") (lejos-node node111)(cerca-node node112)(answer nil))
+
+(node (name node12) (type decisioneuropa) (question "Desea irse a Europa o fuera de Europa?...")(europa-node node121)(noeuropa-node node122)(answer nil))
+
+(node (name node13) (type decisioneuropa) (question "Desea irse a Europa o fuera de Europa?...")(europa-node node131)(noeuropa-node node132)(answer nil))
+
+(node (name node21) (type decisioncerca) (question "Quiere irse...")(lejos-node node211)(cerca-node node212)(answer nil))
+
+(node (name node22) (type decisioneuropa) (question "Desea irse a Europa o fuera de Europa?...")(europa-node node221)(noeuropa-node node222)(answer nil))
+
+(node (name node23) (type decisioneuropa)(question "Desea irse a Europa o fuera de Europa?...")(europa-node node231)(noeuropa-node node232)(answer nil))
+
+(node (name node31) (type decisioncerca) (question "Quiere irse...")(lejos-node node311)(cerca-node node312)(answer nil))
+
+(node (name node32) (type decisioneuropa) (question "Desea irse a Europa o fuera de Europa?...")(europa-node node321)(noeuropa-node node322)(answer nil))
+
+(node (name node33) (type decisioneuropa)(question "Desea irse a Europa o fuera de Europa?...")(europa-node node331)(noeuropa-node node332)(answer nil))
+
+(node (name node41) (type decisioncerca) (question "Quiere irse...")(lejos-node node411)(cerca-node node412)(answer nil))
+
+(node (name node42) (type decisioneuropa) (question "Desea irse a Europa o fuera de Europa?...")(europa-node node421)(noeuropa-node node422)(answer nil))
+
+(node (name node43) (type decisioneuropa)(question "Desea irse a Europa o fuera de Europa?...")(europa-node node431)(noeuropa-node node432)(answer nil))
+
+(node (name node111) (type decisionbinaria) (question "Le gustan los deportes? ")(yes-node node1111)(no-node node1112)(answer nil))
+
+(node (name node112) (type decisionbinaria) (question "Le gustan los deportes? ")(yes-node node1121)(no-node node1122)(answer nil))
+
+(node (name node211) (type decisionbinaria) (question "Le gustan los deportes? ")(yes-node node2111)(no-node node2112)(answer nil))
+
+(node (name node212) (type decisionbinaria) (question "Le gustan los deportes? ")(yes-node node2121)(no-node node2122)(answer nil))
+
+(node (name node311) (type decisionbinaria) (question "Le gustan los deportes? ")(yes-node node3111)(no-node node3112)(answer nil))
+
+(node (name node312) (type decisionbinaria) (question "Le gustan los deportes? ")(yes-node node3121)(no-node node3122)(answer nil))
+
+(node (name node411) (type decisionbinaria) (question "Le gustan los deportes? ")(yes-node node4111)(no-node node4112)(answer nil))
+
+(node (name node412) (type decisionbinaria) (question "Le gustan los deportes? ")(yes-node node4121)(no-node node4122)(answer nil))
+
+(node (name node121) (type decisioncentral) (question "Prefieres el centro de Europa o el norte? ")(central-node node1211)(norte-node node1212)(answer nil))
+
+(node (name node122) (type decisionoriental) (question "Te llama mas la cultura oriental o la occidental ")(oriental-node node1221)(occidental-node node1222)(answer nil))
+
+(node (name node221) (type decisioncentral) (question "Prefieres el centro de Europa o el norte? ")(central-node node2211)(norte-node node2212)(answer nil))
+
+(node (name node222) (type decisionoriental) (question "Te llama mas la cultura oriental o la occidental ")(oriental-node node2221)(occidental-node node2222)(answer nil))
+
+(node (name node321) (type decisioncentral) (question "Prefieres el centro de Europa o el norte? ")(central-node node3211)(norte-node node3212)(answer nil))
+
+(node (name node322) (type decisionoriental) (question "Te llama mas la cultura oriental o la occidental ")(oriental-node node3221)(occidental-node node3222)(answer nil))
+
+(node (name node421) (type decisioncentral) (question "Prefieres el centro de Europa o el norte? ")(central-node node4211)(norte-node node4212)(answer nil))
+
+(node (name node422) (type decisionoriental) (question "Te llama mas la cultura oriental o la occidental ")(oriental-node node4221)(occidental-node node4222)(answer nil))
+
+(node (name node131) (type decisionfrio) (question "Quieres un ambiente con...")(frio-node node1311)(calor-node node1312)(answer nil))
+
+(node (name node132) (type decisionfrio) (question "Quieres un ambiente con...")(frio-node node1321)(calor-node node1322)(answer nil))
+
+(node (name node231) (type decisionfrio) (question "Quieres un ambiente con...")(frio-node node2311)(calor-node node2312)(answer nil))
+
+(node (name node232) (type decisionfrio) (question "Quieres un ambiente con...")(frio-node node2321)(calor-node node2322)(answer nil))
+
+(node (name node331) (type decisionfrio) (question "Quieres un ambiente con...")(frio-node node3311)(calor-node node3312)(answer nil))
+
+(node (name node332) (type decisionfrio) (question "Quieres un ambiente con...")(frio-node node3321)(calor-node node3322)(answer nil))
+
+(node (name node431) (type decisionfrio) (question "Quieres un ambiente con...")(frio-node node4311)(calor-node node4312)(answer nil))
+
+(node (name node432) (type decisionfrio) (question "Quieres un ambiente con...")(frio-node node4321)(calor-node node4322)(answer nil))
+
+(node (name node1111) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node11111)(no-node node11112)(answer nil))
+
+(node (name node1112) (type decisionbinaria) (question "Te gustan las excursiones? ")(yes-node node11121)(no-node node11122)(answer nil))
+
+(node (name node1121) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node11211)(no-node node11212)(answer nil))
+
+(node (name node1122) (type decisionbinaria) (question "Te gustan las excursiones? ")(yes-node node11221)(no-node node11222)(answer nil))
+
+(node (name node2111) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node21111)(no-node node21112)(answer nil))
+
+(node (name node2112) (type decisionbinaria) (question "Te gustan las excursiones? ")(yes-node node21121)(no-node node21122)(answer nil))
+
+(node (name node2121) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node21211)(no-node node21212)(answer nil))
+
+(node (name node2122) (type decisionbinaria) (question "Te gustan las excursiones? ")(yes-node node21221)(no-node node21222)(answer nil))
+
+(node (name node3111) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node31111)(no-node node31112)(answer nil))
+
+(node (name node3112) (type decisionbinaria) (question "Te gustan las excursiones? ")(yes-node node31121)(no-node node31122)(answer nil))
+
+(node (name node3121) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node31211)(no-node node31212)(answer nil))
+
+(node (name node3122) (type decisionbinaria) (question "Te gustan las excursiones? ")(yes-node node31221)(no-node node31222)(answer nil))
+
+(node (name node4111) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node41111)(no-node node41112)(answer nil))
+
+(node (name node4112) (type decisionbinaria) (question "Te gustan las excursiones? ")(yes-node node41121)(no-node node41122)(answer nil))
+
+(node (name node4121) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node41211)(no-node node41212)(answer nil))
+
+(node (name node4122) (type decisionbinaria) (question "Te gustan las excursiones? ")(yes-node node41221)(no-node node41222)(answer nil))
+
+(node (name node1211) (type decisionbinaria) (question "Te gusta el arte? ")(yes-node node12111)(no-node node12112)(answer nil))
+
+(node (name node1212) (type decisionrelaja) (question "Que prefieres tomarte un tiempo de .... ")(relaja-node node12121)(deportes-node node12122)(answer nil))
+
+(node (name node2211) (type decisionbinaria) (question "Te gusta el arte? ")(yes-node node22111)(no-node node22112)(answer nil))
+
+(node (name node2212) (type decisionrelaja) (question "Que prefieres tomarte un tiempo de .... ")(relaja-node node22121)(deportes-node node22122)(answer nil))
+
+(node (name node3211) (type decisionbinaria) (question "Te gusta el arte? ")(yes-node node32111)(no-node node32112)(answer nil))
+
+(node (name node3212) (type decisionrelaja) (question "Que prefieres tomarte un tiempo de .... ")(relaja-node node32121)(deportes-node node32122)(answer nil))
+
+(node (name node4211) (type decisionbinaria) (question "Te gusta el arte? ")(yes-node node42111)(no-node node42112)(answer nil))
+
+(node (name node4212) (type decisionrelaja) (question "Que prefieres tomarte un tiempo de .... ")(relaja-node node42121)(deportes-node node42122)(answer nil))
+
+
+
+
+
+
+
+
+(node (name node12121) (type answer) (question nil)(answer "Helsinki,(Finladia) /  Malmo,(Suecia)"))
+
+(node (name node12122) (type answer) (question nil)(answer "Reykjavik,(Islandia) con las estaciones de esqui: Blafjoll y Skalafell"))
+
+(node (name node22121) (type answer) (question nil)(answer "Helsinki,(Finladia) /  Malmo,(Suecia)"))
+
+(node (name node22122) (type answer) (question nil)(answer "Reykjavik,(Islandia) con las estaciones de esqui: Blafjoll y Skalafell"))
+
+(node (name node32121) (type answer) (question nil)(answer "Helsinki,(Finladia) /  Malmo,(Suecia)"))
+
+(node (name node32122) (type answer) (question nil)(answer "Reykjavik,(Islandia) con las estaciones de esqui: Blafjoll y Skalafell"))
+
+(node (name node42121) (type answer) (question nil)(answer "Helsinki,(Finladia) /  Malmo,(Suecia)"))
+
+(node (name node42122) (type answer) (question nil)(answer "Reykjavik,(Islandia) con las estaciones de esqui: Blafjoll y Skalafell"))
+
+
+
+(node (name node1221) (type decisioncompras) (question "Te gusta mas disfrutar de... ")(compras-node node12211)(arte-node node12212)(answer nil))
+
+(node (name node1222) (type decisioncompras) (question "Te gusta mas disfrutar de... ")(compras-node node12221)(arte-node node12222)(answer nil))
+
+(node (name node2221)(type decisioncompras) (question "Te gusta mas disfrutar de... ")(compras-node node22211)(arte-node node22212)(answer nil))
+
+(node (name node2222) (type decisioncompras) (question "Te gusta mas disfrutar de... ")(compras-node node22221)(arte-node node22222)(answer nil))
+
+(node (name node3221)(type decisioncompras) (question "Te gusta mas disfrutar de... ")(compras-node node32211)(arte-node node32212)(answer nil))
+
+(node (name node3222)(type decisioncompras) (question "Te gusta mas disfrutar de... ")(compras-node node32221)(arte-node node32222)(answer nil))
+
+(node (name node4221)(type decisioncompras) (question "Te gusta mas disfrutar de... ")(compras-node node42211)(arte-node node42212)(answer nil))
+
+(node (name node4222)(type decisioncompras) (question "Te gusta mas disfrutar de... ")(compras-node node42221)(arte-node node42222)(answer nil))
+
+
+
+
+
+
+(node (name node12221) (type answer) (question nil)(answer "Nueva York,(EEUU)  /  Los Angeles,(EEUU)  /  Las Vegas,(EEUU)  /  Sidney,(Australia)"))
+
+(node (name node12222) (type answer) (question nil)(answer "Cordoba,(Argentina)  /  Buenos Aires,(Argentina) / Ciudad de Mexico,(Mexico)"))
+
+(node (name node22221) (type answer) (question nil)(answer "Nueva York,(EEUU)  /  Los Angeles,(EEUU)  /  Las Vegas,(EEUU)  /  Sidney,(Australia)"))
+
+(node (name node22222) (type answer) (question nil)(answer "Cordoba,(Argentina)  /  Buenos Aires,(Argentina) / Ciudad de Mexico,(Mexico)"))
+
+(node (name node32221) (type answer) (question nil)(answer "Nueva York,(EEUU)  /  Los Angeles,(EEUU)  /  Las Vegas,(EEUU)  /  Sidney,(Australia)"))
+
+(node (name node32222) (type answer) (question nil)(answer "Cordoba,(Argentina)  /  Buenos Aires,(Argentina) / Ciudad de Mexico,(Mexico)"))
+
+(node (name node42221) (type answer) (question nil)(answer "Nueva York,(EEUU)  /  Los Angeles,(EEUU)  /  Las Vegas,(EEUU)  /  Sidney,(Australia)"))
+
+(node (name node42222) (type answer) (question nil)(answer "Cordoba,(Argentina)  /  Buenos Aires,(Argentina) / Ciudad de Mexico,(Mexico)"))
+
+
+
+
+
+(node (name node12211) (type answer) (question nil)(answer "Tokio,(Japon)  /  Hong-Kong,(China)  / Bangkok,(Tailandia)"))
+
+(node (name node12212) (type answer) (question nil)(answer "Nueva Deli,(India)  /  Ankara,(Turquia)  /  Lasha, (Tibet)"))
+
+(node (name node22211) (type answer) (question nil)(answer "Tokio,(Japon)  /  Hong-Kong,(China)  / Bangkok,(Tailandia)"))
+
+(node (name node22212) (type answer) (question nil)(answer "Nueva Deli,(India)  /  Ankara,(Turquia)  /  Lasha, (Tibet)"))
+
+(node (name node32211) (type answer) (question nil)(answer "Tokio,(Japon)  /  Hong-Kong,(China)  / Bangkok,(Tailandia)"))
+
+(node (name node32212) (type answer) (question nil)(answer "Nueva Deli,(India)  /  Ankara,(Turquia)  /  Lasha, (Tibet)"))
+
+(node (name node42211) (type answer) (question nil)(answer "Tokio,(Japon)  /  Hong-Kong,(China)  / Bangkok,(Tailandia)"))
+
+(node (name node42212) (type answer) (question nil)(answer "Nueva Deli,(India)  /  Ankara,(Turquia)  /  Lasha, (Tibet)"))
+
+
+
+
+
+(node (name node1311)(type decisionnieve) (question "Quieres un paisaje con... ")(nieve-node node13111)(lagos-node node13112)(answer nil))
+
+(node (name node1312)(type decisiondesierto) (question "Quieres un paisaje con... ")(desierto-node node13121)(montanya-node node13122)(answer nil))
+
+(node (name node1321)(type decisionnieve) (question "Quieres un paisaje con... ")(nieve-node node13211)(lagos-node node13212)(answer nil))
+
+(node (name node1322)(type decisiondesierto) (question "Quieres un paisaje con... ")(desierto-node node13221)(montanya-node node13222)(answer nil))
+
+(node (name node2311) (type decisionnieve) (question "Quieres un paisaje con... ")(nieve-node node23111)(lagos-node node23112)(answer nil))
+
+(node (name node2312)(type decisiondesierto) (question "Quieres un paisaje con... ")(desierto-node node23121)(montanya-node node23122)(answer nil))
+
+(node (name node2321) (type decisionnieve) (question "Quieres un paisaje con... ")(nieve-node node23211)(lagos-node node23212)(answer nil))
+
+(node (name node2322)(type decisiondesierto) (question "Quieres un paisaje con... ")(desierto-node node23221)(montanya-node node23222)(answer nil))
+
+(node (name node3311) (type decisionnieve) (question "Quieres un paisaje con... ")(nieve-node node33111)(lagos-node node33112)(answer nil))
+
+(node (name node3312)(type decisiondesierto) (question "Quieres un paisaje con... ")(desierto-node node33121)(montanya-node node33122)(answer nil))
+
+(node (name node3321)  (type decisionnieve) (question "Quieres un paisaje con... ")(nieve-node node33211)(lagos-node node33212)(answer nil))
+
+(node (name node3322) (type decisiondesierto) (question "Quieres un paisaje con... ")(desierto-node node33221)(montanya-node node33222)(answer nil))
+
+(node (name node4311) (type decisionnieve) (question "Quieres un paisaje con... ")(nieve-node node43111)(lagos-node node43112)(answer nil))
+
+(node (name node4312)(type decisiondesierto) (question "Quieres un paisaje con... ")(desierto-node node43121)(montanya-node node43122)(answer nil))
+
+(node (name node4321)  (type decisionnieve) (question "Quieres un paisaje con... ")(nieve-node node43211)(lagos-node node43212)(answer nil))
+
+(node (name node4322)(type decisiondesierto) (question "Quieres un paisaje con... ")(desierto-node node43221)(montanya-node node43222)(answer nil))
+
+
+
+
+
+
+
+(node (name node13121) (type answer) (question nil)(answer "Almeria,(Espanya)---Desierto de tabernas"))
+
+(node (name node13122) (type answer) (question nil)(answer "No hay ningun destino en Europa con paisaje de montanya y calor en esta epoca"))
+
+(node (name node13221) (type answer) (question nil)(answer "El Cairo,(Egipto)  /  La Guajira,(Colombia)  /  Arizona(EEUU)"))
+
+(node (name node13222) (type answer) (question nil)(answer "Canyon del Colorado,(EEUU)  /  Ruta al Kilimanjaro, (Africa)  /  Ruta por los Andes(Sudamerica)"))
+
+(node (name node23121) (type answer) (question nil)(answer "Almeria,(Espanya)---Desierto de tabernas"))
+
+(node (name node23122) (type answer) (question nil)(answer "No hay ningun destino en Europa con paisaje de montanya y calor en esta epoca"))
+
+(node (name node23221) (type answer) (question nil)(answer "El Cairo,(Egipto)  /  La Guajira,(Colombia)  /  Arizona(EEUU)"))
+
+(node (name node23222) (type answer) (question nil)(answer "Canyon del Colorado,(EEUU)  /  Ruta al Kilimanjaro, (Africa)  /  Ruta por los Andes(Sudamerica)"))
+
+(node (name node33121) (type answer) (question nil)(answer "Almeria,(Espanya)---Desierto de tabernas"))
+
+(node (name node33122) (type answer) (question nil)(answer "Apeninos,(Italia)  /  Monte Olympo,(Grecia)"))
+
+(node (name node33221) (type answer) (question nil)(answer "El Cairo,(Egipto)  /  La Guajira,(Colombia)  /  Arizona(EEUU)"))
+
+(node (name node33222) (type answer) (question nil)(answer "Canyon del Colorado,(EEUU)  /  Ruta al Kilimanjaro, (Africa)  /  Ruta por los Andes(Sudamerica)"))
+
+(node (name node43121) (type answer) (question nil)(answer "Almeria,(Espanya)---Desierto de tabernas"))
+
+(node (name node43122) (type answer) (question nil)(answer "Apeninos,(Italia)  /  Monte Olympo,(Grecia)"))
+
+(node (name node43221) (type answer) (question nil)(answer "El Cairo,(Egipto)  /  La Guajira,(Colombia)  /  Arizona(EEUU)"))
+
+(node (name node43222) (type answer) (question nil)(answer "Canyon del Colorado,(EEUU)  /  Ruta al Kilimanjaro, (Africa)  /  Ruta por los Andes(Sudamerica)"))
+
+
+
+
+
+
+(node (name node13111) (type answer) (question nil)(answer "Andorra,(P.Andorra)  /  Arosa,(Suiza)"))
+
+(node (name node13112) (type answer) (question nil)(answer "Ginebra,(Suiza)  /  Oslo,(Noruega)"))
+
+(node (name node13211) (type answer) (question nil)(answer "Alaska,(EEUU)  /  Sapporo,(Japon)  /  Nuuk,(Groenlandia) "))
+
+(node (name node13212) (type answer) (question nil)(answer "Salt Lake,(EEUU)  /  Toronto,(Canada)  /  Chicago,(EEUU)"))
+
+(node (name node23111) (type answer) (question nil)(answer "Andorra,(P.Andorra)  /  Arosa,(Suiza)"))
+
+(node (name node23112) (type answer) (question nil)(answer "Ginebra,(Suiza)  /  Oslo,(Noruega)"))
+
+(node (name node23211) (type answer) (question nil)(answer "Alaska,(EEUU)  /  Sapporo,(Japon)  /  Nuuk,(Groenlandia) "))
+
+(node (name node23212) (type answer) (question nil)(answer "Salt Lake,(EEUU)  /  Toronto,(Canada)  /  Chicago,(EEUU)"))
+
+(node (name node33111) (type answer) (question nil)(answer "Andorra,(P.Andorra)  /  Arosa,(Suiza)"))
+
+(node (name node33112) (type answer) (question nil)(answer "Ginebra,(Suiza)  /  Oslo,(Noruega)"))
+
+(node (name node33211) (type answer) (question nil)(answer "Alaska,(EEUU)  /  Sapporo,(Japon)  /  Nuuk,(Groenlandia) "))
+
+(node (name node33212) (type answer) (question nil)(answer "Salt Lake,(EEUU)  /  Toronto,(Canada)  /  Chicago,(EEUU)"))
+
+(node (name node43111) (type answer) (question nil)(answer "Andorra,(P.Andorra)  /  Arosa,(Suiza)"))
+
+(node (name node43112) (type answer) (question nil)(answer "Ginebra,(Suiza)  /  Oslo,(Noruega)"))
+
+(node (name node43211) (type answer) (question nil)(answer "Alaska,(EEUU)  /  Sapporo,(Japon)  /  Nuuk,(Groenlandia)"))
+
+(node (name node43212) (type answer) (question nil)(answer "Salt Lake,(EEUU)  /  Toronto,(Canada)  /  Chicago,(EEUU)"))
+
+
+
+
+
+
+(node (name node11111) (type answer) (question nil)(answer "Punta Cana,(Rep.Dominicana): Cursos de buceo, actividades de futbol-playa, voley-playa,etc. y salidas a discotecas: Mangu, Areito,etc.  
+/  Cancun,(mexico): Cursos de buceo, actividades de futbol-playa, voley-playa,etc. y salidas a discotecas: Coco-Bongo, Glazz,etc. "))
+
+(node (name node11112) (type answer) (question nil)(answer "Punta Cana,(Rep.Dominicana): Cursos de buceo, actividades de futbol-playa, voley-playa,etc.  /  Cancun,(mexico): Cursos de buceo, actividades de futbol-playa, voley-playa,etc."))
+
+(node (name node11211) (type answer) (question nil)(answer "Tunez:Cursos de buceo, surf, vela, etc. y salidas a discotecas: zona de Yasmine Hammamet.  /  Tenerife,(Espanya):Cursos de buceo, surf, vela, etc.y salidas a discotecas: Coco-loco, Dreams,etc."))
+
+(node (name node11212) (type answer) (question nil)(answer "Tunez:Cursos de buceo, surf, vela, etc.  /  Tenerife,(Espanya):Cursos de buceo, surf, vela, etc."))
+
+(node (name node21111) (type answer) (question nil)(answer "Punta Cana,(Rep.Dominicana): Cursos de buceo, actividades de futbol-playa, voley-playa,etc. y salidas a discotecas: Mangu, Areito,etc.  
+/  Cancun,(mexico): Cursos de buceo, actividades de futbol-playa, voley-playa,etc. y salidas a discotecas: Coco-Bongo, Glazz,etc. "))
+
+(node (name node21112) (type answer) (question nil)(answer "Punta Cana,(Rep.Dominicana): Cursos de buceo, actividades de futbol-playa, voley-playa,etc.  /  Cancun,(mexico): Cursos de buceo, actividades de futbol-playa, voley-playa,etc."))
+
+(node (name node21211) (type answer) (question nil)(answer "Tunez:Cursos de buceo, surf, vela, etc. y salidas a discotecas: zona de Yasmine Hammamet."))
+
+(node (name node21212) (type answer) (question nil)(answer "Tunez:Cursos de buceo, surf, vela, etc.  /  Tenerife,(Espanya):Cursos de buceo, surf, vela, etc."))
+
+(node (name node31111) (type answer) (question nil)(answer "Bali,(Indonesia):Cursos de buceo, surf, vela, etc. y salidas a discotecas: Double Six 66,etc.  /  Orlando,(EEUU):Cursos de buceo, surf, vela, etc. y salidas a discotecas: Redlight Redlight,etc." ))
+
+(node (name node31112) (type answer) (question nil)(answer "Bali,(Indonesia):Cursos de buceo, surf, vela, etc.  /  Orlando,(EEUU):Cursos de buceo, surf, vela, etc."))
+
+(node (name node31211) (type answer) (question nil)(answer "Tunez:Cursos de buceo, surf, vela, etc. y salidas a discotecas: zona de Yasmine Hammamet. / Tenerife,(Espanya):Cursos de buceo, surf, vela, etc.y salidas a discotecas: Coco-loco, Dreams,etc."))
+
+(node (name node31212) (type answer) (question nil)(answer "Tunez:Cursos de buceo, surf, vela, etc.  /  Tenerife,(Espanya):Cursos de buceo, surf, vela, etc."))
+
+(node (name node41111) (type answer) (question nil)(answer "Bali,(Indonesia):Cursos de buceo, surf, vela, etc. y salidas a discotecas: Double Six 66,etc.  /  Orlando,(EEUU):Cursos de buceo, surf, vela, etc. y salidas a discotecas: Redlight Redlight,etc."))
+
+(node (name node41112) (type answer) (question nil)(answer  "Bali,(Indonesia):Cursos de buceo, surf, vela, etc.  /  Orlando,(EEUU):Cursos de buceo, surf, vela, etc."))
+
+(node (name node41211) (type answer) (question nil)(answer "Gandia,(Espanya):Cursos de buceo, surf, vela, etc. y salidas a discotecas: Coco-loco,PatiPami,etc.  / Ibiza,(Espanya):Cursos de buceo, surf, vela, etc. y salidas a discotecas: Bora Bora, Pacha, Amnesia,etc.  "))
+
+(node (name node41212) (type answer) (question nil)(answer "Gandia,(Espanya):Cursos de buceo, surf, vela, etc.  /  Ibiza,(Espanya):Cursos de buceo, surf, vela, etc. "))
+
+
+
+
+
+(node (name node11121) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node111211)(no-node node111212)(answer nil))
+
+(node (name node11122) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node111221)(no-node node111222)(answer nil))
+
+(node (name node11221) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node112211)(no-node node112212)(answer nil))
+
+(node (name node11222) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node112221)(no-node node112222)(answer nil))
+
+(node (name node21121) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node211211)(no-node node211212)(answer nil))
+
+(node (name node21122) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node211221)(no-node node211222)(answer nil))
+
+(node (name node21221) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node212211)(no-node node212212)(answer nil))
+
+(node (name node21222) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node212221)(no-node node212222)(answer nil))
+
+(node (name node31121) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node311211)(no-node node311212)(answer nil))
+
+(node (name node31122) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node311221)(no-node node311222)(answer nil))
+
+(node (name node31221) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node312211)(no-node node312212)(answer nil))
+
+(node (name node31222) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node312221)(no-node node312222)(answer nil))
+
+(node (name node41121) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node411211)(no-node node411212)(answer nil))
+
+(node (name node41122) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node411221)(no-node node411222)(answer nil))
+
+(node (name node41221) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node412211)(no-node node412212)(answer nil))
+
+(node (name node41222) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node412221)(no-node node412222)(answer nil))
+
+
+
+
+
+(node (name node111211) (type answer) (question nil)(answer "Punta Cana,(Rep.Dominicana): Excursiones a: SeaAquarium, Santo Domingo,etc. y salidas a discotecas: Mangu, Areito,etc.  /  Cancun,(mexico): Excursiones a: Xel-ha y Tulum, Xcaret,etc. y salidas a discotecas: Coco-Bongo, Glazz,etc. "))
+
+(node (name node111212) (type answer) (question nil)(answer "Punta Cana,(Rep.Dominicana): Excursiones a: SeaAquarium, Santo Domingo,etc.   /  Cancun,(mexico): Excursiones a: Xel-ha y Tulum, Xcaret,etc."))
+
+(node (name node111221) (type answer) (question nil)(answer "Punta Cana,(Rep.Dominicana): salidas a discotecas: Mangu, Areito,etc.  /  Cancun,(mexico): salidas a discotecas: Coco-Bongo, Glazz,etc. "))
+
+(node (name node111222) (type answer) (question nil)(answer "Punta Cana,(Rep.Dominicana)  /  Cancun,(mexico) "))
+
+(node (name node112211) (type answer) (question nil)(answer "Tunez:Excursiones a: Sahara y salidas a discotecas: zona de Yasmine Hammamet.  /  Tenerife,(Espanya):Excursiones a: La Orotava, Teide, etc. y salidas a discotecas: Coco-loco, Dreams,etc."))
+
+(node (name node112212) (type answer) (question nil)(answer "Tunez:Excursiones a: Sahara  /  Tenerife,(Espanya):Excursiones a: La Orotava, Teide, etc."))
+
+(node (name node112221) (type answer) (question nil)(answer "Tunez:salidas a discotecas: zona de Yasmine Hammamet.  /  Tenerife,(Espanya):salidas a discotecas: Coco-loco, Dreams,etc."))
+
+(node (name node112222) (type answer) (question nil)(answer "Tunez  /  Tenerife,(Espanya)"))
+
+(node (name node211211) (type answer) (question nil)(answer "Punta Cana,(Rep.Dominicana): Excursiones a: SeaAquarium, Santo Domingo,etc. y salidas a discotecas: Mangu, Areito,etc.  /  Cancun,(mexico): Excursiones a: Xel-ha y Tulum, Xcaret,etc. y salidas a discotecas: Coco-Bongo, Glazz,etc. "))
+
+(node (name node211212) (type answer) (question nil)(answer "Punta Cana,(Rep.Dominicana): Excursiones a: SeaAquarium, Santo Domingo,etc.   /  Cancun,(mexico): Excursiones a: Xel-ha y Tulum, Xcaret,etc."))
+
+(node (name node211221) (type answer) (question nil)(answer "Punta Cana,(Rep.Dominicana): salidas a discotecas: Mangu, Areito,etc.  /  Cancun,(mexico): salidas a discotecas: Coco-Bongo, Glazz,etc. "))
+
+(node (name node211222) (type answer) (question nil)(answer "Punta Cana,(Rep.Dominicana)  /  Cancun,(mexico) "))
+
+(node (name node212211) (type answer) (question nil)(answer "Tunez:Excursiones a: Sahara y salidas a discotecas: zona de Yasmine Hammamet.  /  Tenerife,(Espanya):Excursiones a: La Orotava, Teide, etc. y salidas a discotecas: Coco-loco, Dreams,etc."))
+
+(node (name node212212) (type answer) (question nil)(answer "Tunez:Excursiones a: Sahara  /  Tenerife,(Espanya):Excursiones a: La Orotava, Teide, etc."))
+
+(node (name node212221) (type answer) (question nil)(answer "Tunez:salidas a discotecas: zona de Yasmine Hammamet.  /  Tenerife,(Espanya):salidas a discotecas: Coco-loco, Dreams,etc."))
+
+(node (name node212222) (type answer) (question nil)(answer "Tunez  /  Tenerife,(Espanya)"))
+
+(node (name node311211) (type answer) (question nil)(answer "Bali,(Indonesia):Excursiones a: Pura Kehen, Pura Sada,etc. y salidas a discotecas: Double Six 66,etc.  /  Orlando,(EEUU):Excursiones a: Kennedy Space Center, DisneyWorld,etc. y salidas a discotecas: Redlight Redlight,etc."))
+
+(node (name node311212) (type answer) (question nil)(answer "Bali,(Indonesia):Excursiones a: Pura Kehen, Pura Sada,etc.  /  Orlando,(EEUU):Excursiones a: Kennedy Space Center, DisneyWorld,etc."))
+
+(node (name node311221) (type answer) (question nil)(answer "Bali,(Indonesia):salidas a discotecas: Double Six 66,etc.  /  Orlando,(EEUU):salidas a discotecas: Redlight Redlight,etc."))
+
+(node (name node311222) (type answer) (question nil)(answer "Bali,(Indonesia)  /  Orlando,(EEUU)"))
+
+(node (name node312211) (type answer) (question nil)(answer "Tunez:Excursiones a: Sahara y salidas a discotecas: zona de Yasmine Hammamet.  /  Tenerife,(Espanya):Excursiones a: La Orotava, Teide, etc. y salidas a discotecas: Coco-loco, Dreams,etc."))
+
+(node (name node312212) (type answer) (question nil)(answer "Tunez:Excursiones a: Sahara  /  Tenerife,(Espanya):Excursiones a: La Orotava, Teide, etc."))
+
+(node (name node312221) (type answer) (question nil)(answer "Tunez:salidas a discotecas: zona de Yasmine Hammamet.  /  Tenerife,(Espanya):salidas a discotecas: Coco-loco, Dreams,etc."))
+
+(node (name node312222) (type answer) (question nil)(answer "Tunez  /  Tenerife,(Espanya)"))
+
+(node (name node411211) (type answer) (question nil)(answer "Bali,(Indonesia):Excursiones a: Pura Kehen, Pura Sada,etc. y salidas a discotecas: Double Six 66,etc.  /  Orlando,(EEUU):Excursiones a: Kennedy Space Center, DisneyWorld,etc. y salidas a discotecas: Redlight Redlight,etc."))
+
+(node (name node411212) (type answer) (question nil)(answer "Bali,(Indonesia):Excursiones a: Pura Kehen, Pura Sada,etc.  /  Orlando,(EEUU):Excursiones a: Kennedy Space Center, DisneyWorld,etc."))
+
+(node (name node411221) (type answer) (question nil)(answer "Bali,(Indonesia):salidas a discotecas: Double Six 66,etc.  /  Orlando,(EEUU):salidas a discotecas: Redlight Redlight,etc."))
+
+(node (name node411222) (type answer) (question nil)(answer "Bali,(Indonesia)  /  Orlando,(EEUU)"))
+
+(node (name node412211) (type answer) (question nil)(answer "Gandia,(Espanya):Excursiones a: Colegiata de Sta. Maria, Palacio ducal, etc. y salidas a discotecas: Coco-loco,PatiPami,etc.  / Ibiza,(Espanya):Excursiones a: cruceros formentera,tren turistico,etc. y salidas a discotecas: Bora Bora, Pacha, Amnesia,etc.  "))
+
+(node (name node412212) (type answer) (question nil)(answer "Gandia,(Espanya):Excursiones a: Colegiata de Sta. Maria, Palacio ducal, etc.   / Ibiza,(Espanya):Excursiones a: cruceros formentera,tren turistico,etc. "))
+
+(node (name node412221) (type answer) (question nil)(answer "Gandia,(Espanya):salidas a discotecas: Coco-loco,PatiPami,etc.  / Ibiza,(Espanya):salidas a discotecas: Bora Bora, Pacha, Amnesia,etc.  "))
+
+(node (name node412222) (type answer) (question nil)(answer "Gandia,(Espanya)  / Ibiza,(Espanya) "))
+
+
+
+
+
+
+
+(node (name node12111) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node121111)(no-node node121112)(answer nil))
+
+(node (name node12112) (type decisionbinaria) (question "Te gusta ir de compras? ")(yes-node node121121)(no-node node121122)(answer nil))
+
+(node (name node22111)(type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node221111)(no-node node221112)(answer nil))
+
+(node (name node22112) (type decisionbinaria) (question "Te gusta ir de compras? ")(yes-node node221121)(no-node node221122)(answer nil))
+
+(node (name node32111) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node321111)(no-node node321112)(answer nil))
+
+(node (name node32112) (type decisionbinaria) (question "Te gusta ir de compras? ")(yes-node node321121)(no-node node321122)(answer nil))
+
+(node (name node42111) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node421111)(no-node node421112)(answer nil))
+
+(node (name node42112) (type decisionbinaria) (question "Te gusta ir de compras? ")(yes-node node421121)(no-node node421122)(answer nil))
+
+
+
+
+
+
+
+
+(node (name node121111) (type answer) (question nil)(answer "Roma,(Italia) con salidas a discotecas: Goa, Piper,etc.  /  Atenas,(Grecia)con salidas a discotecas: Privilege,Venue,etc. "))
+
+(node (name node121112) (type answer) (question nil)(answer "Roma,(Italia)   /  Atenas,(Grecia) "))
+
+(node (name node221111) (type answer) (question nil)(answer "Roma,(Italia) con salidas a discotecas: Goa, Piper,etc.  /  Atenas,(Grecia)con salidas a discotecas: Privilege,Venue,etc. "))
+
+(node (name node221112) (type answer) (question nil)(answer "Roma,(Italia)   /  Atenas,(Grecia) "))
+
+(node (name node321111) (type answer) (question nil)(answer "Roma,(Italia) con salidas a discotecas: Goa, Piper,etc.  /  Atenas,(Grecia)con salidas a discotecas: Privilege,Venue,etc. "))
+
+(node (name node321112) (type answer) (question nil)(answer "Roma,(Italia)   /  Atenas,(Grecia) "))
+
+(node (name node421111) (type answer) (question nil)(answer "Roma,(Italia) con salidas a discotecas: Goa, Piper,etc.  /  Atenas,(Grecia)con salidas a discotecas: Privilege,Venue,etc. "))
+
+(node (name node421112) (type answer) (question nil)(answer
+"Roma,(Italia)   /  Atenas,(Grecia) "))
+
+
+
+
+
+
+
+
+
+(node (name node121121) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node1211211)(no-node node1211212)(answer nil))
+
+(node (name node121122) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node1211221)(no-node node1211222)(answer nil))
+
+(node (name node221121) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node2211211)(no-node node2211212)(answer nil))
+
+(node (name node221122) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node2211221)(no-node node2211222)(answer nil))
+
+(node (name node321121) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node3211211)(no-node node3211212)(answer nil))
+
+(node (name node321122) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node3211221)(no-node node3211222)(answer nil))
+
+(node (name node421121) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node4211211)(no-node node4211212)(answer nil))
+
+(node (name node421122) (type decisionbinaria) (question "Te gustaria salir de noche? ")(yes-node node4211221)(no-node node4211222)(answer nil))
+
+
+
+
+
+
+
+
+(node (name node1211211) (type answer) (question nil)(answer "Milan,(Italia) con salidas a discotecas: Rolling Stone, Magazzini generali,etc.  /  Paris(Francia) con salidas a discotecas: La Favela Chic, Paris Latino,etc. "))
+
+(node (name node1211212) (type answer) (question nil)(answer "Milan,(Italia)   /  Paris(Francia)"))
+
+(node (name node2211211) (type answer) (question nil)(answer "Milan,(Italia) con salidas a discotecas: Rolling Stone, Magazzini generali,etc.  /  Paris(Francia) con salidas a discotecas: La Favela Chic, Paris Latino,etc."))
+
+(node (name node2211212) (type answer) (question nil)(answer "Milan,(Italia)  /  Paris(Francia) "))
+
+(node (name node3211211) (type answer) (question nil)(answer "Milan,(Italia) con salidas a discotecas: Rolling Stone, Magazzini generali,etc.  /  Paris(Francia) con salidas a discotecas: La Favela Chic, Paris Latino,etc."))
+
+(node (name node3211212) (type answer) (question nil)(answer "Milan,(Italia)  /  Paris(Francia) "))
+
+(node (name node4211211) (type answer) (question nil)(answer "Milan,(Italia) con salidas a discotecas: Rolling Stone, Magazzini generali,etc.  /  Paris(Francia) con salidas a discotecas: La Favela Chic, Paris Latino,etc."))
+
+(node (name node4211212) (type answer) (question nil)(answer "Milan,(Italia)  /  Paris(Francia) "))
+
+(node (name node1211221) (type answer) (question nil)(answer "Berlin,(Alemania)con salidas a discotecas:Big Eden,Havanna,etc.  /  Amsterdam,(Holanda)con salidas a discotecas:More,Paradiso,etc. "))
+
+(node (name node1211222) (type answer) (question nil)(answer "Berlin,(Alemania)  /  Amsterdam,(Holanda) "))
+
+(node (name node2211221) (type answer) (question nil)(answer "Berlin,(Alemania)con salidas a discotecas:Big Eden,Havanna,etc.  /  Amsterdam,(Holanda)con salidas a discotecas:More,Paradiso,etc. "))
+
+(node (name node2211222) (type answer) (question nil)(answer "Berlin,(Alemania)  /  Amsterdam,(Holanda) "))
+
+(node (name node3211221) (type answer) (question nil)(answer "Berlin,(Alemania)con salidas a discotecas:Big Eden,Havanna,etc.  /  Amsterdam,(Holanda)con salidas a discotecas:More,Paradiso,etc. "))
+
+(node (name node3211222) (type answer) (question nil)(answer "Berlin,(Alemania)  /  Amsterdam,(Holanda) "))
+
+(node (name node4211221) (type answer) (question nil)(answer "Berlin,(Alemania)con salidas a discotecas:Big Eden,Havanna,etc.  /  Amsterdam,(Holanda)con salidas a discotecas:More,Paradiso,etc. "))
+
+(node (name node4211222) (type answer) (question nil)(answer "Berlin,(Alemania)  /  Amsterdam,(Holanda) "))
+
+
+
+
+
+
+
+
+(next-gensym-idx "32")

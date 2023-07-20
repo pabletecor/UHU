@@ -1,0 +1,39 @@
+						; Este programa multiplica por el número pi todos
+						; los números de una lista almacenada en memoria
+						; y deja los resultados almacenados en las mismas
+						; posiciones de memoria.
+.data 0 					; Datos a partir de la dirección de memoria 0x0 (0)
+
+   .global a 					; Para que “a” la puedan utilizar las instrucciones
+a: .double 3.14159265358979 			; Dato de tipo doble
+
+   .global x
+x: .double 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+
+.double 17,18,19,20,21,22,23
+
+.global xtop
+xtop: .double 24
+
+.text 256 					; El código a partir de la dirección 0x100 (256)
+
+start: ld f2,a 					; Carga doble
+add r1,r0,xtop 					; Suma de registro y dato inmediato
+
+
+loop: ld f0,0(r1) 				; A partir de aquí empieza un bucle
+multd f4,f0,f2 					; Multiplicación doble
+sd 0(r1),f4 					; Almacenamiento doble
+ld f6,-8(r1)
+multd f8,f6,f2
+sd -8(r1),f8
+ld f10,-16(r1)
+multd f12,f10,f2
+sd -16(r1),f12
+ld f14,-24(r1)
+multd f16,f14,f2
+sd -24(r1),f16
+sub r1,r1,#32 					; Resta de dato inmediato
+bnez r1,loop 					; Si r1 no es 0 se salta a loop
+nop
+trap #0 					; Excepción para pasar el control al sistema

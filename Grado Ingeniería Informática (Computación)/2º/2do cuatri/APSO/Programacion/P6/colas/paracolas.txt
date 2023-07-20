@@ -1,0 +1,1 @@
+ESte fichero se usa para obtener el identificador ("nombre") de la cola

@@ -1,0 +1,8 @@
+ip 172.17.21.248
+puerto 22
+SSH
+
+usuario: pablo.cordon113 (en linux @172.17.21.248)
+contraseña: pablo.cordon1131
+
+Como inciar sesion (LINUX) -> ssh pablo.cordon113@172.17.21.248

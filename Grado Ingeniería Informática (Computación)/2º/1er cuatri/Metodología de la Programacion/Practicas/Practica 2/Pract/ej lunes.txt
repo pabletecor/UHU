@@ -1,0 +1,80 @@
+//EXAMEN PRACTICO LUNES 
+	
+//	1. Calcule la ganancia de una Empresa recorriendo todos sus contratos y calculando el
+//	ingreso total entre dos fechas dadas como parámetro. Añada un método al main que
+//	muestre el resultado de la facturación de la Empresa entre dos fechas dadas 
+
+	public double Ganancia(Fecha min,Fecha max)
+    {
+        ClienteMovil cm;
+        double factT=0;
+        int a=0;
+        ClienteTarifa ct;
+        for(int i=0;i<this.ncli;i++)
+        {
+            if(clientes[i] instanceof ClienteMovil)
+            {
+                cm=(ClienteMovil) clientes[i];
+                cm.ver();
+                if(Fecha.mayor(cm.getfechaAlta(), max));//"El Cliente se dio de alta despues de nuestro rango"
+                else if(Fecha.mayor(min, cm.getfechapermanencia()));//"El Cliente se dio de baja despues de nuestro rango";
+                else if(Fecha.mayor(cm.getfechaAlta(),min))
+                {
+                    if(Fecha.mayor(max, cm.getfechapermanencia()))//De FechaAlta a FechaPermanencia
+                        factT+=((cm.getfechapermanencia().getanio()-cm.getfechaAlta().getanio())*12+(cm.getfechapermanencia().getmes()-cm.getfechaAlta().getmes()))*cm.factura();
+                    else //De FechaAlta a Max
+                        factT+=((max.getanio()-cm.getfechaAlta().getanio())*12+(max.getmes()-cm.getfechaAlta().getmes()))*cm.factura();
+                }
+                else
+                {
+                    if(Fecha.mayor(max,cm.getfechapermanencia())) //De Min a FechaPermanencia
+                        factT+=((cm.getfechapermanencia().getanio()-min.getanio())*12+(cm.getfechapermanencia().getmes()-min.getmes()))*cm.factura();
+                    else //De Min a Max
+                        factT+=((max.getanio()-min.getanio())*12+(max.getmes()-min.getmes()))*cm.factura();
+                }
+            }
+            else if(clientes[i] instanceof ClienteTarifa)
+            {
+                ct=(ClienteTarifa) clientes[i];
+                ct.ver();
+                if(Fecha.mayor(ct.getfechaAlta(), max));//"El Cliente se dio de alta despues de nuestro rango"
+                else
+                {
+                    if(Fecha.mayor(ct.getfechaAlta(), min)) //De FechaAlta a Max
+                        factT=((max.getanio()-ct.getfechaAlta().getanio())*12+(max.getmes()-ct.getfechaAlta().getmes()))*ct.factura();
+                    else //De Min a Max
+                        factT=((max.getanio()-min.getanio())*12+(max.getmes()-min.getmes()))*ct.factura();
+                }
+               
+            }
+        }
+       
+       
+        return factT;
+    }
+	
+//	3. Implemente en la clase Empresa el método robarClientesTarifaPlana() el cual recibe
+//	como parámetro una empresa y porta todos los clientes de TarifaPlana a la empresa que
+//	invoca el método. Es decir el método debe mover dichos clientes del grupo pasado como
+//	parámetro y añadirlos al grupo que invoca el método de forma que cuando el método se
+//	ejecute el grupo pasado como parámetro sólo debe quedarse con clientes de tipo Tarifa
+//	Móvil. Los números de contrato en la nueva empresa deben ser coherentes, tenga en
+//	cuenta esto al mover los clientes y sus contratos. Ejecute este método a continuación
+//	del main() de la parte 2 de la práctica, cree una nueva empresa ejecute pasando como
+//	parámetro una de las existentes. Muestre por pantalla el contenido de ambas
+
+	
+	public void robarClientesTarifaPlana(Empresa e) {
+		for(int i = 0; i< e.ncli; i++) {
+			
+			 if(e.clientes[i] instanceof ClienteTarifa) {
+				 ClienteTarifa ct = (ClienteTarifa) e.clientes[i].clone();
+				 e.baja(e.clientes[i--].getnif());
+				 this.alta(ct);
+				 
+				
+			 }
+			
+		}
+		
+	}
