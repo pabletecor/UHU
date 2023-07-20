@@ -1,2 +1,3 @@
 # UHU
-Teoría, exámenes y prácticas
+
+Apuntes y trabajos del grado de Ingeniería Informática de la Universidad de Huelva, realizadas por el alumno Pablo Cordón durante los años 2017 a 2022
